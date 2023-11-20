@@ -1,0 +1,706 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>The dynamical systems approach</title>
+		<meta name="description" content="Skill acquisition and movement education">
+		<link rel="alternate" href="/adaptive-movement/feed/feed.xml" type="application/atom+xml" title="Traces">
+		<link rel="alternate" href="/adaptive-movement/feed/feed.json" type="application/json" title="Traces">
+		
+		<style>/**
+ * okaidia theme for JavaScript, CSS and HTML
+ * Loosely based on Monokai textmate theme by http://www.monokai.nl/
+ * @author ocodia
+ */
+
+code[class*="language-"],
+pre[class*="language-"] {
+	color: #f8f8f2;
+	background: none;
+	text-shadow: 0 1px rgba(0, 0, 0, 0.3);
+	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+	font-size: 1em;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+	word-wrap: normal;
+	line-height: 1.5;
+
+	-moz-tab-size: 4;
+	-o-tab-size: 4;
+	tab-size: 4;
+
+	-webkit-hyphens: none;
+	-moz-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+	padding: 1em;
+	margin: .5em 0;
+	overflow: auto;
+	border-radius: 0.3em;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+	background: #272822;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+	padding: .1em;
+	border-radius: .3em;
+	white-space: normal;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+	color: #8292a2;
+}
+
+.token.punctuation {
+	color: #f8f8f2;
+}
+
+.token.namespace {
+	opacity: .7;
+}
+
+.token.property,
+.token.tag,
+.token.constant,
+.token.symbol,
+.token.deleted {
+	color: #f92672;
+}
+
+.token.boolean,
+.token.number {
+	color: #ae81ff;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+	color: #a6e22e;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string,
+.token.variable {
+	color: #f8f8f2;
+}
+
+.token.atrule,
+.token.attr-value,
+.token.function,
+.token.class-name {
+	color: #e6db74;
+}
+
+.token.keyword {
+	color: #66d9ef;
+}
+
+.token.regex,
+.token.important {
+	color: #fd971f;
+}
+
+.token.important,
+.token.bold {
+	font-weight: bold;
+}
+.token.italic {
+	font-style: italic;
+}
+
+.token.entity {
+	cursor: help;
+}
+/*
+ * New diff- syntax
+ */
+
+pre[class*="language-diff-"] {
+	--eleventy-code-padding: 1.25em;
+	padding-left: var(--eleventy-code-padding);
+	padding-right: var(--eleventy-code-padding);
+}
+.token.deleted {
+	background-color: hsl(0, 51%, 37%);
+	color: inherit;
+}
+.token.inserted {
+	background-color: hsl(126, 31%, 39%);
+	color: inherit;
+}
+
+/* Make the + and - characters unselectable for copy/paste */
+.token.prefix.unchanged,
+.token.prefix.inserted,
+.token.prefix.deleted {
+	-webkit-user-select: none;
+	user-select: none;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding-top: 2px;
+	padding-bottom: 2px;
+}
+.token.prefix.inserted,
+.token.prefix.deleted {
+	width: var(--eleventy-code-padding);
+	background-color: rgba(0,0,0,.2);
+}
+
+/* Optional: full-width background color */
+.token.inserted:not(.prefix),
+.token.deleted:not(.prefix) {
+	display: block;
+	margin-left: calc(-1 * var(--eleventy-code-padding));
+	margin-right: calc(-1 * var(--eleventy-code-padding));
+	text-decoration: none; /* override del, ins, mark defaults */
+	color: inherit; /* override del, ins, mark defaults */
+}
+* { box-sizing: border-box; }
+/* Defaults */
+:root {
+	--font-family: -apple-system, system-ui, sans-serif;
+	--font-family-monospace: Consolas, Menlo, Monaco, Andale Mono WT, Andale Mono,
+		Lucida Console, Lucida Sans Typewriter, DejaVu Sans Mono,
+		Bitstream Vera Sans Mono, Liberation Mono, Nimbus Mono L, Courier New,
+		Courier, monospace;
+}
+
+/* Theme colors */
+:root {
+	--color-gray-20: #e0e0e0;
+	--color-gray-50: #c0c0c0;
+	--color-gray-90: #333;
+
+	--background-color: #fff;
+
+	--text-color: var(--color-gray-90);
+	--text-color-link: #082840;
+	--text-color-link-active: var(--accent);
+	--text-color-link-visited: #17050f;
+
+	--primary: black;
+	--accent: #47c1b9;
+	--reverse: white;
+
+	--syntax-tab-size: 2;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--color-gray-20: #e0e0e0;
+		--color-gray-50: #c0c0c0;
+		--color-gray-90: #dad8d8;
+
+		/* --text-color is assigned to --color-gray-_ above */
+		--text-color-link: #1493fb;
+		--text-color-link-active: #6969f7;
+		--text-color-link-visited: #a6a6f8;
+
+		--background-color: #15202b;
+	}
+}
+
+/* Global stylesheet */
+* {
+	box-sizing: border-box;
+}
+
+html,
+body {
+	padding: 0;
+	margin: 0 auto;
+	font-family: var(--font-family);
+	color: var(--text-color);
+	background-color: var(--background-color);
+	height: 100%;
+}
+html {
+	overflow-y: scroll;
+}
+body {
+	display: flex;
+	flex-direction: column;
+}
+footer {
+	margin-top: auto;
+	padding: 1rem 2rem;
+}
+
+/* https://www.a11yproject.com/posts/how-to-hide-content/ */
+.visually-hidden {
+	clip: rect(0 0 0 0);
+	clip-path: inset(50%);
+	height: 1px;
+	overflow: hidden;
+	position: absolute;
+	white-space: nowrap;
+	width: 1px;
+}
+
+p:last-child {
+	margin-bottom: 0;
+}
+p {
+	line-height: 1.5;
+}
+
+li {
+	line-height: 1.5;
+}
+
+a[href] {
+	color: var(--text-color-link);
+}
+a[href]:visited {
+	color: var(--text-color-link-visited);
+}
+a[href]:hover,
+a[href]:active {
+	color: var(--text-color-link-active);
+}
+
+main {
+	padding: 1rem;
+}
+main :first-child {
+	margin-top: 0;
+}
+
+header {
+	border-bottom: 1px dashed var(--color-gray-20);
+/* 	display: flex;
+	align-items: center; */
+}
+header:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+.links-nextprev {
+	list-style: none;
+	border-top: 1px dashed var(--color-gray-20);
+	padding: 1em 0;
+}
+
+table {
+	margin: 1em 0;
+}
+table td,
+table th {
+	padding-right: 1em;
+}
+
+pre,
+code {
+	font-family: var(--font-family-monospace);
+}
+pre:not([class*="language-"]) {
+	margin: 0.5em 0;
+	line-height: 1.375; /* 22px /16 */
+	-moz-tab-size: var(--syntax-tab-size);
+	-o-tab-size: var(--syntax-tab-size);
+	tab-size: var(--syntax-tab-size);
+	-webkit-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+	direction: ltr;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+}
+code {
+	word-break: break-all;
+}
+
+/* Header */
+header {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: space-evenly;
+	padding: 1em;
+}
+.logo {
+	display: flex;
+	align-items: center;
+}
+.logo-img {
+	max-width: 20%;
+	height: auto;
+}
+.home-link {
+	font-weight: 700;
+	font-size: min(max(16px, 4vw), 5rem);
+	font-family: "Rubik Mono One", sans-serif;
+	text-decoration: none;
+	background-size: cover;
+	background-position: 0 0;
+	transition: all 0.3s ease;
+	background: url("/adaptive-movement/img/handprint.png") 100% 0;
+	background-clip: text;
+	-webkit-background-clip: text;
+}
+.home-link:hover {
+	-webkit-text-fill-color: #5b728a54;
+	animation: animatedOne 100s linear infinite;
+}
+@keyframes animatedOne {
+	from {
+		background-position: 0 0;
+	}
+	to {
+		background-position: 100% 0;
+	}
+}
+.menu {
+	font-size: large;
+}
+
+/* Nav */
+.nav {
+	display: flex;
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+.nav-item {
+	display: inline-block;
+	margin-right: 1em;
+}
+.nav-item a[href]:not(:hover) {
+	text-decoration: none;
+}
+.nav a[href][aria-current="page"] {
+	text-decoration: underline;
+}
+
+/* Posts list */
+.postlist {
+	list-style: none;
+	padding: 0;
+	padding-left: 1.5rem;
+}
+.postlist-item {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: baseline;
+	counter-increment: start-from -1;
+	margin-bottom: 1em;
+}
+.postlist-item:before {
+	display: inline-block;
+	pointer-events: none;
+	/* 	content: "" counter(start-from, decimal-leading-zero) ". "; */
+	line-height: 100%;
+	text-align: right;
+	margin-left: -1.5rem;
+}
+.postlist-date,
+.postlist-item:before {
+	font-size: 0.8125em; /* 13px /16 */
+	color: var(--color-gray-90);
+}
+.postlist-date {
+	word-spacing: -0.5px;
+}
+.postlist-link {
+	font-size: 1.1875em; /* 19px /16 */
+	font-weight: 700;
+	flex-basis: calc(100% - 1.5rem);
+	padding-left: 0.25em;
+	padding-right: 0.5em;
+	text-underline-position: from-font;
+	text-underline-offset: 0;
+	text-decoration-thickness: 1px;
+}
+.postlist-item-active .postlist-link {
+	font-weight: bold;
+}
+
+/* Tags */
+.post-tag {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	text-transform: capitalize;
+	font-style: italic;
+}
+.postlist-item > .post-tag {
+	align-self: center;
+}
+
+/* Tags list */
+.post-metadata {
+	display: inline-flex;
+	flex-wrap: wrap;
+	gap: 0.5em;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+.post-metadata time {
+	margin-right: 1em;
+}
+
+/* Direct Links / Markdown Headers */
+.header-anchor {
+	text-decoration: none;
+	font-style: normal;
+	font-size: 1em;
+	margin-left: 0.1em;
+}
+a[href].header-anchor,
+a[href].header-anchor:visited {
+	color: transparent;
+}
+a[href].header-anchor:focus,
+a[href].header-anchor:hover {
+	text-decoration: underline;
+}
+a[href].header-anchor:focus,
+:hover > a[href].header-anchor {
+	color: var(--text-color-link-visited);
+}
+
+h2 + .header-anchor {
+	font-size: 1.5em;
+}
+
+/* Tag links */
+.tag-links {
+	list-style: none;
+	display: flex;
+	flex-wrap: wrap;
+	padding: 0;
+}
+
+.tag-links-tag {
+	margin-bottom: 0.6rem;
+}
+
+.tag-links-tag a {
+	padding: 0.3rem;
+	margin: 0.1rem;
+	background-color: var(--text-color);
+	color: var(--reverse);
+	transition: background-color 200ms, color 200ms, transform 200ms;
+	text-decoration: none;
+	border-radius: 0.2rem;
+	&:visited {
+		color: var(--reverse);
+	}
+	&:hover,
+	&:focus {
+		background-color: var(--accent);
+		color: var(--text-color);
+		transform: scale(1.9);
+	}
+}
+.sidebar.tag-links-tag a:hover {
+	color: var(--text-color);
+}
+
+/* All tags list */
+.all-tags-list {
+	columns: 20rem;
+	column-gap: 2rem;
+	list-style: none;
+	padding: 0;
+}
+
+.all-tags-link a {
+	color: var(--textColor);
+	&:hover,
+	&:visited,
+	&:focus {
+		color: var(--accent);
+	}
+}
+
+.all-tags-post-count {
+	color: var(--accent);
+	font-size: 0.9rem;
+}
+
+/* Pagination */
+.pagination-inner {
+	display: flex;
+	margin-top: 3rem;
+}
+
+.pagination-next {
+	margin-left: auto;
+}
+
+/* Social icons*/
+
+nav ul,
+ul.socials {
+	padding: 0;
+}
+.nav-icon:hover path {
+	fill: var(--accent);
+}
+
+svg.nav-icon {
+	width: 100%;
+	height: 30px;
+}
+
+/* Sidebar */
+.two-columns {
+	display: grid;
+	gap: 1rem 2rem;
+	position: relative;
+	margin: 0 auto;
+	@media (min-width: 68em) {
+		grid-template-columns: 1fr 2fr;
+	}
+}
+.sidebar {
+	position: sticky;
+	margin: auto;
+}
+.two-columns .content {
+	margin-left: 0;
+}
+/* Content */
+.content {
+	max-width: 90ch;
+	margin: 0 auto;
+}
+
+.container-tag-list {
+	max-width: 110rem;
+	margin: 0 auto;
+	width: 100%;
+	padding: 0 1rem;
+}</style>
+	</head>
+	<body>
+		<a href="#skip" class="visually-hidden">Skip to main content</a>
+
+		<header>
+			
+		<div class="logo">
+			<img src="/adaptive-movement/img/handprintround-xs.png" class="logo-img">
+			<a href="/adaptive-movement/" class="home-link">TRACES</a>
+		</div>
+
+			<nav>
+				<h2 class="visually-hidden">Top level navigation menu</h2>
+				<ul class="menu">
+					<li class="nav-item"><a href="/adaptive-movement/">Accueil</a></li>
+					<li class="nav-item"><a href="/adaptive-movement/tags/">Sujets</a></li>
+					<li class="nav-item"><a href="/adaptive-movement/about/">About</a></li>
+				
+				</ul>
+			</nav>
+      <ul class="socials">
+		<li class="nav-item">
+			<a href="/adaptive-movement/search/" rel="me">
+				<svg xmlns="http://www.w3.org/2000/svg" fill="#24292f" viewBox="0 0 24 24" class="nav-icon">
+					<path fill-rule="evenodd" d="M10.5 3.75a6.75 6.75 0 100 13.5 6.75 6.75 0 000-13.5zM2.25 10.5a8.25 8.25 0 1114.59 5.28l4.69 4.69a.75.75 0 11-1.06 1.06l-4.69-4.69A8.25 8.25 0 012.25 10.5z" clip-rule="evenodd"></path>
+				  </svg>
+			</a>
+		</li>
+	    <li class="nav-item">
+			<a href="https://github.com/Senestres" rel="me">
+            <svg xmlns="http://www.w3.org/2000/svg" class="nav-icon" viewBox="0 0 100 100"><path fill-rule="evenodd" clip-rule="evenodd" d="M48.854 0C21.839 0 0 22 0 49.217c0 21.756 13.993 40.172 33.405 46.69 2.427.49 3.316-1.059 3.316-2.362 0-1.141-.08-5.052-.08-9.127-13.59 2.934-16.42-5.867-16.42-5.867-2.184-5.704-5.42-7.17-5.42-7.17-4.448-3.015.324-3.015.324-3.015 4.934.326 7.523 5.052 7.523 5.052 4.367 7.496 11.404 5.378 14.235 4.074.404-3.178 1.699-5.378 3.074-6.6-10.839-1.141-22.243-5.378-22.243-24.283 0-5.378 1.94-9.778 5.014-13.2-.485-1.222-2.184-6.275.486-13.038 0 0 4.125-1.304 13.426 5.052a46.97 46.97 0 0 1 12.214-1.63c4.125 0 8.33.571 12.213 1.63 9.302-6.356 13.427-5.052 13.427-5.052 2.67 6.763.97 11.816.485 13.038 3.155 3.422 5.015 7.822 5.015 13.2 0 18.905-11.404 23.06-22.324 24.283 1.78 1.548 3.316 4.481 3.316 9.126 0 6.6-.08 11.897-.08 13.526 0 1.304.89 2.853 3.316 2.364 19.412-6.52 33.405-24.935 33.405-46.691C97.707 22 75.788 0 48.854 0z" fill="#24292f"></path></svg>
+			</a>
+		</li>
+		<li class="nav-item">
+			<a href="/adaptive-movement/feed/feed.xml" rel="me">
+				<svg xmlns="http://www.w3.org/2000/svg" fill="#24292f" viewBox="0 0 24 24" class="nav-icon">
+					<path fill-rule="evenodd" d="M3.75 4.5a.75.75 0 01.75-.75h.75c8.284 0 15 6.716 15 15v.75a.75.75 0 01-.75.75h-.75a.75.75 0 01-.75-.75v-.75C18 11.708 12.292 6 5.25 6H4.5a.75.75 0 01-.75-.75V4.5zm0 6.75a.75.75 0 01.75-.75h.75a8.25 8.25 0 018.25 8.25v.75a.75.75 0 01-.75.75H12a.75.75 0 01-.75-.75v-.75a6 6 0 00-6-6H4.5a.75.75 0 01-.75-.75v-.75zm0 7.5a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0z" clip-rule="evenodd"></path>
+				  </svg>
+			</a>
+		</li>
+      </ul>
+
+
+		</header>
+
+		<main id="skip">
+			
+
+<div class="content">
+<h1>The dynamical systems approach</h1>
+
+<ul class="post-metadata">
+	<li><time datetime="2019-10-29">29 octobre 2019</time></li>
+	<li><a href="/adaptive-movement/tags/attractors/" class="post-tag">attractors</a>, </li>
+	<li><a href="/adaptive-movement/tags/coordination/" class="post-tag">coordination</a>, </li>
+	<li><a href="/adaptive-movement/tags/degrees-of-freedom/" class="post-tag">degrees-of-freedom</a>, </li>
+	<li><a href="/adaptive-movement/tags/dynamical-systems/" class="post-tag">dynamical-systems</a>, </li>
+	<li><a href="/adaptive-movement/tags/emergence/" class="post-tag">emergence</a>, </li>
+	<li><a href="/adaptive-movement/tags/mathematics/" class="post-tag">mathematics</a>, </li>
+	<li><a href="/adaptive-movement/tags/self-organisation/" class="post-tag">self-organisation</a></li>
+</ul>
+
+<article data-pagefind-body="">
+<p>Dynamical systems theory is a branch of mathematics used to describe complex dynamical systems. These are systems with multiple parts that interact with each other and change over time. Examples can range from living things like a colony of ants to inorganic systems like Earth’s climate. <a href="/adaptive-movement/introduction-to-ecological-dynamics">Ecological-dynamics</a> adds these mathematical insights to <a href="/adaptive-movement/affordances-perception-and-action">ecological psychology</a> in order to understand how we control our movements, focusing on the interactions between the body and environment instead of reducing it to a top-down control from our brain. In this article, we will try to understand our bodies as complex dynamical systems, while not going into the details of the complex equations.</p>
+<h1 id="the-bernstein-problems" tabindex="-1">The Bernstein problems <a class="header-anchor" href="#the-bernstein-problems">#</a></h1>
+<p>Traditional theories of motor control explain the control of movement by focusing on the processing and storing of information. They postulate a hierarchical control, in which we direct actions using programs, schemas, representations or knowledge. These theories can be called “prescriptive” (“written in advance”), because the general idea is that the brain prepares an action plan, which will then be applied by the muscles to produce movement.</p>
+<p>Nikolai Bernstein, a soviet neurophysiologist, thought this seemed not very probable. He thought that because of the complexity of the motor system, a 1:1 relationship between a neural signal and a motor output would be impossible((Bernstein N, <em>The co-ordination and regulation of movements</em>, Oxford, Pergamon Press, 1967.)) ((Chow Jia Yi, Davids K., Button Chris <em>et al.</em>, <em>Nonlinear pedagogy in skill acquisition: an introduction</em>, London ; New York, NY, Routledge, 2016.)). On the contrary, identical neural commands would have variable effects in terms of movement. A first source for this variability would be the obvious neurophysiological one: neural transmission is neither passive (neurons interact) nor perfect (there is always noise in the signal)((Turvey Michael T., Fitch Hollis L. et Tuller Betty, « The Bernstein Perspective: I. The Problems of Degrees of Freedom and Context-Conditioned Variability », in: Kelso J. A. Scott (éd.), <em>Human motor behavior: an introduction</em>, Hillsdale, N.J, L. Erlbaum, 1982, pp. 239‑252.)). A second source comes from our anatomy: the contraction of a muscle produces different actions depending on the context. For example, the pectoralis major can be an adductor or abductor of the arm, depending on the starting position of the arm((Turvey Michael T., Fitch Hollis L. et Tuller Betty, « The Bernstein Perspective: I. The Problems of Degrees of Freedom and Context-Conditioned Variability », in: Kelso J. A. Scott (éd.), <em>Human motor behavior: an introduction</em>, Hillsdale, N.J, L. Erlbaum, 1982, pp. 239‑252.)). In addition, this problem becomes larger when we consider biomechanics: a same muscle contraction can produce a tiny movement when it is opposed to gravity or a big one if we are using inertia from a previous movement ((Turvey Michael T., Fitch Hollis L. et Tuller Betty, « The Bernstein Perspective: I. The Problems of Degrees of Freedom and Context-Conditioned Variability », in: Kelso J. A. Scott (éd.), <em>Human motor behavior: an introduction</em>, Hillsdale, N.J, L. Erlbaum, 1982, pp. 239‑252.)) .</p>
+<p>Bernstein found there was another problem for prescriptive theories, which he called the degrees of freedom problem((Bernstein N, <em>The co-ordination and regulation of movements</em>, Oxford, Pergamon Press, 1967.)). Our bodies are made up of more elements than necessary to solve our daily tasks. How then do we choose which elements we use to solve a given task? Bernstein thought this was problematic, because the number of degrees of freedom (the number of parameters than can vary independently) of our bodies is for all practical purposes infinite. We can activate independently and in various ways our hundreds of muscles and articulations. Even a very simple task, like moving the arm towards an object, can be thought of needing the control of over 2600 degrees of liberty((Turvey Michael T., Fitch Hollis L. et Tuller Betty, « The Bernstein Perspective: I. The Problems of Degrees of Freedom and Context-Conditioned Variability », in: Kelso J. A. Scott (éd.), <em>Human motor behavior: an introduction</em>, Hillsdale, N.J, L. Erlbaum, 1982, pp. 239‑252.)). How do we select a specific way of realising an action, from the multitude of other possibilities? Is the brain powerful enough to act as a central control unit?</p>
+<p>As a first step to solve his problems, Bernstein proposed that degrees of freedom have to be constrained and reduced in some way((Bernstein N, <em>The co-ordination and regulation of movements</em>, Oxford, Pergamon Press, 1967.)). He thought that the first stage of learning of any motor skill would be a “freezing” of degrees of freedom. Certain articulations would become rigid, which would reduce the number of independent elements to control. For example, a novice would throw a ball using only his elbow, the rest of his body not really participating in the movement. Beginners therefore would look quite tense and their movements would lack flexibility. But with experience, certain degrees of liberty would be “freed”, in order to obtain more efficient and adaptable movement. Practitioners would start putting their whole body in their throw, using their shoulder, rotating their hips and then even taking a few steps to create momentum.</p>
+<h1 id="complex-systems-and-emergence" tabindex="-1">Complex systems and emergence <a class="header-anchor" href="#complex-systems-and-emergence">#</a></h1>
+<p>These insights have given rise to theories that understand our bodies as complex dynamical systems. By complex, we mean that our bodies are systems made up of multiple independent elements (the degrees of liberty we talked about earlier) that interact with each other. The organisation of movement emerges from the interaction between different parts of the system, rather than being planified entirely by the brain. We can think of this as a bottom-up model, rather than a top-down one.</p>
+<p><img src="images/snowflake.jpg" alt=""></p>
+<p>The complex structure of a snowflake</p>
+<p>This might be a bit counterintuitive at first, because we’re used to thinking that the brain is in charge. It might help to realize that this kind of emergence of order in complex systems is really a common thing in nature. Take snowflakes for example: they come in varied shapes, but have highly structured and often symmetrical features. There is no snowflake designer out there, though. But because of the physical properties of water, they crystalize with specific structures. The crystallizing snowflakes fall and interact with the atmosphere, producing unique results depending on the humidity and temperature. Let’s take another example: insects like ants or termites. How do they coordinate to build complex structures? There is no architect ant to supervise and give plans to the others ants. They each react to chemical trails left by others, and the sum of these interactions can create complex and organised structures. Any kind of flock or swarm of animals seem to operate in this way. This should help us understand that movement can be organised without the need for a central unit of control doing all the job. Movement “can be regular, without being regulated”((Gibson James J., <em>The ecological approach to visual perception</em>, Boston, Houghton Mifflin, 1979, p. 225.)).</p>
+<p>Movement is regular because it is guided by <a href="/adaptive-movement/brief-introduction-to-the-constraints-led-approach">constraints</a>. A constraint can be thought of as anything that eliminates a possibility of movement. The constraints can come from the individual (genes, length of legs, motivation…), the environment (gravity, surfaces…) or the task (rules, goals, objectives…)((Newell K. M., « Constraints on the Development of Coordination », in: Wade M. G. et Whiting H. T. A. (éds), <em>Motor Development in Children: Aspects of Coordination and Control</em>, Dordrecht, Springer Netherlands, 1986, pp. 341‑360.)). This helps to give an answer to the degrees of freedom (DoF) problem: controlling and regulating the DoF is not that much work, because most work is done by the interaction between the constraints of the system. Constraints guide and canalise movement in certain directions, remove superfluous and potentially inefficient solutions. The number of DoF is reduced, and movement becomes easier to control. Constraints render certain possibilities of action difficult or impossible, and prevent movement developing in all directions. This does not mean that movement always has to be strictly constrained: some <a href="/adaptive-movement/why-we-need-variability-of-movement">variability can be positive</a> and necessary for being adaptative, but we’ll leave this aside for the moment.</p>
+<h1 id="actions-as-temporary-motor-coordinations" tabindex="-1">Actions as temporary motor coordinations <a class="header-anchor" href="#actions-as-temporary-motor-coordinations">#</a></h1>
+<p>Let’s take a famous example((Kelso Scott, L. Southard Dan et Goodman Dekailah, « On the coordination of two-handed movements », <em>Journal of experimental psychology. Human perception and performance</em> 5, 1979, pp. 229‑38.)) to make these ideas a bit less abstract. Try doing this: wiggle your index fingers from left to right. You should find that it’s very hard to do random movements. Rather, your fingers will spontaneously coordinate, moving simultaneously in identical or opposed movements like windshield wipers. There are constraints on coordination, making it is easier to control movement when you can activate the same muscles at the same time. Movement emerges from the interaction of these constraints. In this perspective, actions are not planned, they are temporary motor coordinations.</p>
+<p>We can see that coordination is emergent in more complex cases too. Let’s take the discussion of locomotion by Thelen et al.((Thelen Esther, Fisher Donna M. et Ridley-Johnson Robyn, « The relationship between physical growth and a newborn reflex », <em>Infant Behavior and Development</em> 7 (4), 1984, pp. 479‑493.)) When held, newborn children can coordinate their legs in a way that looks a lot like walking. After a few months, this behaviour disappears. A traditional account of this phenomenon would focus on the nervous system, or the brain specifically. We could suppose that this is some kind of primitive reflex which quickly disappears, and that children have to regain this capacity by learning and practice, in order to be really able to walk. In fact, a better explanation takes into account the bodily constraints. Children gain a lot of weight during the first few months, at a faster rate than they gain strength. Because walking necessitates lifting their legs up, at some point it becomes impossible (or at least, less attractive) just because of the weight of the legs. Thelen et al. have shown that adding a bit of weight to the legs would suppress the behavior; and that submerging the kids in water would restore it. Here, the constraints don’t come only from our bodies: environmental constraints affect our behaviour too. This is not to mean that the nervous system and the brain never do anything, but at the very least we can see how behaviour emerges from the interaction of different constraints.</p>
+<p>One consequence of this perspective, is that because different coordinations emerge depending on the constraints of the situation, our behaviour will be <a href="/adaptive-movement/self-organisation-and-attractors">“attracted”</a> in specific directions. Some forms of movement are spontaneous, come easier or feel more natural.</p>
+<h1 id="a-few-concluding-thoughts" tabindex="-1">A few concluding thoughts <a class="header-anchor" href="#a-few-concluding-thoughts">#</a></h1>
+<p>In this article, we’ve shown how we can understand the organisation of movement as emerging from the interaction of the different independent elements of our bodies as well as our environments, rather than simply arising from a top-down control by the brain. It would be a nightmare if everything had to be tightly coordinated by the brain.</p>
+<p>Rather than focusing on knowledge stored in the brain, this helps us to take into account different constraints. The weather, the surfaces, the apparatuses, the length of our legs, all of these have an incidence on the patterns of movement we will see emerge. By changing some of these elements, we can constrain and guide movement in desired directions, which forms the basis of the <a href="/adaptive-movement/brief-introduction-to-the-constraints-led-approach">constraint-led approach</a>.</p>
+<p>It also allows for the integration of approaches or domains that are usually separated, like strength training and learning. Think of the times where you seem to have “lost” a skill. Did you forget ? Or have some other constraints changed ? Maybe you’ve lost strength, flexibility,  or you’re training in a new environment. This constraints-based account might be a good explanation of why we’re able to regain skills faster that it took to acquire them the first time.</p>
+
+</article>
+<nav class="pagination-inner" aria-label="Articles next and previous links">
+	<a href="/adaptive-movement/blog/self-organisation-and-attractors/" data-direction="forwards" class="pagination-previous">
+		<span>← Self-organisation and attractors </span>
+	  </a>
+	
+	<a href="/adaptive-movement/blog/the-floor-is-lava/" data-direction="backwards" class="pagination-next">
+		<span>The floor is lava →</span>
+	  </a>
+	
+</nav>
+
+</div>
+
+		</main>
+
+		<footer><small>Traces 2023 - Yann Daout - <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0 Deed</a></small></footer>
+
+		<!-- Current page: /adaptive-movement/blog/the-dynamical-systems-approach/ -->
+	</body>
+</html>

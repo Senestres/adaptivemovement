@@ -1,11 +1,11 @@
 module.exports = {
 	title: "Traces",
-	url: "https://senestres.github.io/traces/",
-	language: "fr",
-	description: "Un site sur le corps, la culture et l'apprentissage",
+	url: "https://senestres.github.io/adaptive-movement/",
+	language: "en",
+	description: "Skill acquisition and movement education",
 	author: {
 		name: "Yann Daout",
 		//email: "youremailaddress@example.com",
-		url: "https://senestres.github.io/yanndaout/about/"
+		url: "https://senestres.github.io/adaptive-movement/about/"
 	}
 }

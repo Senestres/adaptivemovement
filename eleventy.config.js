@@ -90,6 +90,32 @@ module.exports = function(eleventyConfig) {
 		return (tags || []).filter(tag => ["all", "nav", "post", "posts"].indexOf(tag) === -1);
 	});
 
+	//authors
+	eleventyConfig.addFilter('authorFilter', function(collection, author) {
+	if (!author) {return collection}
+		  const filtered = collection.filter(item => item.data.author == author)
+		  return filtered;
+	  });
+	  
+
+	 // Categories
+
+/* 	 eleventyConfig.addCollection('categoryList', collection => {
+        let catSet = {};
+        collection.getAll().forEach(item => {
+            if (!item.data.categories) return;
+            item.data.categories.filter(
+                cat => !['posts', 'all'].includes(cat)
+            ).forEach(
+                cat => {
+                    if (!catSet[cat]) { catSet[cat] = []; }
+                    catSet[cat].push(item)
+                }
+            );
+        });
+        return catSet;
+    }); */
+
 	// Customize Markdown library settings:
 	eleventyConfig.amendLibrary("md", mdLib => {
 		mdLib.use(markdownItAnchor, {
@@ -161,6 +187,6 @@ module.exports = function(eleventyConfig) {
 		// When paired with the HTML <base> plugin https://www.11ty.dev/docs/plugins/html-base/
 		// it will transform any absolute URLs in your HTML to include this
 		// folder name and does **not** affect where things go in the output folder.
-		pathPrefix: "/traces/",
+		pathPrefix: "/adaptive-movement/",
 	};
 };

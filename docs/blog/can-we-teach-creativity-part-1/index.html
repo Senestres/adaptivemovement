@@ -1,0 +1,710 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Can we teach creativity ? (Part 1)</title>
+		<meta name="description" content="Skill acquisition and movement education">
+		<link rel="alternate" href="/adaptive-movement/feed/feed.xml" type="application/atom+xml" title="Traces">
+		<link rel="alternate" href="/adaptive-movement/feed/feed.json" type="application/json" title="Traces">
+		
+		<style>/**
+ * okaidia theme for JavaScript, CSS and HTML
+ * Loosely based on Monokai textmate theme by http://www.monokai.nl/
+ * @author ocodia
+ */
+
+code[class*="language-"],
+pre[class*="language-"] {
+	color: #f8f8f2;
+	background: none;
+	text-shadow: 0 1px rgba(0, 0, 0, 0.3);
+	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+	font-size: 1em;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+	word-wrap: normal;
+	line-height: 1.5;
+
+	-moz-tab-size: 4;
+	-o-tab-size: 4;
+	tab-size: 4;
+
+	-webkit-hyphens: none;
+	-moz-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+	padding: 1em;
+	margin: .5em 0;
+	overflow: auto;
+	border-radius: 0.3em;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+	background: #272822;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+	padding: .1em;
+	border-radius: .3em;
+	white-space: normal;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+	color: #8292a2;
+}
+
+.token.punctuation {
+	color: #f8f8f2;
+}
+
+.token.namespace {
+	opacity: .7;
+}
+
+.token.property,
+.token.tag,
+.token.constant,
+.token.symbol,
+.token.deleted {
+	color: #f92672;
+}
+
+.token.boolean,
+.token.number {
+	color: #ae81ff;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+	color: #a6e22e;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string,
+.token.variable {
+	color: #f8f8f2;
+}
+
+.token.atrule,
+.token.attr-value,
+.token.function,
+.token.class-name {
+	color: #e6db74;
+}
+
+.token.keyword {
+	color: #66d9ef;
+}
+
+.token.regex,
+.token.important {
+	color: #fd971f;
+}
+
+.token.important,
+.token.bold {
+	font-weight: bold;
+}
+.token.italic {
+	font-style: italic;
+}
+
+.token.entity {
+	cursor: help;
+}
+/*
+ * New diff- syntax
+ */
+
+pre[class*="language-diff-"] {
+	--eleventy-code-padding: 1.25em;
+	padding-left: var(--eleventy-code-padding);
+	padding-right: var(--eleventy-code-padding);
+}
+.token.deleted {
+	background-color: hsl(0, 51%, 37%);
+	color: inherit;
+}
+.token.inserted {
+	background-color: hsl(126, 31%, 39%);
+	color: inherit;
+}
+
+/* Make the + and - characters unselectable for copy/paste */
+.token.prefix.unchanged,
+.token.prefix.inserted,
+.token.prefix.deleted {
+	-webkit-user-select: none;
+	user-select: none;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding-top: 2px;
+	padding-bottom: 2px;
+}
+.token.prefix.inserted,
+.token.prefix.deleted {
+	width: var(--eleventy-code-padding);
+	background-color: rgba(0,0,0,.2);
+}
+
+/* Optional: full-width background color */
+.token.inserted:not(.prefix),
+.token.deleted:not(.prefix) {
+	display: block;
+	margin-left: calc(-1 * var(--eleventy-code-padding));
+	margin-right: calc(-1 * var(--eleventy-code-padding));
+	text-decoration: none; /* override del, ins, mark defaults */
+	color: inherit; /* override del, ins, mark defaults */
+}
+* { box-sizing: border-box; }
+/* Defaults */
+:root {
+	--font-family: -apple-system, system-ui, sans-serif;
+	--font-family-monospace: Consolas, Menlo, Monaco, Andale Mono WT, Andale Mono,
+		Lucida Console, Lucida Sans Typewriter, DejaVu Sans Mono,
+		Bitstream Vera Sans Mono, Liberation Mono, Nimbus Mono L, Courier New,
+		Courier, monospace;
+}
+
+/* Theme colors */
+:root {
+	--color-gray-20: #e0e0e0;
+	--color-gray-50: #c0c0c0;
+	--color-gray-90: #333;
+
+	--background-color: #fff;
+
+	--text-color: var(--color-gray-90);
+	--text-color-link: #082840;
+	--text-color-link-active: var(--accent);
+	--text-color-link-visited: #17050f;
+
+	--primary: black;
+	--accent: #47c1b9;
+	--reverse: white;
+
+	--syntax-tab-size: 2;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--color-gray-20: #e0e0e0;
+		--color-gray-50: #c0c0c0;
+		--color-gray-90: #dad8d8;
+
+		/* --text-color is assigned to --color-gray-_ above */
+		--text-color-link: #1493fb;
+		--text-color-link-active: #6969f7;
+		--text-color-link-visited: #a6a6f8;
+
+		--background-color: #15202b;
+	}
+}
+
+/* Global stylesheet */
+* {
+	box-sizing: border-box;
+}
+
+html,
+body {
+	padding: 0;
+	margin: 0 auto;
+	font-family: var(--font-family);
+	color: var(--text-color);
+	background-color: var(--background-color);
+	height: 100%;
+}
+html {
+	overflow-y: scroll;
+}
+body {
+	display: flex;
+	flex-direction: column;
+}
+footer {
+	margin-top: auto;
+	padding: 1rem 2rem;
+}
+
+/* https://www.a11yproject.com/posts/how-to-hide-content/ */
+.visually-hidden {
+	clip: rect(0 0 0 0);
+	clip-path: inset(50%);
+	height: 1px;
+	overflow: hidden;
+	position: absolute;
+	white-space: nowrap;
+	width: 1px;
+}
+
+p:last-child {
+	margin-bottom: 0;
+}
+p {
+	line-height: 1.5;
+}
+
+li {
+	line-height: 1.5;
+}
+
+a[href] {
+	color: var(--text-color-link);
+}
+a[href]:visited {
+	color: var(--text-color-link-visited);
+}
+a[href]:hover,
+a[href]:active {
+	color: var(--text-color-link-active);
+}
+
+main {
+	padding: 1rem;
+}
+main :first-child {
+	margin-top: 0;
+}
+
+header {
+	border-bottom: 1px dashed var(--color-gray-20);
+/* 	display: flex;
+	align-items: center; */
+}
+header:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+.links-nextprev {
+	list-style: none;
+	border-top: 1px dashed var(--color-gray-20);
+	padding: 1em 0;
+}
+
+table {
+	margin: 1em 0;
+}
+table td,
+table th {
+	padding-right: 1em;
+}
+
+pre,
+code {
+	font-family: var(--font-family-monospace);
+}
+pre:not([class*="language-"]) {
+	margin: 0.5em 0;
+	line-height: 1.375; /* 22px /16 */
+	-moz-tab-size: var(--syntax-tab-size);
+	-o-tab-size: var(--syntax-tab-size);
+	tab-size: var(--syntax-tab-size);
+	-webkit-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+	direction: ltr;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+}
+code {
+	word-break: break-all;
+}
+
+/* Header */
+header {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: space-evenly;
+	padding: 1em;
+}
+.logo {
+	display: flex;
+	align-items: center;
+}
+.logo-img {
+	max-width: 20%;
+	height: auto;
+}
+.home-link {
+	font-weight: 700;
+	font-size: min(max(16px, 4vw), 5rem);
+	font-family: "Rubik Mono One", sans-serif;
+	text-decoration: none;
+	background-size: cover;
+	background-position: 0 0;
+	transition: all 0.3s ease;
+	background: url("/adaptive-movement/img/handprint.png") 100% 0;
+	background-clip: text;
+	-webkit-background-clip: text;
+}
+.home-link:hover {
+	-webkit-text-fill-color: #5b728a54;
+	animation: animatedOne 100s linear infinite;
+}
+@keyframes animatedOne {
+	from {
+		background-position: 0 0;
+	}
+	to {
+		background-position: 100% 0;
+	}
+}
+.menu {
+	font-size: large;
+}
+
+/* Nav */
+.nav {
+	display: flex;
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+.nav-item {
+	display: inline-block;
+	margin-right: 1em;
+}
+.nav-item a[href]:not(:hover) {
+	text-decoration: none;
+}
+.nav a[href][aria-current="page"] {
+	text-decoration: underline;
+}
+
+/* Posts list */
+.postlist {
+	list-style: none;
+	padding: 0;
+	padding-left: 1.5rem;
+}
+.postlist-item {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: baseline;
+	counter-increment: start-from -1;
+	margin-bottom: 1em;
+}
+.postlist-item:before {
+	display: inline-block;
+	pointer-events: none;
+	/* 	content: "" counter(start-from, decimal-leading-zero) ". "; */
+	line-height: 100%;
+	text-align: right;
+	margin-left: -1.5rem;
+}
+.postlist-date,
+.postlist-item:before {
+	font-size: 0.8125em; /* 13px /16 */
+	color: var(--color-gray-90);
+}
+.postlist-date {
+	word-spacing: -0.5px;
+}
+.postlist-link {
+	font-size: 1.1875em; /* 19px /16 */
+	font-weight: 700;
+	flex-basis: calc(100% - 1.5rem);
+	padding-left: 0.25em;
+	padding-right: 0.5em;
+	text-underline-position: from-font;
+	text-underline-offset: 0;
+	text-decoration-thickness: 1px;
+}
+.postlist-item-active .postlist-link {
+	font-weight: bold;
+}
+
+/* Tags */
+.post-tag {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	text-transform: capitalize;
+	font-style: italic;
+}
+.postlist-item > .post-tag {
+	align-self: center;
+}
+
+/* Tags list */
+.post-metadata {
+	display: inline-flex;
+	flex-wrap: wrap;
+	gap: 0.5em;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+.post-metadata time {
+	margin-right: 1em;
+}
+
+/* Direct Links / Markdown Headers */
+.header-anchor {
+	text-decoration: none;
+	font-style: normal;
+	font-size: 1em;
+	margin-left: 0.1em;
+}
+a[href].header-anchor,
+a[href].header-anchor:visited {
+	color: transparent;
+}
+a[href].header-anchor:focus,
+a[href].header-anchor:hover {
+	text-decoration: underline;
+}
+a[href].header-anchor:focus,
+:hover > a[href].header-anchor {
+	color: var(--text-color-link-visited);
+}
+
+h2 + .header-anchor {
+	font-size: 1.5em;
+}
+
+/* Tag links */
+.tag-links {
+	list-style: none;
+	display: flex;
+	flex-wrap: wrap;
+	padding: 0;
+}
+
+.tag-links-tag {
+	margin-bottom: 0.6rem;
+}
+
+.tag-links-tag a {
+	padding: 0.3rem;
+	margin: 0.1rem;
+	background-color: var(--text-color);
+	color: var(--reverse);
+	transition: background-color 200ms, color 200ms, transform 200ms;
+	text-decoration: none;
+	border-radius: 0.2rem;
+	&:visited {
+		color: var(--reverse);
+	}
+	&:hover,
+	&:focus {
+		background-color: var(--accent);
+		color: var(--text-color);
+		transform: scale(1.9);
+	}
+}
+.sidebar.tag-links-tag a:hover {
+	color: var(--text-color);
+}
+
+/* All tags list */
+.all-tags-list {
+	columns: 20rem;
+	column-gap: 2rem;
+	list-style: none;
+	padding: 0;
+}
+
+.all-tags-link a {
+	color: var(--textColor);
+	&:hover,
+	&:visited,
+	&:focus {
+		color: var(--accent);
+	}
+}
+
+.all-tags-post-count {
+	color: var(--accent);
+	font-size: 0.9rem;
+}
+
+/* Pagination */
+.pagination-inner {
+	display: flex;
+	margin-top: 3rem;
+}
+
+.pagination-next {
+	margin-left: auto;
+}
+
+/* Social icons*/
+
+nav ul,
+ul.socials {
+	padding: 0;
+}
+.nav-icon:hover path {
+	fill: var(--accent);
+}
+
+svg.nav-icon {
+	width: 100%;
+	height: 30px;
+}
+
+/* Sidebar */
+.two-columns {
+	display: grid;
+	gap: 1rem 2rem;
+	position: relative;
+	margin: 0 auto;
+	@media (min-width: 68em) {
+		grid-template-columns: 1fr 2fr;
+	}
+}
+.sidebar {
+	position: sticky;
+	margin: auto;
+}
+.two-columns .content {
+	margin-left: 0;
+}
+/* Content */
+.content {
+	max-width: 90ch;
+	margin: 0 auto;
+}
+
+.container-tag-list {
+	max-width: 110rem;
+	margin: 0 auto;
+	width: 100%;
+	padding: 0 1rem;
+}</style>
+	</head>
+	<body>
+		<a href="#skip" class="visually-hidden">Skip to main content</a>
+
+		<header>
+			
+		<div class="logo">
+			<img src="/adaptive-movement/img/handprintround-xs.png" class="logo-img">
+			<a href="/adaptive-movement/" class="home-link">TRACES</a>
+		</div>
+
+			<nav>
+				<h2 class="visually-hidden">Top level navigation menu</h2>
+				<ul class="menu">
+					<li class="nav-item"><a href="/adaptive-movement/">Accueil</a></li>
+					<li class="nav-item"><a href="/adaptive-movement/tags/">Sujets</a></li>
+					<li class="nav-item"><a href="/adaptive-movement/about/">About</a></li>
+				
+				</ul>
+			</nav>
+      <ul class="socials">
+		<li class="nav-item">
+			<a href="/adaptive-movement/search/" rel="me">
+				<svg xmlns="http://www.w3.org/2000/svg" fill="#24292f" viewBox="0 0 24 24" class="nav-icon">
+					<path fill-rule="evenodd" d="M10.5 3.75a6.75 6.75 0 100 13.5 6.75 6.75 0 000-13.5zM2.25 10.5a8.25 8.25 0 1114.59 5.28l4.69 4.69a.75.75 0 11-1.06 1.06l-4.69-4.69A8.25 8.25 0 012.25 10.5z" clip-rule="evenodd"></path>
+				  </svg>
+			</a>
+		</li>
+	    <li class="nav-item">
+			<a href="https://github.com/Senestres" rel="me">
+            <svg xmlns="http://www.w3.org/2000/svg" class="nav-icon" viewBox="0 0 100 100"><path fill-rule="evenodd" clip-rule="evenodd" d="M48.854 0C21.839 0 0 22 0 49.217c0 21.756 13.993 40.172 33.405 46.69 2.427.49 3.316-1.059 3.316-2.362 0-1.141-.08-5.052-.08-9.127-13.59 2.934-16.42-5.867-16.42-5.867-2.184-5.704-5.42-7.17-5.42-7.17-4.448-3.015.324-3.015.324-3.015 4.934.326 7.523 5.052 7.523 5.052 4.367 7.496 11.404 5.378 14.235 4.074.404-3.178 1.699-5.378 3.074-6.6-10.839-1.141-22.243-5.378-22.243-24.283 0-5.378 1.94-9.778 5.014-13.2-.485-1.222-2.184-6.275.486-13.038 0 0 4.125-1.304 13.426 5.052a46.97 46.97 0 0 1 12.214-1.63c4.125 0 8.33.571 12.213 1.63 9.302-6.356 13.427-5.052 13.427-5.052 2.67 6.763.97 11.816.485 13.038 3.155 3.422 5.015 7.822 5.015 13.2 0 18.905-11.404 23.06-22.324 24.283 1.78 1.548 3.316 4.481 3.316 9.126 0 6.6-.08 11.897-.08 13.526 0 1.304.89 2.853 3.316 2.364 19.412-6.52 33.405-24.935 33.405-46.691C97.707 22 75.788 0 48.854 0z" fill="#24292f"></path></svg>
+			</a>
+		</li>
+		<li class="nav-item">
+			<a href="/adaptive-movement/feed/feed.xml" rel="me">
+				<svg xmlns="http://www.w3.org/2000/svg" fill="#24292f" viewBox="0 0 24 24" class="nav-icon">
+					<path fill-rule="evenodd" d="M3.75 4.5a.75.75 0 01.75-.75h.75c8.284 0 15 6.716 15 15v.75a.75.75 0 01-.75.75h-.75a.75.75 0 01-.75-.75v-.75C18 11.708 12.292 6 5.25 6H4.5a.75.75 0 01-.75-.75V4.5zm0 6.75a.75.75 0 01.75-.75h.75a8.25 8.25 0 018.25 8.25v.75a.75.75 0 01-.75.75H12a.75.75 0 01-.75-.75v-.75a6 6 0 00-6-6H4.5a.75.75 0 01-.75-.75v-.75zm0 7.5a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0z" clip-rule="evenodd"></path>
+				  </svg>
+			</a>
+		</li>
+      </ul>
+
+
+		</header>
+
+		<main id="skip">
+			
+
+<div class="content">
+<h1>Can we teach creativity ? (Part 1)</h1>
+
+<ul class="post-metadata">
+	<li><time datetime="2022-08-02">02 août 2022</time></li>
+	<li><a href="/adaptive-movement/tags/constraints/" class="post-tag">constraints</a>, </li>
+	<li><a href="/adaptive-movement/tags/creativity/" class="post-tag">creativity</a>, </li>
+	<li><a href="/adaptive-movement/tags/dance/" class="post-tag">dance</a>, </li>
+	<li><a href="/adaptive-movement/tags/exploration/" class="post-tag">exploration</a>, </li>
+	<li><a href="/adaptive-movement/tags/ideation/" class="post-tag">ideation</a>, </li>
+	<li><a href="/adaptive-movement/tags/motor-creativity/" class="post-tag">motor-creativity</a>, </li>
+	<li><a href="/adaptive-movement/tags/oulipo/" class="post-tag">oulipo</a>, </li>
+	<li><a href="/adaptive-movement/tags/randomness/" class="post-tag">randomness</a>, </li>
+	<li><a href="/adaptive-movement/tags/teaching/" class="post-tag">teaching</a></li>
+</ul>
+
+<article data-pagefind-body="">
+<p>We tend to think of creativity as the generation or apparition of new ideas, which can then be put into action. I call this “ideation”. This view of creativity is probably so strong because we take our paradigmatic examples of creativity in specific domains like scientific or technological innovation, writing novels or creating music. But when we focus on activities that are not usually framed as being purely intellectual, like parkour, this two step process, inventing ideas in your head, then applying them to the world, might not work that well. It misses the tight link between action and perception, the direct interaction of the body and the environment.</p>
+<p>Here, I want to pursue this line of thinking, which is very relevant for teaching creativity in sports and physical activities. I will argue that we need to move a few steps away from the ideation approach if we want to understand motor creativity. Using the frameworks of ecological-dynamics, we can understand how using constraints can benefit creativity. In <a href="/adaptive-movement/can-we-teach-creativity-part-2">part 2</a>, I will explore a few methods and principles to promote the emergence of creative motor solutions.</p>
+<h2 id="cognitive-and-motor-creativity" tabindex="-1">Cognitive and motor creativity <a class="header-anchor" href="#cognitive-and-motor-creativity">#</a></h2>
+<p>In a blog post, Philipp Holzmüller<a href="#_ftn1">[1]</a> showed that creativity in parkour is not only about coming up with new moves or finding a solution to a challenge (how do I climb here ?), but also in setting up the challenge for yourself (let’s try to climb here), and even in identifying the right location to train in the first place. In that sense, creativity happens at different levels. We could think of it as a spectrum, ranging from cognitive to motor creativity. Setting yourself some new and interesting challenges would be at the cognitive end, and developing new patterns of movement that help solve these challenges would be at the motor end. This spectrum is useful for a start, but we must be careful with it. I’m sure most of us don’t always sit down with pen and paper, thinking hard and taking notes on what challenges we want to invent; rather, it is often the environment that suggests challenges: this wall feels climbable, let’s try to climb it. There is always more interaction between the body and the environment that this clean spectrum suggests. And we should avoid making a strict dichotomy between pure thinking (cognition) and pure behaviour: moving our bodies is arguably cognitive. But thinking of this spectrum is a useful start, and will come handy in the next section.</p>
+<p><img src="images/Untitled-Diagram.jpg" alt=""></p>
+<p>So that being said, what is motor creativity ? Orth et al. give a definition that is very useful for our purposes: motor creativity is the capacity to develop new functional behaviours, and/or to act in functional ways in novel situations<a href="#_ftn2">[2]</a>. The “novelty” part of the definition can be relative to the individual, or to a group<a href="#_ftn3">[3]</a>. So being creative in parkour could mean finding a new pattern of movement that allows me to overcome an obstacle; and “new” could mean that I never used it, or that nobody in my local community has ever done that. But it could also mean using that pattern in an environment I am not familiar with, for example trying a kong on a rail instead of the walls I usually train on. So here creativity is not necessarily measured by the apparition of new ideas, but with new behaviours or the adaptation of behaviour to new environments. To clarify, this definition  moves us away from the act of Creation with a big C, to the simple apparition of statistically rare patterns of movement.</p>
+<p><img src="images/What-else-in-stead-of-kong-1024x750.jpg" alt=""></p>
+<p>What else than a kong ? (picture by Pawel van der Steen)</p>
+<p>This is useful, because it allows for a less top-down approach. Instead of ideas prescribing movement, like a boss giving orders, we can use the more bottom-up approach from ecological-dynamics, where movement is self-organized. Sure, we set goals and intentions ourselves, but movement patterns emerge from the interaction of the body and the environment. Therefore, new movement patterns can arise when there are changes in the configuration of constraints from the body, the environment or the task. And if that is the case, teachers have a powerful methodological tool to foster the emergence of creative solutions: the manipulation of constraints.</p>
+<h2 id="constraints-and-creativity" tabindex="-1">Constraints and creativity <a class="header-anchor" href="#constraints-and-creativity">#</a></h2>
+<p>At a first glance, creativity and constraint might seem antinomic. We think of creativity as being “free”: obeying orders, following rules, applying a plan, repeating an action or imitating somebody else are not cases that we usually call “being creative”. From that perspective, it is not immediately obvious that creativity is a skill that can be taught. Maybe with experience, you can become creative, but it doesn’t seem to be something that you can transfer from person to person as easily as “knowledge” or “rules”. Think of the “stroke of genius” paradigm: creativity is just ideas coming from… nowhere ? But the CLA takes us away from the generation of ideas to focus on the emergence of new behaviours; and will explain this emergence by the interaction of the different constraints of the situation<a href="#_ftn4">[4]</a>. And in this paradigm, constraints are not only limiting, but also enabling. They shape and guide the self-organisation of movement.</p>
+<p>Of course, using constraints for creativity is not something new, in fact there is a long tradition of constrained creative endeavours. We could examine the multiple forms of constrained writing, the most obvious one being poetry, with its use of structures and patterns. Constraints are sometimes explicitly used as engines for creativity and imagination like in the OuLiPo (“ouvroir de littérature potentielle”) group. The most famous example is probably George Perec’s <em>La Disparition</em>, written without using the letter “e”. And constraints probably appear everywhere in less systematic and explicit manners. Umberto Eco says that before writing <em>The Name of the Rose</em>, he had notes on all of the monks of his fictitious monastery, even those he would never mention in the book. The story that would emerge was already constrained by these imaginary characters.</p>
+<p>Let’s get closer to what interests us here: creativity in movement. Starting with dance is probably a good idea, because it is more obviously a creative endeavour than most sports.  Even in dance, numerous examples of constraints can be given, like the structure of the music. But the most interesting examples are when choreographers use constraints in a systematic fashion, like some of Merce Cunningham’s methods, who used to throw dice or coins to construct sequences of movements.  To be fair, it might seem like this is not a matter of creativity after all. Throwing a dice can take care of the <em>sequence</em> of movements, but somebody still had to come up with the <em>individual</em> movement patterns. But now take two dice, say one for each arm. Sure, you need to input something (a movement pattern, a direction, etc.) for each number of the dice. But new patterns of movement will emerge from the random combinations of left and right arm. In some cases, they might even seem impossible to execute in a straightforward fashion, and will require experimentation and push the self-organisation of the dancers in new directions. Cunningham said that &quot;if a dancer tells me that something won't work, I say, Try it; if you fall down, you'll find something about falling down&quot;<a href="#_ftn5">[5]</a>.</p>
+<p>In a sense, these methods allow to displace ideation, to move between the different levels of creativity: you need to have the idea of setting up constraints, like using randomness for creative purposes in the first place, but after that it’s not a matter of coming up in your mind with the sequence of movement. Once the dice is thrown, you have to go with it: <em>alea jacta est</em>. Randomness and self-organisation take care of the motor aspect of creativity. I can’t go into all the factors that make constraints useful for creativity. There certainly is a motivational aspect: seeking to satisfy these constraints sets an interesting challenge for yourself. They also restrict the state-space, creating problems that are better defined and easier to answer<a href="#_ftn6">[6]</a>. In this way, they help solve the degrees of freedom problem: your body can move in a potential infinity of ways, but this is not the case when faced with a specific environment and a goal to attain; the constraints do some of the work of “selecting” which patterns of movement are used. And as we’ve seen, constraints can also push us away from obvious solutions, confronting us to new situations, forcing experimentation and adaptation.</p>
+<p>Finally, two concepts seem important to help us think about motor creativity: affordances and attractors. Affordances are the opportunities for movement offered by the environment: a chair affords sitting, a handle affords gripping, etc. A good deal of creativity comes from discovering these affordances, like finding out that you can use a rebound instead of a direct shot or that a wall is climbable. Attractors are the stable patterns of movement in a given situation, like running on a fast treadmill or walking on a slower one. If an attractor is strong, all behaviour will tend to gravitate towards it, and there will be low variability of movement. For example, if you feel very comfortable with one kind of movement, you will tend to always use that technique, and not explore other solutions. With those concepts in mind, the question of creativity becomes: how can we discover and use diverse affordances ? and how can we move away from strong attractors in order to get more variable movement ? These are questions I want to answer in the <a href="/adaptive-movement/can-we-teach-creativity-part-2">second part</a>, while suggesting different concrete ways of teaching creativity.</p>
+<hr>
+<p><a href="#_ftnref1">[1]</a> <a href="https://thoseguysparkour.wordpress.com/2020/01/19/parkour-the-art-of-finding-problems/">https://thoseguysparkour.wordpress.com/2020/01/19/parkour-the-art-of-finding-problems/</a></p>
+<p><a href="#_ftnref2">[2]</a> Orth Dominic, Kamp John van der, Memmert Daniel <em>et al.</em>, « Creative Motor Actions As Emerging from Movement Variability », <em>Frontiers in Psychology</em> 8, 2017.</p>
+<p><a href="#_ftnref3">[3]</a> Ibid.</p>
+<p><a href="#_ftnref4">[4]</a> Ibid.</p>
+<p><a href="#_ftnref5">[5]</a> Cohan Robert P., Vaughan David et Cunningham Merce (éds), <em>Merce Cunningham: creative elements</em>, 2. printing, New York, NY, Harwood Academic Publishers, 1999 (Choreography and dance).</p>
+<p><a href="#_ftnref6">[6]</a> Warburton Edward, « Imagine the (Im)possibilities: The Role of Constraints on Dance Creativity », <em>Dance: Current Selected Research</em>, 2018.</p>
+
+</article>
+<nav class="pagination-inner" aria-label="Articles next and previous links">
+	<a href="/adaptive-movement/blog/can-we-teach-creativity-part-2/" data-direction="forwards" class="pagination-previous">
+		<span>← Can we teach creativity ? (Part 2) </span>
+	  </a>
+	
+	<a href="/adaptive-movement/blog/can-my-dog-predict-the-future/" data-direction="backwards" class="pagination-next">
+		<span>Can my dog predict the future ? →</span>
+	  </a>
+	
+</nav>
+
+</div>
+
+		</main>
+
+		<footer><small>Traces 2023 - Yann Daout - <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0 Deed</a></small></footer>
+
+		<!-- Current page: /adaptive-movement/blog/can-we-teach-creativity-part-1/ -->
+	</body>
+</html>

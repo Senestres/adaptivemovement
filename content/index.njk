@@ -11,11 +11,15 @@ permalink: '{% if pagination.pageNumber > 0 %}blog/page/{{ pagination.pageNumber
 paginationPrevText: '← Précédent '
 paginationNextText: 'Suivant →'
 paginationAnchor: '#post-list'
+author: "Pawel van der Steen"
 ---
-{% set postslist = pagination.items %}
+{# {% set postslist = pagination.items %} #}
+{% set postslist = pagination.items | authorFilter(author) %}
 
   {% include "postslist.njk" %}
+
 {# Only renders this section if there are links to render #}
+
 {% if pagination.href.next or pagination.href.previous %}
       <nav class="pagination-inner" aria-label="Pagination links">
         {% if pagination.href.previous %}
