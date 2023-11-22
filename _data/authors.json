@@ -4,18 +4,18 @@
 		"name":"Yann Daout",
 		"bio": "has a Master in Sport and social sciences from the University of Lausanne, Switzerland. He has been training parkour since 2011. He writes so he can stop thinking all that stuff. ",
 		"website":"https://tracesblog.net",
-		"photo":"/img/yann-round.jpg"
+		"photo":"/img/yann-round.png"
 	},
 	{
         "key":"ville-laine",
 		"name":"Ville Laine",
 		"bio":"has a Master in Sport pedagogy from Jyväskylä University, Finland. Ville has been training parkour for 12 years, and is now an entrepreneur interested in the gamification of skill acquisition. He likes to read books and cereal box labels. ",
-		"photo":"/img/ville-round.jpg"
+		"photo":"/img/ville-round.png"
 	},
 	{
         "key":"pawel-van-der-steen",
 		"name":"Pawel van der Steen",
 		"bio":"has a Bachelor in Human movement sciences and Master of Sport sciences from the University of Groningen in The Netherlands. He has been training parkour since 2005, and apart from training he likes to complain about how parkour used to be better back then.",
-		"photo":"/img/pawel-round.jpg"
+		"photo":"/img/pawel-round.png"
 	}
 ]

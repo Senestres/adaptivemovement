@@ -21,3 +21,12 @@ post img
     in posts lists, show img with title
     caption from markdown
     make cover img responsive + set max height
+
+navigation in posts
+    add gap in middle
+
+post lists
+    remove content class -> should be applied to content of post, not post lists itself
+    reduce padding on post list
+    add padding in item of postlist
+    add a grid or flex system -> two posts side by side

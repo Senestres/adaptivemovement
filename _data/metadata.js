@@ -1,5 +1,5 @@
 module.exports = {
-	title: "Traces",
+	title: "Adaptive Movement",
 	url: "https://senestres.github.io/adaptive-movement/",
 	language: "en",
 	description: "Skill acquisition and movement education",

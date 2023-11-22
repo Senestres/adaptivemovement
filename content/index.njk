@@ -10,11 +10,11 @@ permalink: '{% if pagination.pageNumber > 0 %}blog/page/{{ pagination.pageNumber
   <div class="single-column content">
     <p>Adaptive Movement is a blog exploring the topics of skill acquisition and movement education.</p>
     <p>It is targeted to coaches, teachers, practitioners and sport science students.</p>
-    <div><img id="small-logo" src="/img/transparent-logo-small.png" alt="Small logo" height="60px"></div>
+    <div class="centered"><img id="small-logo" src="/img/transparent-logo-small.png" alt="Small logo" height="60px"></div>
     <p>The blog is divided intro three categories:</p>
   </div>
 
-  <div class="three-columns">
+  <div class="split">
     <div class="overlay-container"> 
       <img src="/img/category-theory.png" class="overlay-img">
       <a href="/theory/" class="text-overlay">Theory</a>
@@ -36,19 +36,17 @@ permalink: '{% if pagination.pageNumber > 0 %}blog/page/{{ pagination.pageNumber
     <p>Finally, we also examine case studies from different sport, physical activities or coaching methods, from the perspective of ecological-dynamics. What can we learn from these cases? Could they be improved?</p>
   </div>
 
-  <div class="single-column parallax overlay-container" id="parallax-dynamical"><p class="text-overlay">What is ecological-dynamics ?</p>
+  <div class="single-column parallax overlay-container" id="parallax-dynamical"><span class="text-overlay">What is ecological-dynamics ?</span>
+  </div>
+  <div class="split">
+    <div>  <img id="flowchart" src="/img/flowchart.png" alt="Flow chart of the main concepts of the website"></div>
+    <div class="split-content">
+      <p>Ecological Dynamics studies human behaviour in the real world. We take off our lab coat and look at the way skill acquisition and perception works within the context that we find ourselves in on a daily basis.</p>
+      <p>We take into consideration the interactions between our bodies, our environment, our abilities, experiences and intentions.</p>
+    </div>
   </div>
 
-  <div class="single-column">  <img id="flowchart" src="/img/flowchart.png" alt="Flow chart of the main concepts of the website"></div>
-
-  <div class="single-column content">
-    
-    <p>Ecological Dynamics studies human behaviour in the real world. We take off our lab coat and look at the way skill acquisition and perception works within the context that we find ourselves in on a daily basis.</p>
-    <p>We take into consideration the interactions between our bodies, our environment, our abilities, experiences and intentions.</p>
-    <p>Recent posts</p>
-  </div>
-  
-  <div class="three-columns">
+  <div class="split">
     {% for post in collections.posts | reverse %}
     {% if (loop.index <= 3) and (3 <= loop.length) %}
 
