@@ -1,0 +1,11 @@
+---
+layout: layouts/page.njk
+eleventyComputed:
+  title: Category "{{ eleventyNavigation.key}}"
+eleventyNavigation:
+  key: How-to
+  order: 3
+---
+
+{% set postslist = collections.posts | categoryFilter( eleventyNavigation.key.toLowerCase() ) | reverse%}
+{% include "postslist.njk" %}

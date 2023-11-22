@@ -20,8 +20,9 @@ module.exports = function(eleventyConfig) {
 	// For example, `./public/css/` ends up in `_site/css/`
 	eleventyConfig.addPassthroughCopy({
 		"./public/": "/",
-		"./node_modules/prismjs/themes/prism-okaidia.css": "/css/prism-okaidia.css"
+		"./node_modules/prismjs/themes/prism-okaidia.css": "/css/prism-okaidia.css",
 	});
+	eleventyConfig.addPassthroughCopy("content/**/*.{jpg,png,gif,svg,kmz,zip,css,webp}");
 
 	// Run Eleventy when these files change:
 	// https://www.11ty.dev/docs/watch-serve/#add-your-own-watch-targets
@@ -42,17 +43,10 @@ module.exports = function(eleventyConfig) {
 	eleventyConfig.addPlugin(EleventyHtmlBasePlugin);
 	eleventyConfig.addPlugin(pluginBundle);
 
-/* 	eleventyConfig.addNunjucksFilter("date", function(date, format, locale) {
-		locale = "fr";
-		moment.locale(locale);
-		return moment(date).format(format);
-		var dt = DateTime.fromISO("2017-09-24", { locale: "fr" });
-	  }); */
-
 	// Filters
 	eleventyConfig.addFilter("readableDate", (dateObj, format, zone) => {
 		// Formatting tokens for Luxon: https://moment.github.io/luxon/#/formatting?id=table-of-tokens
-		return DateTime.fromJSDate(dateObj, { zone: zone || "utc" }).setLocale("fr").toFormat(format || "dd LLLL yyyy");
+		return DateTime.fromJSDate(dateObj, { zone: zone || "utc" }).toFormat(format || "dd LLLL yyyy");
 	});
 
 	eleventyConfig.addFilter('htmlDateString', (dateObj) => {
@@ -96,25 +90,13 @@ module.exports = function(eleventyConfig) {
 		  const filtered = collection.filter(item => item.data.author == author)
 		  return filtered;
 	  });
-	  
 
 	 // Categories
-
-/* 	 eleventyConfig.addCollection('categoryList', collection => {
-        let catSet = {};
-        collection.getAll().forEach(item => {
-            if (!item.data.categories) return;
-            item.data.categories.filter(
-                cat => !['posts', 'all'].includes(cat)
-            ).forEach(
-                cat => {
-                    if (!catSet[cat]) { catSet[cat] = []; }
-                    catSet[cat].push(item)
-                }
-            );
-        });
-        return catSet;
-    }); */
+	 eleventyConfig.addFilter('categoryFilter', function(collection, category) {
+		if (!category) return collection;
+		  const filtered = collection.filter(item => item.data.categories == category)
+		  return filtered;
+	  });
 
 	// Customize Markdown library settings:
 	eleventyConfig.amendLibrary("md", mdLib => {

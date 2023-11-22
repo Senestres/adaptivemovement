@@ -35,6 +35,10 @@
 	--accent: #47c1b9;
 	--reverse: white;
 
+	--categoryRed: #832232;
+	--categoryBlue: #124877;
+	--categoryGreen: #1a624d;
+
 	--syntax-tab-size: 2;
 }
 
@@ -77,6 +81,8 @@ body {
 footer {
 	margin-top: auto;
 	padding: 1rem 2rem;
+	margin-right: 0;
+	margin-left: auto;
 }
 
 /* https://www.a11yproject.com/posts/how-to-hide-content/ */
@@ -104,25 +110,18 @@ li {
 a[href] {
 	color: var(--text-color-link);
 }
-a[href]:visited {
-	color: var(--text-color-link-visited);
-}
-a[href]:hover,
-a[href]:active {
+
+a:hover,
+a:active {
 	color: var(--text-color-link-active);
 }
 
-main {
-	padding: 1rem;
-}
 main :first-child {
 	margin-top: 0;
 }
 
 header {
 	border-bottom: 1px dashed var(--color-gray-20);
-/* 	display: flex;
-	align-items: center; */
 }
 header:after {
 	content: "";
@@ -175,38 +174,12 @@ header {
 	justify-content: space-evenly;
 	padding: 1em;
 }
-.logo {
-	display: flex;
-	align-items: center;
-}
+
 .logo-img {
-	max-width: 20%;
+	max-width: 60%;
 	height: auto;
 }
-.home-link {
-	font-weight: 700;
-	font-size: min(max(16px, 4vw), 5rem);
-	font-family: "Rubik Mono One", sans-serif;
-	text-decoration: none;
-	background-size: cover;
-	background-position: 0 0;
-	transition: all 0.3s ease;
-	background: url("/adaptive-movement/img/handprint.png") 100% 0;
-	background-clip: text;
-	-webkit-background-clip: text;
-}
-.home-link:hover {
-	-webkit-text-fill-color: #5b728a54;
-	animation: animatedOne 100s linear infinite;
-}
-@keyframes animatedOne {
-	from {
-		background-position: 0 0;
-	}
-	to {
-		background-position: 100% 0;
-	}
-}
+
 .menu {
 	font-size: large;
 }
@@ -351,9 +324,6 @@ h2 + .header-anchor {
 		transform: scale(1.9);
 	}
 }
-.sidebar.tag-links-tag a:hover {
-	color: var(--text-color);
-}
 
 /* All tags list */
 .all-tags-list {
@@ -402,23 +372,6 @@ svg.nav-icon {
 	height: 30px;
 }
 
-/* Sidebar */
-.two-columns {
-	display: grid;
-	gap: 1rem 2rem;
-	position: relative;
-	margin: 0 auto;
-	@media (min-width: 68em) {
-		grid-template-columns: 1fr 2fr;
-	}
-}
-.sidebar {
-	position: sticky;
-	margin: auto;
-}
-.two-columns .content {
-	margin-left: 0;
-}
 /* Content */
 .content {
 	max-width: 90ch;
@@ -430,6 +383,103 @@ svg.nav-icon {
 	margin: 0 auto;
 	width: 100%;
 	padding: 0 1rem;
+}
+
+/* Author pages*/ 
+.author-photo {
+	display:block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+/* Homepage */
+.home-grid {
+	display: grid;
+	text-align: center;
+}
+.three-columns {
+	display: flex;
+	flex-direction: row;
+	margin:0;
+	max-width: 100%;
+}
+.single-column {
+	padding: 3rem 0;
+}
+.overlay-container {
+	position: relative;
+}
+.text-overlay {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	text-align: center;
+	transform: translate(-50%, -50%);
+	text-shadow: 0 0 8px black;
+	font-size: 4em;
+	color: white;
+}
+.overlay-img {
+	max-width:100%;
+}
+a.text-overlay {
+	&:visited {
+	color: white;
+	}
+	&:hover {
+	color: var(--accent)
+	}
+	&:not(:hover) {
+		text-decoration: none;
+	}
+}
+.parallax {
+	background-attachment: fixed;
+	background-position: center;
+	background-size: cover;
+	min-height: 500px; 
+}
+#parallax-waves {
+	background-image: url("/adaptive-movement/img/waves.jpg");
+	min-height: 20rem; 
+}
+#parallax-dynamical {
+	background-image: url("/adaptive-movement/img/dynamical-theory.jpg");
+}
+.parallax p {
+font-size: 4em;
+text-transform: uppercase
+}
+
+/* --categoryRed: #832232;
+--categoryRed: #124877;
+--categoryRed: #1a624d; */
+
+
+/* Header colors */
+.menu li:nth-of-type(2)>a {
+	color: var(--categoryRed);
+}
+.menu li:nth-of-type(3)>a {
+	color: var(--categoryBlue);
+}
+.menu li:nth-of-type(4)>a {
+	color: var(--categoryGreen);
+}
+.menu li:nth-of-type(4)>a, .menu li:nth-of-type(3)>a, .menu li:nth-of-type(2)>a {
+	&:hover {
+		color: var(--accent)
+		}
+}
+
+
+/* Font: lato */
+
+
+/* Posts */
+.cover-img {
+	background-size: cover;
+	min-height: 10rem;
 }</style>
 	</head>
 	<body>
@@ -438,20 +488,21 @@ svg.nav-icon {
 		<header>
 			
 		<div class="logo">
-			<img src="/adaptive-movement/img/handprintround-xs.png" class="logo-img">
-			<a href="/adaptive-movement/" class="home-link">TRACES</a>
+			<a href="/adaptive-movement/" class="home-link"><img src="/adaptive-movement/img/adaptive-movement-logo-black.png" class="logo-img" height="600px" width="auto"></a>
 		</div>
 
-			<nav>
-				<h2 class="visually-hidden">Top level navigation menu</h2>
-				<ul class="menu">
-					<li class="nav-item"><a href="/adaptive-movement/">Accueil</a></li>
-					<li class="nav-item"><a href="/adaptive-movement/tags/" aria-current="page">Sujets</a></li>
-					<li class="nav-item"><a href="/adaptive-movement/about/">About</a></li>
-				
-				</ul>
-			</nav>
-      <ul class="socials">
+		<nav>
+			<h2 class="visually-hidden">Top level navigation menu</h2>
+			<ul class="menu">
+				<li class="nav-item"><a href="/adaptive-movement/">Home</a></li>
+				<li class="nav-item"><a href="/adaptive-movement/theory/">Theory</a></li>
+				<li class="nav-item"><a href="/adaptive-movement/how-to/">How-to</a></li>
+				<li class="nav-item"><a href="/adaptive-movement/casestudies/">Case studies</a></li>
+				<li class="nav-item"><a href="/adaptive-movement/about/">About</a></li>
+			</ul>
+		</nav>
+
+      	<ul class="socials">
 		<li class="nav-item">
 			<a href="/adaptive-movement/search/" rel="me">
 				<svg xmlns="http://www.w3.org/2000/svg" fill="#24292f" viewBox="0 0 24 24" class="nav-icon">
@@ -471,7 +522,7 @@ svg.nav-icon {
 				  </svg>
 			</a>
 		</li>
-      </ul>
+      	</ul>
 
 
 		</header>
@@ -718,7 +769,7 @@ svg.nav-icon {
 </div>
 		</main>
 
-		<footer><small>Traces 2023 - Yann Daout - <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0 Deed</a></small></footer>
+		<footer><small>Adaptive Movement 2023 - Yann Daout - <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0 Deed</a></small></footer>
 
 		<!-- Current page: /adaptive-movement/tags/ -->
 	</body>

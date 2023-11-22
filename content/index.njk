@@ -1,36 +1,62 @@
 ---
 layout: layouts/home.njk
 eleventyNavigation:
-  key: Accueil
+  key: Home
   order: 1
-pagination:
-  data: collections.posts
-  size: 6
-  reverse: true
 permalink: '{% if pagination.pageNumber > 0 %}blog/page/{{ pagination.pageNumber }}{% endif %}/index.html'
-paginationPrevText: '← Précédent '
-paginationNextText: 'Suivant →'
-paginationAnchor: '#post-list'
-author: "Pawel van der Steen"
 ---
-{# {% set postslist = pagination.items %} #}
-{% set postslist = pagination.items | authorFilter(author) %}
 
-  {% include "postslist.njk" %}
+<div class="single-column parallax overlay-container" id="parallax-waves"></div>
+  <div class="single-column content">
+    <p>Adaptive Movement is a blog exploring the topics of skill acquisition and movement education.</p>
+    <p>It is targeted to coaches, teachers, practitioners and sport science students.</p>
+    <div><img id="small-logo" src="/img/transparent-logo-small.png" alt="Small logo" height="60px"></div>
+    <p>The blog is divided intro three categories:</p>
+  </div>
 
-{# Only renders this section if there are links to render #}
+  <div class="three-columns">
+    <div class="overlay-container"> 
+      <img src="/img/category-theory.png" class="overlay-img">
+      <a href="/theory/" class="text-overlay">Theory</a>
+    </div>
+    <div class="overlay-container"> 
+      <img src="/img/category-how-to.png" class="overlay-img">
+      <a href="/theory/" class="text-overlay">How-to</a>
+    </div>
+    <div class="overlay-container"> 
+      <img src="/img/category-case-studies.png" class="overlay-img">
+      <a href="/theory/" class="text-overlay">Case studies</a>
+    </div>
+  </div>
 
-{% if pagination.href.next or pagination.href.previous %}
-      <nav class="pagination-inner" aria-label="Pagination links">
-        {% if pagination.href.previous %}
-          <a href="{{ pagination.href.previous }}{{ paginationAnchor }}" data-direction="backwards" class="pagination-previous">
-            <span>{{ paginationPrevText if paginationPrevText else "Précédent" }}</span>
-          </a>
-        {% endif %}
-        {% if pagination.href.next %}
-          <a href="{{ pagination.href.next }}{{ paginationAnchor }}" data-direction="forwards" class="pagination-next">
-            <span>{{ paginationNextText if paginationNextText else "Suivant" }}</span>
-          </a>
-        {% endif %}
-      </nav>
-{% endif %}
+  <div class="single-column content">
+    <p>In our theory articles, we focus on the ecological-dynamics framework, as well as non-linear pedagogy and the constraints-led approach. We want to make these theories, methods and concepts more accessible.</p>
+    <p>These theories challenge some traditional assumptions about skill acquisition and motor learning. They also might help you understand better why you do what you do.</p>
+    <p>Our how-to articles offer a more practical approach, and are meant to develop sound, evidence-based coaching principles, while also aiming to spark creative and novel solutions.</p>
+    <p>Finally, we also examine case studies from different sport, physical activities or coaching methods, from the perspective of ecological-dynamics. What can we learn from these cases? Could they be improved?</p>
+  </div>
+
+  <div class="single-column parallax overlay-container" id="parallax-dynamical"><p class="text-overlay">What is ecological-dynamics ?</p>
+  </div>
+
+  <div class="single-column">  <img id="flowchart" src="/img/flowchart.png" alt="Flow chart of the main concepts of the website"></div>
+
+  <div class="single-column content">
+    
+    <p>Ecological Dynamics studies human behaviour in the real world. We take off our lab coat and look at the way skill acquisition and perception works within the context that we find ourselves in on a daily basis.</p>
+    <p>We take into consideration the interactions between our bodies, our environment, our abilities, experiences and intentions.</p>
+    <p>Recent posts</p>
+  </div>
+  
+  <div class="three-columns">
+    {% for post in collections.posts | reverse %}
+    {% if (loop.index <= 3) and (3 <= loop.length) %}
+
+    <div class="overlay-container"> 
+      <img src="{{ post.url }}/images/{{post.data.coverImage}}" class="overlay-img">
+      <a href="{{ post.url }}" class="home-post text-overlay">{% if post.data.title %}{{ post.data.title }}{% else %}<code>{{ post.url }}</code>{% endif %} </a>
+    </div>
+
+    {% endif %}
+    {% endfor %}
+  </div>

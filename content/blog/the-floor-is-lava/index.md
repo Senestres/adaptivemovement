@@ -3,7 +3,7 @@ title: "The floor is lava"
 author: "Yann Daout"
 date: "2019-08-13"
 categories: 
-  - "case-studies"
+  - "case studies"
 tags: 
   - "cla"
   - "floor-is-lava"
@@ -25,7 +25,7 @@ With the [CLA](/brief-introduction-to-the-constraints-led-approach), we can unde
 
 The task constraints are the rules and objectives of the game. Kids will usually self-regulate: they decide where to start and where to stop, what are the rules, what counts as “the ground”, etc. They don’t necessarily discuss and negotiate all the details. So although the general frame might be set to be the same for every player (this is where we start, this is where we want to go, and this is the lava we don’t want to touch), there might be a lot left open to interpretation. This leaves some space for the individualisation of the challenge. Some might use all means necessary, but often players will set additional task constraints for themselves, like avoiding an obvious foothold, or restricting the use of hands for balance or momentum for a jump. Players of different skill levels can therefore attempt the “same” challenge, while still facing a challenge of the appropriate level. What happens quite often is that once they’ve accomplished the challenge in “easy mode”, players will try again with added constraints (“let’s try it without using this wall”, etc.).
 
-![](images/sautdebras.png)
+![](images/sautdebras.webp)
 
 Better not fall in that lava...
 

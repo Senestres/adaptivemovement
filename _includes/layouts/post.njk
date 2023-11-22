@@ -7,11 +7,18 @@ paginationNextText: 'Suivant →'
 {%- css %}{% include "node_modules/prismjs/themes/prism-okaidia.css" %}{% endcss %}
 {%- css %}{% include "public/css/prism-diff.css" %}{%- endcss %}
 
+<div class="cover-img" style="background-image: url(images/{{coverImage}} );">
+</div>
+
+{# Beginning of real post #}
+
 <div class="content">
 <h1>{{ title }}</h1>
 
 <ul class="post-metadata">
-	<li><time datetime="{{ page.date | htmlDateString }}">{{ page.date | readableDate }}</time></li>
+	<li>By <a href="/authors/{{ author | slugify }}/">{{ author }}</a> </li>
+	<li> {{ date }} </li>
+	<li>in <a href="/{{ categories | slugify }}/">{{ categories }}</a> </li>
 	{%- for tag in tags | filterTagList %}
 	{%- set tagUrl %}/tags/{{ tag | slugify }}/{% endset %}
 	<li><a href="{{ tagUrl }}" class="post-tag">{{ tag }}</a>{%- if not loop.last %}, {% endif %}</li>
@@ -42,3 +49,4 @@ paginationNextText: 'Suivant →'
 {%- endif %}
 
 </div>
+

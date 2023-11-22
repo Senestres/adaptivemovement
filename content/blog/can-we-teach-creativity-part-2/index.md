@@ -25,7 +25,7 @@ Rather, these are fruitful ways of thinking about creativity:
 
 Maybe this is not the full picture, but I think it gets us a long way, so here are a few ideas to teach creativity, or at least structure classes in order to see the emergence of creative motor solutions.
 
-**Developing effectivities**: in order to perceive and use affordances, individuals need to have some corresponding capacities, called effectivities[\[1\]](#_ftn1). Having a bigger repertoire of techniques, being strong and flexible, etc. will allow the individual to act on more of the affordances. In fact, the link seems tighter than this phrasing suggests: it’s harder to perceive the climbability of a wall when you’re not capable of climbing it. And if you’ve mastered the wallrun, a wall can be perceived as climbable even if there are no holds to be found[\[2\]](#_ftn2).
+**Developing effectivities**: in order to perceive and use affordances, individuals need to have some corresponding capacities, called effectivities[^1]. Having a bigger repertoire of techniques, being strong and flexible, etc. will allow the individual to act on more of the affordances. In fact, the link seems tighter than this phrasing suggests: it’s harder to perceive the climbability of a wall when you’re not capable of climbing it. And if you’ve mastered the wallrun, a wall can be perceived as climbable even if there are no holds to be found[^2].
 
 **Observing affordances for others**: although there is a tight link between affordances and effectivities, it isn’t perfect, or we wouldn’t be able to learn by observing somebody else. If you see the wall as climbable for somebody else, it might suggest climbability for you, at least after a bit of training. There are different ways of using this insight, and one of them would be to structure your classes in a way that allows students to learn from each other. For example, you could ask every student to show to the others how they would solve a particular problem.
 
@@ -48,16 +48,12 @@ To give a bit more flesh to these ideas, here are a few tasks in parkour that wh
 - “Overcome this sequence of obstacles at different speeds”
 - “Add to your predecessor’s sequence of movement, without using the same technique twice”
 
-You could even use some randomness, for example with the Ukemi game[\[3\]](#_ftn3) which allows to pick movement sequences from a pile of cards. Of course, you can build your own card game, or just use dice and a numbered list of moves.
+You could even use some randomness, for example with the Ukemi game[^3] which allows to pick movement sequences from a pile of cards. Of course, you can build your own card game, or just use dice and a numbered list of moves.
 
 ## Conclusion
 
 There are two important lessons here: creativity can actually rely on structure and constraints; and creativity happens in interaction, rather than just by staring at a piece of paper. Creativity is a complex topic, and this article is tentative at best. In a sense, an article like this can teach you _about_ creativity, but can only have limited success in teaching creativity itself. In the same way, the methods I suggested foster creativity in the specific sense of motor creativity:  the emergence of rare, unusual and new movement patterns. But this is probably not the same as taking creativity as a transferable skill, say from acquiring new moves in basketball to being a genius painter. Creativity is not a “thing” in itself, and you sure don’t have a creativity module in your brain. Maybe the most transfer we can get is when we use these methods and concepts, like the use of constraints or randomness, and apply them to different domains.
 
-* * *
-
-[\[1\]](#_ftnref1) Chemero, A., Radical embodied cognitive science, MIT press, 2009.
-
-[\[2\]](#_ftnref2) Taylor, J. E., Witt, J. K., & Sugovic, M. (2011). When walls are no longer barriers: perception of wall height in parkour. Perception, 40(6), 757–760.
-
-[\[3\]](#_ftnref3) [https://ukemi.ninja/projects/ukemi-card-game](https://ukemi.ninja/projects/ukemi-card-game)
+[^1]: Chemero, A., Radical embodied cognitive science, MIT press, 2009.
+[^2]: Taylor, J. E., Witt, J. K., & Sugovic, M. (2011). When walls are no longer barriers: perception of wall height in parkour. Perception, 40(6), 757–760.
+[^3]: [https://ukemi.ninja/projects/ukemi-card-game](https://ukemi.ninja/projects/ukemi-card-game)

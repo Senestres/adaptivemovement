@@ -203,6 +203,10 @@ pre[class*="language-diff-"] {
 	--accent: #47c1b9;
 	--reverse: white;
 
+	--categoryRed: #832232;
+	--categoryBlue: #124877;
+	--categoryGreen: #1a624d;
+
 	--syntax-tab-size: 2;
 }
 
@@ -245,6 +249,8 @@ body {
 footer {
 	margin-top: auto;
 	padding: 1rem 2rem;
+	margin-right: 0;
+	margin-left: auto;
 }
 
 /* https://www.a11yproject.com/posts/how-to-hide-content/ */
@@ -272,25 +278,18 @@ li {
 a[href] {
 	color: var(--text-color-link);
 }
-a[href]:visited {
-	color: var(--text-color-link-visited);
-}
-a[href]:hover,
-a[href]:active {
+
+a:hover,
+a:active {
 	color: var(--text-color-link-active);
 }
 
-main {
-	padding: 1rem;
-}
 main :first-child {
 	margin-top: 0;
 }
 
 header {
 	border-bottom: 1px dashed var(--color-gray-20);
-/* 	display: flex;
-	align-items: center; */
 }
 header:after {
 	content: "";
@@ -343,38 +342,12 @@ header {
 	justify-content: space-evenly;
 	padding: 1em;
 }
-.logo {
-	display: flex;
-	align-items: center;
-}
+
 .logo-img {
-	max-width: 20%;
+	max-width: 60%;
 	height: auto;
 }
-.home-link {
-	font-weight: 700;
-	font-size: min(max(16px, 4vw), 5rem);
-	font-family: "Rubik Mono One", sans-serif;
-	text-decoration: none;
-	background-size: cover;
-	background-position: 0 0;
-	transition: all 0.3s ease;
-	background: url("/adaptive-movement/img/handprint.png") 100% 0;
-	background-clip: text;
-	-webkit-background-clip: text;
-}
-.home-link:hover {
-	-webkit-text-fill-color: #5b728a54;
-	animation: animatedOne 100s linear infinite;
-}
-@keyframes animatedOne {
-	from {
-		background-position: 0 0;
-	}
-	to {
-		background-position: 100% 0;
-	}
-}
+
 .menu {
 	font-size: large;
 }
@@ -519,9 +492,6 @@ h2 + .header-anchor {
 		transform: scale(1.9);
 	}
 }
-.sidebar.tag-links-tag a:hover {
-	color: var(--text-color);
-}
 
 /* All tags list */
 .all-tags-list {
@@ -570,23 +540,6 @@ svg.nav-icon {
 	height: 30px;
 }
 
-/* Sidebar */
-.two-columns {
-	display: grid;
-	gap: 1rem 2rem;
-	position: relative;
-	margin: 0 auto;
-	@media (min-width: 68em) {
-		grid-template-columns: 1fr 2fr;
-	}
-}
-.sidebar {
-	position: sticky;
-	margin: auto;
-}
-.two-columns .content {
-	margin-left: 0;
-}
 /* Content */
 .content {
 	max-width: 90ch;
@@ -598,6 +551,103 @@ svg.nav-icon {
 	margin: 0 auto;
 	width: 100%;
 	padding: 0 1rem;
+}
+
+/* Author pages*/ 
+.author-photo {
+	display:block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+/* Homepage */
+.home-grid {
+	display: grid;
+	text-align: center;
+}
+.three-columns {
+	display: flex;
+	flex-direction: row;
+	margin:0;
+	max-width: 100%;
+}
+.single-column {
+	padding: 3rem 0;
+}
+.overlay-container {
+	position: relative;
+}
+.text-overlay {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	text-align: center;
+	transform: translate(-50%, -50%);
+	text-shadow: 0 0 8px black;
+	font-size: 4em;
+	color: white;
+}
+.overlay-img {
+	max-width:100%;
+}
+a.text-overlay {
+	&:visited {
+	color: white;
+	}
+	&:hover {
+	color: var(--accent)
+	}
+	&:not(:hover) {
+		text-decoration: none;
+	}
+}
+.parallax {
+	background-attachment: fixed;
+	background-position: center;
+	background-size: cover;
+	min-height: 500px; 
+}
+#parallax-waves {
+	background-image: url("/adaptive-movement/img/waves.jpg");
+	min-height: 20rem; 
+}
+#parallax-dynamical {
+	background-image: url("/adaptive-movement/img/dynamical-theory.jpg");
+}
+.parallax p {
+font-size: 4em;
+text-transform: uppercase
+}
+
+/* --categoryRed: #832232;
+--categoryRed: #124877;
+--categoryRed: #1a624d; */
+
+
+/* Header colors */
+.menu li:nth-of-type(2)>a {
+	color: var(--categoryRed);
+}
+.menu li:nth-of-type(3)>a {
+	color: var(--categoryBlue);
+}
+.menu li:nth-of-type(4)>a {
+	color: var(--categoryGreen);
+}
+.menu li:nth-of-type(4)>a, .menu li:nth-of-type(3)>a, .menu li:nth-of-type(2)>a {
+	&:hover {
+		color: var(--accent)
+		}
+}
+
+
+/* Font: lato */
+
+
+/* Posts */
+.cover-img {
+	background-size: cover;
+	min-height: 10rem;
 }</style>
 	</head>
 	<body>
@@ -606,20 +656,21 @@ svg.nav-icon {
 		<header>
 			
 		<div class="logo">
-			<img src="/adaptive-movement/img/handprintround-xs.png" class="logo-img">
-			<a href="/adaptive-movement/" class="home-link">TRACES</a>
+			<a href="/adaptive-movement/" class="home-link"><img src="/adaptive-movement/img/adaptive-movement-logo-black.png" class="logo-img" height="600px" width="auto"></a>
 		</div>
 
-			<nav>
-				<h2 class="visually-hidden">Top level navigation menu</h2>
-				<ul class="menu">
-					<li class="nav-item"><a href="/adaptive-movement/">Accueil</a></li>
-					<li class="nav-item"><a href="/adaptive-movement/tags/">Sujets</a></li>
-					<li class="nav-item"><a href="/adaptive-movement/about/">About</a></li>
-				
-				</ul>
-			</nav>
-      <ul class="socials">
+		<nav>
+			<h2 class="visually-hidden">Top level navigation menu</h2>
+			<ul class="menu">
+				<li class="nav-item"><a href="/adaptive-movement/">Home</a></li>
+				<li class="nav-item"><a href="/adaptive-movement/theory/">Theory</a></li>
+				<li class="nav-item"><a href="/adaptive-movement/how-to/">How-to</a></li>
+				<li class="nav-item"><a href="/adaptive-movement/casestudies/">Case studies</a></li>
+				<li class="nav-item"><a href="/adaptive-movement/about/">About</a></li>
+			</ul>
+		</nav>
+
+      	<ul class="socials">
 		<li class="nav-item">
 			<a href="/adaptive-movement/search/" rel="me">
 				<svg xmlns="http://www.w3.org/2000/svg" fill="#24292f" viewBox="0 0 24 24" class="nav-icon">
@@ -639,7 +690,7 @@ svg.nav-icon {
 				  </svg>
 			</a>
 		</li>
-      </ul>
+      	</ul>
 
 
 		</header>
@@ -647,11 +698,18 @@ svg.nav-icon {
 		<main id="skip">
 			
 
+<div class="cover-img" style="background-image: url(images/brent-payton-TrUyLluA4oU-unsplash.jpg );">
+</div>
+
+
+
 <div class="content">
 <h1>Affordances: Perception and Action</h1>
 
 <ul class="post-metadata">
-	<li><time datetime="2019-08-12">12 août 2019</time></li>
+	<li>By <a href="/adaptive-movement/authors/pawel-van-der-steen/">Pawel van der Steen</a> </li>
+	<li> 2019-08-12 </li>
+	<li>in <a href="/adaptive-movement/theory/">theory</a> </li>
 	<li><a href="/adaptive-movement/tags/affordances/" class="post-tag">affordances</a>, </li>
 	<li><a href="/adaptive-movement/tags/perception-and-action/" class="post-tag">perception-and-action</a></li>
 </ul>
@@ -663,17 +721,17 @@ svg.nav-icon {
 </blockquote>
 <p>One of the most widely used theories from the Ecological Psychology framework is that of affordances. In short, affordances are action possibilities that the environment provides us. Affordances made their way from Ecological Psychology into various fields like sports coaching and movement sciences, to product design and artificial intelligence. Even people disagreeing with Ecological Psychology and direct perception have jumped on the Affordance wagon. What exactly is the concept of Affordances, why is it so widely applied and what does it offer the world of sports coaching?</p>
 <p>Ecological Psychology, that puts heavy emphasis on studying behaviour of biological systems within the context they are found in, makes two statements with regards to perception. Firstly, the environment provides us with rich visual information, that allows us to directly perceive the environment without interpretation thereof. Secondly, according to Gibson (The 'founder' of Ecological Psychology), our perception is directly linked to action. What we perceive are 'action possibilities', for which Gibson coined the term 'Affordance'. It is the theory of affordances that lays the foundation for sports coaching methodologies, but also other fields.</p>
-<p>Just saying that the environment gives us opportunities to act upon is fairly self-explanatory and straight forward, but wouldn't do justice the complexity of changing nature of the situation. This is because affordances exist as a relationship based on two entities: The individual who perceives the environment, and the environment itself. Affordances are part of the animal-environment system. ((Chemero, A. (2003). An Outline of a Theory of Affordances. <em>Ecological Psychology</em>, <em>15</em>(2), 181–195.)) ((Chemero, A. (n.d.). Radical Embodied Cognitive Science.)) (( Stoffregen, T. A. (2003). Affordances as Properties of the Animal-Environment System. <em>Ecological Psychology</em>, <em>15</em>(2), 115–134.))</p>
+<p>Just saying that the environment gives us opportunities to act upon is fairly self-explanatory and straight forward, but wouldn't do justice the complexity of changing nature of the situation. This is because affordances exist as a relationship based on two entities: The individual who perceives the environment, and the environment itself. Affordances are part of the animal-environment system. <sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup></p>
 <blockquote>
 <p>It is important to note that there are slight variations in how different people define affordances. This is even the case between us, the writers of the blog. As interesting as it is, these minor differences are not relevant for using this concept in sports, and differences will be pointed out where relevant.</p>
 </blockquote>
 <h2 id="effectivities" tabindex="-1"><strong>Effectivities</strong> <a class="header-anchor" href="#effectivities">#</a></h2>
 <p>Firstly, animals (including humans) have vastly different abilities. For a bird, the sky affords flying, as it has wings. Humans are not able to fly without machines, but we have arms that allow us to throw objects in the same space birds can fly in. Thus, each species of animals has different affordances in the same environment. This difference in affordances is also present between individuals of the same species. A branch of a tree might afford someone to hang from it, if that person is strong enough to do so. You could not generalise to say that the tree branch affords hanging from, however, as someone else could have hands that are too small, or not enough strength to do so. Or maybe the branch is strong enough to hold a child, but not an adult.</p>
-<p>The abilities of an individual thus play a key role in the actualisation of affordances. The abilities of an individual are called 'effectivities', or 'organismic constraints'. ((Button, C., Davids, K &amp; Bennett, S. (2008). <em>Dynamics of Skill Acquisition: A constraints-led approach</em>.)) ((Chemero, A. (n.d.). Radical Embodied Cognitive Science.))The potential effectivities are specific to a species, but specific effectivities are highly individual and can change over time. These changes can be slow and long term, like learning new movement patterns or gaining muscle strength. This for example allows someone to carry more weight, jump higher or learn how to swim. Changes can also form limitations. A toddler is able to crawl through certain gaps that it can no longer crawl through when being a teenager, for example.</p>
-<p>The changes of effectivities can be much shorter term too, however. Imagine being able to lift a certain weight. If you're into strength training you'll know that after lifting that weight a few times in a row, you will not be able to do so anymore due to fatigue. Another example of a decrease in ability can happen due to emotional stress, like fear. In a study conducted on climbers, it was found that fear can actually decrease the physical ability to perform certain movements. Participants were asked to perform the same traverse, that had more hold than necessary, twice: once at ground level, and once a few meters off the ground. Even though they were secured with a rope, they made use of more holds on the higher route. In a similar experiment the participants perceived and actual vertical reach was measured on the climbing wall. While under pressure of fear both the perceived ability and the actual ability to reach was less. ((Pijpers, J., Oudejans, R., Bakker, F., &amp; Beek, P. (2006). The Role of Anxiety in Perceiving and Realizing Affordances. <em>Ecological Psychology</em>, <em>18</em>, 131–161.))</p>
+<p>The abilities of an individual thus play a key role in the actualisation of affordances. The abilities of an individual are called 'effectivities', or 'organismic constraints'. <sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup>The potential effectivities are specific to a species, but specific effectivities are highly individual and can change over time. These changes can be slow and long term, like learning new movement patterns or gaining muscle strength. This for example allows someone to carry more weight, jump higher or learn how to swim. Changes can also form limitations. A toddler is able to crawl through certain gaps that it can no longer crawl through when being a teenager, for example.</p>
+<p>The changes of effectivities can be much shorter term too, however. Imagine being able to lift a certain weight. If you're into strength training you'll know that after lifting that weight a few times in a row, you will not be able to do so anymore due to fatigue. Another example of a decrease in ability can happen due to emotional stress, like fear. In a study conducted on climbers, it was found that fear can actually decrease the physical ability to perform certain movements. Participants were asked to perform the same traverse, that had more hold than necessary, twice: once at ground level, and once a few meters off the ground. Even though they were secured with a rope, they made use of more holds on the higher route. In a similar experiment the participants perceived and actual vertical reach was measured on the climbing wall. While under pressure of fear both the perceived ability and the actual ability to reach was less. <sup class="footnote-ref"><a href="#fn3" id="fnref3">[3]</a></sup></p>
 <h2 id="constraints" tabindex="-1"><strong>Constraints</strong> <a class="header-anchor" href="#constraints">#</a></h2>
 <p>Secondly, there is the environment. Just like an animal, the environment is subject to big changes over time. A steep grass hill for example can afford capable humans of walking up and down on a sunny day. Once it starts raining walking up and especially down becomes much more challenging, and a new affordance of sliding down the hill will arise. A tree branch might afford hanging on, but once the branch dies it would break if hanging would be attempted. Alternatively, a young tree might be too weak to support any significant weight, but after it grows sufficiently it might turn into a favourite climbing tree of the locals.</p>
-<p>There are various traits of the environment that are defining for action. They include the height, width and weight of objects, its textures and distance relative to each other or the individual. These defining traits are called 'constraints', or 'environmental constraints'. ((Button, C., Davids, K &amp; Bennett, S. (2008). <em>Dynamics of Skill Acquisition: A constraints-led approach</em>.)) ((Chemero, A. (2003). An Outline of a Theory of Affordances. <em>Ecological Psychology</em>, <em>15</em>(2), 181–195.)) ((Chemero, A. (n.d.). Radical Embodied Cognitive Science.))</p>
+<p>There are various traits of the environment that are defining for action. They include the height, width and weight of objects, its textures and distance relative to each other or the individual. These defining traits are called 'constraints', or 'environmental constraints'. <sup class="footnote-ref"><a href="#fn4" id="fnref4">[4]</a></sup></p>
 <p>This word is slightly confusing, as in everyday life a constraint is something that limits. In the context of affordances constraints to pose limitations as well, but they are also enablers. To get back at the wet hill example, you could argue that the wet grass caused by rain has now limited the ability to walk, but you could equally argue that the dry hill has limited your ability to slide. Thus, constraints within this context shouldn't be seen as a positive or negative, but rather a neutral and defining characteristic.</p>
 <h2 id="affordances" tabindex="-1"><strong>Affordances</strong> <a class="header-anchor" href="#affordances">#</a></h2>
 <p>So now we can see that Affordances need two main elements: effectivities and constraints. Without the existence of either two elements, an affordance cannot be actualised. It is also important to understand that the two elements change over time, both rapidly and slowly. Affordances are a good example of a dynamical system within Ecological Psychology.</p>
@@ -681,14 +739,35 @@ svg.nav-icon {
 <p>Some people believe that the affordances exists in the environment regardless of the existence of a person to act upon. An individual merely actualises an affordance. Others (like myself), believe that an individual with relevant abilities are necessary for an affordance to exist. In this view, only constraints exist in the environment, and affordances are relational.</p>
 </blockquote>
 <p>Now that we understand affordances a bit better, we can loop back to perception. As mentioned earlier, according to Ecological Psychology perception is for action. Generally, what we perceive are affordances that are relevant to ourselves. It is possible to perceive affordances for others too, but it is crucial to understand the abilities of the other person for that.</p>
-<p>You can imagine that an environment provides us with almost immeasurable amounts of affordances. This could be quite overwhelming. You could even expect an overload of information that results in indecisiveness. This does happen in some people, but it would be considered a health problem. Generally speaking, however, we are able to perceive the affordances more relevant to us. This is because we are not fully rational in the way we perceive our environment, and much more emotional and intentional. The affordances we perceive are not only calibrated based on our effectivities and environmental constraints, but also our intentions and emotions, these can be called 'task constraints'. ((Button, C., Davids, K &amp; Bennett, S. (2008). <em>Dynamics of Skill Acquisition: A constraints-led approach</em>.)) For example, when you walk into your room after a long day of exercise and you see your chair, you will gladly sit down on it. If you had the tough luck of flicking your light switch and your light popped, the same chair could suddenly be seen as the perfect step-up to replace your light bulb. Based on what we require or desire to do, certain affordances will be more prominent and invite behaviour. These invitations that the affordances give make it easier to select which actions to undertake. The affordances that stand out more as being relevant to an individual at a given moment in time are called the Field of Affordances. ((Bruineberg, J., &amp; Rietveld, E. (2014). Self-organization, free energy minimization, and optimal grip on a field of affordances. <em>Frontiers in Human Neuroscience</em>, <em>8</em>.)) ((Withagen, R., Araujo, D., &amp; De Poel, H. (2017). Inviting affordances and agency. <em>New Ideas in Psychology</em>, <em>45</em>, 11–18.)) ((Withagen, R., De Poel, H., Araujo, D., &amp; Pepping, G.-J. (2012). Affordances can invite behavior: Reconsidering the relationship between affordances and agency. <em>New Ideas in Psychology</em>, <em>30</em>, 250–258.))</p>
-<p>This means quite literally that everyone perceives their environment differently, depending on our abilities. It also means the way we perceive our environment changes over time, provided that our abilities and intentions change. This change in perception of the environment has been measured in multiple studies. When a person intends to walk or run up a hill, that hill is perceived to be steeper and bigger when the individual is exhausted, compared to when the individual is fresh and full of energy. In a similar study, a wall that could not be climbed was overestimated in height, whereas the height was more accurately judged when it was climbable by the individual. Smaller objects can be perceived differently depending on skill level too: softball players that were better at hitting a ball perceive the ball as bigger than their less skilled counterparts. Even though we are able to perceive affordances for other, it seems that ultimately our own ability plays the biggest role in how we perceive the world. ((Bhalla, M., &amp; Proffitt, D. (1999). Visual-Motor recalibration in geographical slant perception. <em>Journal of Experimental Psychology. Human Perception and Performance</em>, <em>25</em>, 1076–1096.)) ((Taylor, J. E., Witt, J. K., &amp; Sugovic, M. (2011). When walls are no longer barriers: perception of wall height in parkour. <em>Perception</em>, <em>40</em>(6), 757–760.)) (( Witt, J. K., South, S. C., &amp; Sugovic, M. (2014). A perceiver’s own abilities influence perception, even when observing others. <em>Psychonomic Bulletin &amp; Review</em>, <em>21</em>(2), 384–389.)) ((Witt, J., &amp; Proffitt, D. (2005). See the Ball, Hit the Ball: Apparent Ball Size Is Correlated With Batting Average. <em>Psychological Science</em>, <em>16</em>, 937–938.))</p>
-<p>Experience in performing a task is crucial in learning how to perceive affordances. Before performing a task, it can be hard to accurately judge affordances. After gaining the physical experience in performing the task perception gets more accurate, which proves that perception and action feed into each other. ((Franchak, J. M., van der Zalm, D. J., &amp; Adolph, K. E. (2010). Learning by doing: Action performance facilitates affordance perception. <em>Vision Research</em>, <em>50</em>(24), 2758–2765.))</p>
+<p>You can imagine that an environment provides us with almost immeasurable amounts of affordances. This could be quite overwhelming. You could even expect an overload of information that results in indecisiveness. This does happen in some people, but it would be considered a health problem. Generally speaking, however, we are able to perceive the affordances more relevant to us. This is because we are not fully rational in the way we perceive our environment, and much more emotional and intentional. The affordances we perceive are not only calibrated based on our effectivities and environmental constraints, but also our intentions and emotions, these can be called 'task constraints'.<sup class="footnote-ref"><a href="#fn5" id="fnref5">[5]</a></sup> For example, when you walk into your room after a long day of exercise and you see your chair, you will gladly sit down on it. If you had the tough luck of flicking your light switch and your light popped, the same chair could suddenly be seen as the perfect step-up to replace your light bulb. Based on what we require or desire to do, certain affordances will be more prominent and invite behaviour. These invitations that the affordances give make it easier to select which actions to undertake. The affordances that stand out more as being relevant to an individual at a given moment in time are called the Field of Affordances. <sup class="footnote-ref"><a href="#fn6" id="fnref6">[6]</a></sup></p>
+<p>This means quite literally that everyone perceives their environment differently, depending on our abilities. It also means the way we perceive our environment changes over time, provided that our abilities and intentions change. This change in perception of the environment has been measured in multiple studies. When a person intends to walk or run up a hill, that hill is perceived to be steeper and bigger when the individual is exhausted, compared to when the individual is fresh and full of energy. In a similar study, a wall that could not be climbed was overestimated in height, whereas the height was more accurately judged when it was climbable by the individual. Smaller objects can be perceived differently depending on skill level too: softball players that were better at hitting a ball perceive the ball as bigger than their less skilled counterparts. Even though we are able to perceive affordances for other, it seems that ultimately our own ability plays the biggest role in how we perceive the world.<sup class="footnote-ref"><a href="#fn7" id="fnref7">[7]</a></sup></p>
+<p>Experience in performing a task is crucial in learning how to perceive affordances. Before performing a task, it can be hard to accurately judge affordances. After gaining the physical experience in performing the task perception gets more accurate, which proves that perception and action feed into each other.<sup class="footnote-ref"><a href="#fn8" id="fnref8">[8]</a></sup></p>
 <h2 id="application-in-sports" tabindex="-1"><strong>Application in sports</strong> <a class="header-anchor" href="#application-in-sports">#</a></h2>
 <p>As a sports coach, or a practitioner that self-coaches, understanding the theory of affordances is very useful. The first realisation is that in fact, the same environment is perceived differently by different individuals, and differently over time as well. The second realisation is that the environment plays a key role in the animal-environment system, so the way a training environment is designed can make or break how effective a training session will be.</p>
 <p>When you are creating a set-up for training you are effectively creating a Landscape of Affordances with the intention is to improve certain skills. What you ultimately need to get right, however, is the Field of Affordances for one or multiple students. This Field of Affordances will depend on the Landscape of Affordances, the effectivities of the student(s), and the task constraints. Not all students will have the same Field of Affordances! A set-up that works well to improve skill A for student A, may not work for student B. It is then important to assess whether the desired improvement can be achieved in student B by changing the task constraints, or by adapting environmental constraints. As a coach you will need to make sure that you adapt and cater for different individuals.</p>
 <h2 id="summary" tabindex="-1"><strong>Summary</strong> <a class="header-anchor" href="#summary">#</a></h2>
 <p>Affordances are action possibilities in the environment. The available affordances vary for each individual and depend on the individual’s abilities, intentions and the characteristics of the environment. Our perception is mostly aimed at perceiving affordances, and the affordances we perceive are shaped by our abilities and prior experiences. When practising a sport, our environment has a big role in the way we will behave. As a sports coach we need to be aware that the way we design the training set-up is very important when shaping a training session, and we need to be aware that one single training set-up will have a different effect on each individual taking part in the session.</p>
+<hr class="footnotes-sep">
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn1" class="footnote-item"><p>Chemero, A. (2003). An Outline of a Theory of Affordances. <em>Ecological Psychology</em>, <em>15</em>(2), 181–195. Chemero, A. (n.d.). Radical Embodied Cognitive Science. Stoffregen, T. A. (2003). Affordances as Properties of the Animal-Environment System. <em>Ecological Psychology</em>, <em>15</em>(2), 115–134. <a href="#fnref1" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn2" class="footnote-item"><p>Button, C., Davids, K &amp; Bennett, S. (2008). <em>Dynamics of Skill Acquisition: A constraints-led approach</em>. Chemero, A. (n.d.). Radical Embodied Cognitive Science. <a href="#fnref2" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn3" class="footnote-item"><p>Pijpers, J., Oudejans, R., Bakker, F., &amp; Beek, P. (2006). The Role of Anxiety in Perceiving and Realizing Affordances. <em>Ecological Psychology</em>, <em>18</em>, 131–161. <a href="#fnref3" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn4" class="footnote-item"><p>Button, C., Davids, K &amp; Bennett, S. (2008). <em>Dynamics of Skill Acquisition: A constraints-led approach</em>. Chemero, A. (2003). An Outline of a Theory of Affordances. <em>Ecological Psychology</em>, <em>15</em>(2), 181–195. Chemero, A. (n.d.). Radical Embodied Cognitive Science. <a href="#fnref4" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn5" class="footnote-item"><p>Button, C., Davids, K &amp; Bennett, S. (2008). <em>Dynamics of Skill Acquisition: A constraints-led approach</em>. <a href="#fnref5" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn6" class="footnote-item"><p>Bruineberg, J., &amp; Rietveld, E. (2014). Self-organization, free energy minimization, and optimal grip on a field of affordances. <em>Frontiers in Human Neuroscience</em>, <em>8</em>. Withagen, R., Araujo, D., &amp; De Poel, H. (2017). Inviting affordances and agency. <em>New Ideas in Psychology</em>, <em>45</em>, 11–18. Withagen, R., De Poel, H., Araujo, D., &amp; Pepping, G.-J. (2012). Affordances can invite behavior: Reconsidering the relationship between affordances and agency. <em>New Ideas in Psychology</em>, <em>30</em>, 250–258. <a href="#fnref6" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn7" class="footnote-item"><p>Bhalla, M., &amp; Proffitt, D. (1999). Visual-Motor recalibration in geographical slant perception. <em>Journal of Experimental Psychology. Human Perception and Performance</em>, <em>25</em>, 1076–1096. Taylor, J. E., Witt, J. K., &amp; Sugovic, M. (2011). When walls are no longer barriers: perception of wall height in parkour. <em>Perception</em>, <em>40</em>(6), 757–760.  Witt, J. K., South, S. C., &amp; Sugovic, M. (2014). A perceiver’s own abilities influence perception, even when observing others. <em>Psychonomic Bulletin &amp; Review</em>, <em>21</em>(2), 384–389. Witt, J., &amp; Proffitt, D. (2005). See the Ball, Hit the Ball: Apparent Ball Size Is Correlated With Batting Average. <em>Psychological Science</em>, <em>16</em>, 937–938. <a href="#fnref7" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn8" class="footnote-item"><p>Franchak, J. M., van der Zalm, D. J., &amp; Adolph, K. E. (2010). Learning by doing: Action performance facilitates affordance perception. <em>Vision Research</em>, <em>50</em>(24), 2758–2765. <a href="#fnref8" class="footnote-backref">↩︎</a></p>
+</li>
+</ol>
+</section>
 
 </article>
 <nav class="pagination-inner" aria-label="Articles next and previous links">
@@ -700,9 +779,10 @@ svg.nav-icon {
 
 </div>
 
+
 		</main>
 
-		<footer><small>Traces 2023 - Yann Daout - <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0 Deed</a></small></footer>
+		<footer><small>Adaptive Movement 2023 - Yann Daout - <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0 Deed</a></small></footer>
 
 		<!-- Current page: /adaptive-movement/blog/affordances-perception-and-action/ -->
 	</body>

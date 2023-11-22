@@ -9,6 +9,174 @@
 		<link rel="alternate" href="/adaptive-movement/feed/feed.json" type="application/json" title="Traces">
 		
 		<style>.postlist { counter-reset: start-from 2 }
+/**
+ * okaidia theme for JavaScript, CSS and HTML
+ * Loosely based on Monokai textmate theme by http://www.monokai.nl/
+ * @author ocodia
+ */
+
+code[class*="language-"],
+pre[class*="language-"] {
+	color: #f8f8f2;
+	background: none;
+	text-shadow: 0 1px rgba(0, 0, 0, 0.3);
+	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+	font-size: 1em;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+	word-wrap: normal;
+	line-height: 1.5;
+
+	-moz-tab-size: 4;
+	-o-tab-size: 4;
+	tab-size: 4;
+
+	-webkit-hyphens: none;
+	-moz-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+	padding: 1em;
+	margin: .5em 0;
+	overflow: auto;
+	border-radius: 0.3em;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+	background: #272822;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+	padding: .1em;
+	border-radius: .3em;
+	white-space: normal;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+	color: #8292a2;
+}
+
+.token.punctuation {
+	color: #f8f8f2;
+}
+
+.token.namespace {
+	opacity: .7;
+}
+
+.token.property,
+.token.tag,
+.token.constant,
+.token.symbol,
+.token.deleted {
+	color: #f92672;
+}
+
+.token.boolean,
+.token.number {
+	color: #ae81ff;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+	color: #a6e22e;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string,
+.token.variable {
+	color: #f8f8f2;
+}
+
+.token.atrule,
+.token.attr-value,
+.token.function,
+.token.class-name {
+	color: #e6db74;
+}
+
+.token.keyword {
+	color: #66d9ef;
+}
+
+.token.regex,
+.token.important {
+	color: #fd971f;
+}
+
+.token.important,
+.token.bold {
+	font-weight: bold;
+}
+.token.italic {
+	font-style: italic;
+}
+
+.token.entity {
+	cursor: help;
+}
+/*
+ * New diff- syntax
+ */
+
+pre[class*="language-diff-"] {
+	--eleventy-code-padding: 1.25em;
+	padding-left: var(--eleventy-code-padding);
+	padding-right: var(--eleventy-code-padding);
+}
+.token.deleted {
+	background-color: hsl(0, 51%, 37%);
+	color: inherit;
+}
+.token.inserted {
+	background-color: hsl(126, 31%, 39%);
+	color: inherit;
+}
+
+/* Make the + and - characters unselectable for copy/paste */
+.token.prefix.unchanged,
+.token.prefix.inserted,
+.token.prefix.deleted {
+	-webkit-user-select: none;
+	user-select: none;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding-top: 2px;
+	padding-bottom: 2px;
+}
+.token.prefix.inserted,
+.token.prefix.deleted {
+	width: var(--eleventy-code-padding);
+	background-color: rgba(0,0,0,.2);
+}
+
+/* Optional: full-width background color */
+.token.inserted:not(.prefix),
+.token.deleted:not(.prefix) {
+	display: block;
+	margin-left: calc(-1 * var(--eleventy-code-padding));
+	margin-right: calc(-1 * var(--eleventy-code-padding));
+	text-decoration: none; /* override del, ins, mark defaults */
+	color: inherit; /* override del, ins, mark defaults */
+}
 * { box-sizing: border-box; }
 /* Defaults */
 :root {
@@ -35,6 +203,10 @@
 	--primary: black;
 	--accent: #47c1b9;
 	--reverse: white;
+
+	--categoryRed: #832232;
+	--categoryBlue: #124877;
+	--categoryGreen: #1a624d;
 
 	--syntax-tab-size: 2;
 }
@@ -78,6 +250,8 @@ body {
 footer {
 	margin-top: auto;
 	padding: 1rem 2rem;
+	margin-right: 0;
+	margin-left: auto;
 }
 
 /* https://www.a11yproject.com/posts/how-to-hide-content/ */
@@ -105,25 +279,18 @@ li {
 a[href] {
 	color: var(--text-color-link);
 }
-a[href]:visited {
-	color: var(--text-color-link-visited);
-}
-a[href]:hover,
-a[href]:active {
+
+a:hover,
+a:active {
 	color: var(--text-color-link-active);
 }
 
-main {
-	padding: 1rem;
-}
 main :first-child {
 	margin-top: 0;
 }
 
 header {
 	border-bottom: 1px dashed var(--color-gray-20);
-/* 	display: flex;
-	align-items: center; */
 }
 header:after {
 	content: "";
@@ -176,38 +343,12 @@ header {
 	justify-content: space-evenly;
 	padding: 1em;
 }
-.logo {
-	display: flex;
-	align-items: center;
-}
+
 .logo-img {
-	max-width: 20%;
+	max-width: 60%;
 	height: auto;
 }
-.home-link {
-	font-weight: 700;
-	font-size: min(max(16px, 4vw), 5rem);
-	font-family: "Rubik Mono One", sans-serif;
-	text-decoration: none;
-	background-size: cover;
-	background-position: 0 0;
-	transition: all 0.3s ease;
-	background: url("/adaptive-movement/img/handprint.png") 100% 0;
-	background-clip: text;
-	-webkit-background-clip: text;
-}
-.home-link:hover {
-	-webkit-text-fill-color: #5b728a54;
-	animation: animatedOne 100s linear infinite;
-}
-@keyframes animatedOne {
-	from {
-		background-position: 0 0;
-	}
-	to {
-		background-position: 100% 0;
-	}
-}
+
 .menu {
 	font-size: large;
 }
@@ -352,9 +493,6 @@ h2 + .header-anchor {
 		transform: scale(1.9);
 	}
 }
-.sidebar.tag-links-tag a:hover {
-	color: var(--text-color);
-}
 
 /* All tags list */
 .all-tags-list {
@@ -403,23 +541,6 @@ svg.nav-icon {
 	height: 30px;
 }
 
-/* Sidebar */
-.two-columns {
-	display: grid;
-	gap: 1rem 2rem;
-	position: relative;
-	margin: 0 auto;
-	@media (min-width: 68em) {
-		grid-template-columns: 1fr 2fr;
-	}
-}
-.sidebar {
-	position: sticky;
-	margin: auto;
-}
-.two-columns .content {
-	margin-left: 0;
-}
 /* Content */
 .content {
 	max-width: 90ch;
@@ -431,6 +552,103 @@ svg.nav-icon {
 	margin: 0 auto;
 	width: 100%;
 	padding: 0 1rem;
+}
+
+/* Author pages*/ 
+.author-photo {
+	display:block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+/* Homepage */
+.home-grid {
+	display: grid;
+	text-align: center;
+}
+.three-columns {
+	display: flex;
+	flex-direction: row;
+	margin:0;
+	max-width: 100%;
+}
+.single-column {
+	padding: 3rem 0;
+}
+.overlay-container {
+	position: relative;
+}
+.text-overlay {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	text-align: center;
+	transform: translate(-50%, -50%);
+	text-shadow: 0 0 8px black;
+	font-size: 4em;
+	color: white;
+}
+.overlay-img {
+	max-width:100%;
+}
+a.text-overlay {
+	&:visited {
+	color: white;
+	}
+	&:hover {
+	color: var(--accent)
+	}
+	&:not(:hover) {
+		text-decoration: none;
+	}
+}
+.parallax {
+	background-attachment: fixed;
+	background-position: center;
+	background-size: cover;
+	min-height: 500px; 
+}
+#parallax-waves {
+	background-image: url("/adaptive-movement/img/waves.jpg");
+	min-height: 20rem; 
+}
+#parallax-dynamical {
+	background-image: url("/adaptive-movement/img/dynamical-theory.jpg");
+}
+.parallax p {
+font-size: 4em;
+text-transform: uppercase
+}
+
+/* --categoryRed: #832232;
+--categoryRed: #124877;
+--categoryRed: #1a624d; */
+
+
+/* Header colors */
+.menu li:nth-of-type(2)>a {
+	color: var(--categoryRed);
+}
+.menu li:nth-of-type(3)>a {
+	color: var(--categoryBlue);
+}
+.menu li:nth-of-type(4)>a {
+	color: var(--categoryGreen);
+}
+.menu li:nth-of-type(4)>a, .menu li:nth-of-type(3)>a, .menu li:nth-of-type(2)>a {
+	&:hover {
+		color: var(--accent)
+		}
+}
+
+
+/* Font: lato */
+
+
+/* Posts */
+.cover-img {
+	background-size: cover;
+	min-height: 10rem;
 }</style>
 	</head>
 	<body>
@@ -439,20 +657,21 @@ svg.nav-icon {
 		<header>
 			
 		<div class="logo">
-			<img src="/adaptive-movement/img/handprintround-xs.png" class="logo-img">
-			<a href="/adaptive-movement/" class="home-link">TRACES</a>
+			<a href="/adaptive-movement/" class="home-link"><img src="/adaptive-movement/img/adaptive-movement-logo-black.png" class="logo-img" height="600px" width="auto"></a>
 		</div>
 
-			<nav>
-				<h2 class="visually-hidden">Top level navigation menu</h2>
-				<ul class="menu">
-					<li class="nav-item"><a href="/adaptive-movement/">Accueil</a></li>
-					<li class="nav-item"><a href="/adaptive-movement/tags/">Sujets</a></li>
-					<li class="nav-item"><a href="/adaptive-movement/about/">About</a></li>
-				
-				</ul>
-			</nav>
-      <ul class="socials">
+		<nav>
+			<h2 class="visually-hidden">Top level navigation menu</h2>
+			<ul class="menu">
+				<li class="nav-item"><a href="/adaptive-movement/">Home</a></li>
+				<li class="nav-item"><a href="/adaptive-movement/theory/">Theory</a></li>
+				<li class="nav-item"><a href="/adaptive-movement/how-to/">How-to</a></li>
+				<li class="nav-item"><a href="/adaptive-movement/casestudies/">Case studies</a></li>
+				<li class="nav-item"><a href="/adaptive-movement/about/">About</a></li>
+			</ul>
+		</nav>
+
+      	<ul class="socials">
 		<li class="nav-item">
 			<a href="/adaptive-movement/search/" rel="me">
 				<svg xmlns="http://www.w3.org/2000/svg" fill="#24292f" viewBox="0 0 24 24" class="nav-icon">
@@ -472,176 +691,15 @@ svg.nav-icon {
 				  </svg>
 			</a>
 		</li>
-      </ul>
+      	</ul>
 
 
 		</header>
 
 		<main id="skip">
-			    <div class="two-columns">
-        <div class="sidebar">
-<ul class="tag-links">
-  
-    
-    <li class="tag-links-tag"><a href="/adaptive-movement/tags/affordances/">affordances</a>
-    </li>
-  
-    
-    <li class="tag-links-tag"><a href="/adaptive-movement/tags/perception-and-action/">perception-and-action</a>
-    </li>
-  
-    
-    <li class="tag-links-tag"><a href="/adaptive-movement/tags/action-and-perception/">action-and-perception</a>
-    </li>
-  
-    
-    <li class="tag-links-tag"><a href="/adaptive-movement/tags/ecological-dynamics/">ecological-dynamics</a>
-    </li>
-  
-    
-    <li class="tag-links-tag"><a href="/adaptive-movement/tags/self-organization/">self-organization</a>
-    </li>
-  
-    
-    <li class="tag-links-tag"><a href="/adaptive-movement/tags/the-constraint-led-approach/">the-constraint-led-approach</a>
-    </li>
-  
-    
-    <li class="tag-links-tag"><a href="/adaptive-movement/tags/dynamical-systems/">dynamical-systems</a>
-    </li>
-  
-    
-    <li class="tag-links-tag"><a href="/adaptive-movement/tags/ecological-psychology/">ecological-psychology</a>
-    </li>
-  
-    
-    <li class="tag-links-tag"><a href="/adaptive-movement/tags/cla/">cla</a>
-    </li>
-  
-    
-    <li class="tag-links-tag"><a href="/adaptive-movement/tags/floor-is-lava/">floor-is-lava</a>
-    </li>
-  
-    
-    <li class="tag-links-tag"><a href="/adaptive-movement/tags/game/">game</a>
-    </li>
-  
-    
-    <li class="tag-links-tag"><a href="/adaptive-movement/tags/attractors/">attractors</a>
-    </li>
-  
-    
-    <li class="tag-links-tag"><a href="/adaptive-movement/tags/coordination/">coordination</a>
-    </li>
-  
-    
-    <li class="tag-links-tag"><a href="/adaptive-movement/tags/degrees-of-freedom/">degrees-of-freedom</a>
-    </li>
-  
-    
-    <li class="tag-links-tag"><a href="/adaptive-movement/tags/emergence/">emergence</a>
-    </li>
-  
-    
-    <li class="tag-links-tag"><a href="/adaptive-movement/tags/mathematics/">mathematics</a>
-    </li>
-  
-    
-    <li class="tag-links-tag"><a href="/adaptive-movement/tags/self-organisation/">self-organisation</a>
-    </li>
-  
-    
-    <li class="tag-links-tag"><a href="/adaptive-movement/tags/adaptation/">adaptation</a>
-    </li>
-  
-    
-    <li class="tag-links-tag"><a href="/adaptive-movement/tags/creativity/">creativity</a>
-    </li>
-  
-    
-    <li class="tag-links-tag"><a href="/adaptive-movement/tags/differential-learning/">differential-learning</a>
-    </li>
-  
-    
-    <li class="tag-links-tag"><a href="/adaptive-movement/tags/minimal-intervention/">minimal-intervention</a>
-    </li>
-  
-    
-    <li class="tag-links-tag"><a href="/adaptive-movement/tags/motor-abundance/">motor-abundance</a>
-    </li>
-  
-    
-    <li class="tag-links-tag"><a href="/adaptive-movement/tags/variability/">variability</a>
-    </li>
-  
-    
-    <li class="tag-links-tag"><a href="/adaptive-movement/tags/anticipation/">anticipation</a>
-    </li>
-  
-    
-    <li class="tag-links-tag"><a href="/adaptive-movement/tags/coupling/">coupling</a>
-    </li>
-  
-    
-    <li class="tag-links-tag"><a href="/adaptive-movement/tags/gibson/">gibson</a>
-    </li>
-  
-    
-    <li class="tag-links-tag"><a href="/adaptive-movement/tags/prediction/">prediction</a>
-    </li>
-  
-    
-    <li class="tag-links-tag"><a href="/adaptive-movement/tags/prospective/">prospective</a>
-    </li>
-  
-    
-    <li class="tag-links-tag"><a href="/adaptive-movement/tags/representations/">representations</a>
-    </li>
-  
-    
-    <li class="tag-links-tag"><a href="/adaptive-movement/tags/constraints/">constraints</a>
-    </li>
-  
-    
-    <li class="tag-links-tag"><a href="/adaptive-movement/tags/dance/">dance</a>
-    </li>
-  
-    
-    <li class="tag-links-tag"><a href="/adaptive-movement/tags/exploration/">exploration</a>
-    </li>
-  
-    
-    <li class="tag-links-tag"><a href="/adaptive-movement/tags/ideation/">ideation</a>
-    </li>
-  
-    
-    <li class="tag-links-tag"><a href="/adaptive-movement/tags/motor-creativity/">motor-creativity</a>
-    </li>
-  
-    
-    <li class="tag-links-tag"><a href="/adaptive-movement/tags/oulipo/">oulipo</a>
-    </li>
-  
-    
-    <li class="tag-links-tag"><a href="/adaptive-movement/tags/randomness/">randomness</a>
-    </li>
-  
-    
-    <li class="tag-links-tag"><a href="/adaptive-movement/tags/teaching/">teaching</a>
-    </li>
-  
-    
-    <li class="tag-links-tag"><a href="/adaptive-movement/tags/effectivities/">effectivities</a>
-    </li>
-  
-    
-    <li class="tag-links-tag"><a href="/adaptive-movement/tags/methods/">methods</a>
-    </li>
-  
-  </ul>
-</div>
-        <div class="content">
-            <h1>Posts avec “teaching”</h1>
+			
+<div class="content">
+<h1>Tagged “teaching”</h1>
 
 
 
@@ -649,7 +707,7 @@ svg.nav-icon {
 
 	<li class="postlist-item">
 		<a href="/adaptive-movement/blog/can-we-teach-creativity-part-1/" class="postlist-link">Can we teach creativity ? (Part 1)</a>
-		<time class="postlist-date" datetime="2022-08-02">02 août 2022</time>
+		<time class="postlist-date" datetime="2022-08-02">02 August 2022</time>
 	</li>
 	<p>We tend to think of creativity as the generation or apparition of new ideas, which can then be put into action. I call this “ideation”. This view of creativity is probably so strong because we take our paradigmatic examples of creativity in specific...</p>
 
@@ -658,14 +716,12 @@ svg.nav-icon {
 
 
 <p>Voir <a href="/adaptive-movement/tags/">tous les tags</a>.</p>
-        </div>
-    </div>
 
 
 
-		</main>
+		</div></main>
 
-		<footer><small>Traces 2023 - Yann Daout - <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0 Deed</a></small></footer>
+		<footer><small>Adaptive Movement 2023 - Yann Daout - <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0 Deed</a></small></footer>
 
 		<!-- Current page: /adaptive-movement/tags/teaching/ -->
 	</body>

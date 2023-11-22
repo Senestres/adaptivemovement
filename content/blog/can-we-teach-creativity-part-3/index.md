@@ -1,5 +1,5 @@
 ---
-title: "Can we teach creativity ? (part 3)"
+title: "Can we teach creativity ? (Part 3)"
 author: "Yann Daout"
 date: "2022-10-27"
 categories: 
