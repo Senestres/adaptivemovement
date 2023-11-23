@@ -242,6 +242,21 @@
 	</url>
 	
 	<url>
+		<loc>https://senestres.github.io/adaptive-movement/tags/cla/</loc>
+		<lastmod>2023-11-20</lastmod>
+	</url>
+	
+	<url>
+		<loc>https://senestres.github.io/adaptive-movement/tags/floor-is-lava/</loc>
+		<lastmod>2023-11-20</lastmod>
+	</url>
+	
+	<url>
+		<loc>https://senestres.github.io/adaptive-movement/tags/game/</loc>
+		<lastmod>2023-11-20</lastmod>
+	</url>
+	
+	<url>
 		<loc>https://senestres.github.io/adaptive-movement/tags/adaptation/</loc>
 		<lastmod>2023-11-20</lastmod>
 	</url>
@@ -262,21 +277,6 @@
 	</url>
 	
 	<url>
-		<loc>https://senestres.github.io/adaptive-movement/tags/cla/</loc>
-		<lastmod>2023-11-20</lastmod>
-	</url>
-	
-	<url>
-		<loc>https://senestres.github.io/adaptive-movement/tags/floor-is-lava/</loc>
-		<lastmod>2023-11-20</lastmod>
-	</url>
-	
-	<url>
-		<loc>https://senestres.github.io/adaptive-movement/tags/game/</loc>
-		<lastmod>2023-11-20</lastmod>
-	</url>
-	
-	<url>
 		<loc>https://senestres.github.io/adaptive-movement/theory/</loc>
 		<lastmod>2023-11-21</lastmod>
 	</url>
@@ -292,7 +292,7 @@
 	</url>
 	
 	<url>
-		<loc>https://senestres.github.io/adaptive-movement/casestudies/</loc>
+		<loc>https://senestres.github.io/adaptive-movement/case-studies/</loc>
 		<lastmod>2023-11-22</lastmod>
 	</url>
 </urlset>

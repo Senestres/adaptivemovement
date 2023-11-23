@@ -14,7 +14,6 @@ npm start
 
 <h1>To do</h1>
 Tags
-    put tags at end of post
     put list of tags somewhere (sidebar ?)
 
 post img
@@ -22,11 +21,4 @@ post img
     caption from markdown
     make cover img responsive + set max height
 
-navigation in posts
-    add gap in middle
-
-post lists
-    remove content class -> should be applied to content of post, not post lists itself
-    reduce padding on post list
-    add padding in item of postlist
-    add a grid or flex system -> two posts side by side
+(add a grid or flex system -> two posts side by side)

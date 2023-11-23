@@ -1,5 +1,5 @@
 ---
-layout: layouts/page.njk
+layout: layouts/postlisting.njk
 pagination:
   data: authors
   size: 1
@@ -8,8 +8,12 @@ eleventyComputed:
   title: "{{ author.name }}"
 permalink: /authors/{{ author.key | slugify}}/
 ---
-<img src="{{ author.photo }}" class="author-photo">
-<p>{{ author.name }} {{ author.bio }}</p>
+<div class="content">
+  <img src="{{ author.photo }}" class="author-photo">
+  {{ author.name }} {{ author.bio }}
+  <p>Read posts by {{ author.name }}</p>
+</div> 
+
 
 {% set postslist = collections.posts | authorFilter( author.name ) | reverse%}
 {% include "postslist.njk" %}

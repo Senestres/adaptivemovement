@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Tagged “floor-is-lava”</title>
+		<title>Tagged &quot;floor-is-lava&quot;</title>
 		<meta name="description" content="Skill acquisition and movement education">
 		<link rel="alternate" href="/adaptive-movement/feed/feed.xml" type="application/atom+xml" title="Adaptive Movement">
 		<link rel="alternate" href="/adaptive-movement/feed/feed.json" type="application/json" title="Adaptive Movement">
@@ -524,6 +524,7 @@ h2 + .header-anchor {
 .pagination-inner {
 	display: flex;
 	margin-top: 3rem;
+	gap: 2rem;
 }
 
 .pagination-next {
@@ -531,7 +532,6 @@ h2 + .header-anchor {
 }
 
 /* Social icons*/
-
 nav ul,
 ul.socials {
 	padding: 0;
@@ -549,7 +549,8 @@ svg.nav-icon {
 .content {
 	max-width: 90ch;
 	margin: 0 auto;
-	padding: 3rem 2rem;
+	padding: 1rem 2rem;
+	background-color: #fff;
 }
 
 /* Author pages*/ 
@@ -617,26 +618,33 @@ a.text-overlay {
 	background-attachment: fixed;
 	background-position: center;
 	background-size: cover;
-	min-height: 500px; 
+	height: 20rem;
 }
 #parallax-waves {
 	background-image: url("/adaptive-movement/img/waves.jpg");
-	min-height: 20rem; 
 }
 #parallax-dynamical {
 	background-image: url("/adaptive-movement/img/dynamical-systems.png");
 }
 .parallax span {
-font-size: 4em;
+font-size: 3.5em;
 text-transform: uppercase
 }
 
-/* --categoryRed: #832232;
---categoryRed: #124877;
---categoryRed: #1a624d; */
-
-/* Font: lato or roboto*/
-
+/* Post list */
+.postlist-item {
+	margin-bottom: 2rem;
+	box-shadow: 3px 3px 50px rgba(0, 0, 0, 0.301);
+}
+ .post-metadata {
+	margin: 0 auto;
+	max-width: 110ch;
+	padding: 1rem;
+}
+.postlist {
+	max-width: 90ch;
+	margin: 0 auto;
+}
 
 /* Posts */
 .cover-img {
@@ -644,14 +652,22 @@ text-transform: uppercase
   	max-height: 300px;
   	object-fit: cover;
 }
-.cover-img-big {
+.cover-img-large {
 	background-size: cover;
-	min-height: 10rem;
+	background-position: center;
+	height: 20rem;
+}
+@media (min-width: 50rem) {
+	.cover-img-large, .parallax {
+		height: 30rem;
+	}
+}
+.post-content {
+	margin-top: -120px;
 }
 
-.centered {
-	text-align: center;
-}
+
+
 
 
 .container-tag-list {
@@ -661,9 +677,9 @@ text-transform: uppercase
 	padding: 0 1rem;
 }
 
-.postlist-item {
-	margin-bottom: 2rem;
-	box-shadow: 3px 3px 50px rgba(0, 0, 0, 0.301);
+
+.centered {
+	text-align: center;
 }</style>
 	</head>
 	<body>
@@ -681,7 +697,7 @@ text-transform: uppercase
 			<li class="nav-item"><a href="/adaptive-movement/">Home</a></li>
 			<li class="nav-item"><a href="/adaptive-movement/theory/">Theory</a></li>
 			<li class="nav-item"><a href="/adaptive-movement/how-to/">How-to</a></li>
-			<li class="nav-item"><a href="/adaptive-movement/casestudies/">Case studies</a></li>
+			<li class="nav-item"><a href="/adaptive-movement/case-studies/">Case studies</a></li>
 			<li class="nav-item"><a href="/adaptive-movement/about/">About</a></li>
 		</ul>
 	</nav>
@@ -715,9 +731,11 @@ text-transform: uppercase
 
 		<main id="skip">
 			
-<div class="content">
-<h1>Tagged “floor-is-lava”</h1>
 
+<div class="content">
+<h1>Tagged &quot;floor-is-lava&quot;</h1>
+</div>
+floor-is-lava
 
 
 <ol class="postlist">
@@ -725,24 +743,19 @@ text-transform: uppercase
 
 	<li class="postlist-item">
 		<img class="cover-img" src="/adaptive-movement/blog/the-floor-is-lava/images/buzz-andersen-lava.png">
-		<a href="/adaptive-movement/blog/the-floor-is-lava/" class="postlist-link">The floor is lava</a>
 		<div class="post-metadata">
+		<a href="/adaptive-movement/blog/the-floor-is-lava/" class="postlist-link">The floor is lava</a>
 			<time class="postlist-date" datetime="2019-08-13">13 August 2019</time>
 			<a class="postlist-date" href="/adaptive-movement/authors/yann-daout/"> Yann Daout</a>
-		</div>
 		<p>You probably know the game called “the floor is lava”, where players must traverse space without touching the ground. Although it is a kids’ game, it is also popular among parkour practitioners, who use different obstacles, ledges, walls or rails to...</p>
+		</div>
 	</li>
 
 
 </ol>
 
-
-
-<p>Voir <a href="/adaptive-movement/tags/">tous les tags</a>.</p>
-
-
-
-		</div></main>
+<p>See all <a href="/adaptive-movement/tags/">tags</a>.</p>
+		</main>
 
 		<footer><small>Adaptive Movement 2023 - Yann Daout - <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0 Deed</a></small></footer>
 

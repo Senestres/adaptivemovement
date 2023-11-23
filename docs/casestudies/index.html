@@ -524,6 +524,7 @@ h2 + .header-anchor {
 .pagination-inner {
 	display: flex;
 	margin-top: 3rem;
+	gap: 2rem;
 }
 
 .pagination-next {
@@ -549,7 +550,8 @@ svg.nav-icon {
 .content {
 	max-width: 90ch;
 	margin: 0 auto;
-	padding: 3rem 2rem;
+	padding: 1rem 2rem;
+	background-color: #fff;
 }
 
 /* Author pages*/ 
@@ -644,10 +646,20 @@ text-transform: uppercase
   	max-height: 300px;
   	object-fit: cover;
 }
-.cover-img-big {
+.cover-img-large {
 	background-size: cover;
-	min-height: 10rem;
+	background-position: center;
+	height: 20rem;
 }
+@media (min-width: 50rem) {
+	.cover-img-large {
+		height: 30rem;
+	}
+}
+.post-content {
+	margin-top: -120px;
+}
+
 
 .centered {
 	text-align: center;
@@ -661,9 +673,25 @@ text-transform: uppercase
 	padding: 0 1rem;
 }
 
+
+
+
+/* Post list */
 .postlist-item {
 	margin-bottom: 2rem;
 	box-shadow: 3px 3px 50px rgba(0, 0, 0, 0.301);
+}
+ .post-metadata {
+	margin: 0 auto;
+	max-width: 110ch;
+	padding: 1rem;
+}
+.postlist {
+	max-width: 90ch;
+	margin: 0 auto;
+}
+@media (min-width: 50em) {
+
 }</style>
 	</head>
 	<body>
@@ -682,6 +710,7 @@ text-transform: uppercase
 			<li class="nav-item"><a href="/adaptive-movement/theory/">Theory</a></li>
 			<li class="nav-item"><a href="/adaptive-movement/how-to/">How-to</a></li>
 			<li class="nav-item"><a href="/adaptive-movement/casestudies/" aria-current="page">Case studies</a></li>
+			<li class="nav-item"><a href="/adaptive-movement/case-studies/">Case studies</a></li>
 			<li class="nav-item"><a href="/adaptive-movement/about/">About</a></li>
 		</ul>
 	</nav>
@@ -726,35 +755,31 @@ text-transform: uppercase
 
 	<li class="postlist-item">
 		<img class="cover-img" src="/adaptive-movement/blog/can-my-dog-predict-the-future/images/dog.jpg">
-		<a href="/adaptive-movement/blog/can-my-dog-predict-the-future/" class="postlist-link">Can my dog predict the future ?</a>
 		<div class="post-metadata">
+		<a href="/adaptive-movement/blog/can-my-dog-predict-the-future/" class="postlist-link">Can my dog predict the future ?</a>
 			<time class="postlist-date" datetime="2021-03-01">01 March 2021</time>
 			<a class="postlist-date" href="/adaptive-movement/authors/yann-daout/"> Yann Daout</a>
-		</div>
 		<p>When I throw a stick, my dog starts moving before the stick even leaves my hand. How is that possible ? Does my dog know the future ? Of course, beyond the joke and the clickbaity title, this should not seem like magic. We usually admit that animals...</p>
+		</div>
 	</li>
 
 
 
 	<li class="postlist-item">
 		<img class="cover-img" src="/adaptive-movement/blog/the-floor-is-lava/images/buzz-andersen-lava.png">
-		<a href="/adaptive-movement/blog/the-floor-is-lava/" class="postlist-link">The floor is lava</a>
 		<div class="post-metadata">
+		<a href="/adaptive-movement/blog/the-floor-is-lava/" class="postlist-link">The floor is lava</a>
 			<time class="postlist-date" datetime="2019-08-13">13 August 2019</time>
 			<a class="postlist-date" href="/adaptive-movement/authors/yann-daout/"> Yann Daout</a>
-		</div>
 		<p>You probably know the game called “the floor is lava”, where players must traverse space without touching the ground. Although it is a kids’ game, it is also popular among parkour practitioners, who use different obstacles, ledges, walls or rails to...</p>
+		</div>
 	</li>
 
 
 </ol>
 
-
-
-
-
-
-		</div></main>
+</div>
+		</main>
 
 		<footer><small>Adaptive Movement 2023 - Yann Daout - <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0 Deed</a></small></footer>
 

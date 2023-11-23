@@ -523,6 +523,7 @@ h2 + .header-anchor {
 .pagination-inner {
 	display: flex;
 	margin-top: 3rem;
+	gap: 2rem;
 }
 
 .pagination-next {
@@ -530,7 +531,6 @@ h2 + .header-anchor {
 }
 
 /* Social icons*/
-
 nav ul,
 ul.socials {
 	padding: 0;
@@ -548,7 +548,8 @@ svg.nav-icon {
 .content {
 	max-width: 90ch;
 	margin: 0 auto;
-	padding: 3rem 2rem;
+	padding: 1rem 2rem;
+	background-color: #fff;
 }
 
 /* Author pages*/ 
@@ -616,26 +617,33 @@ a.text-overlay {
 	background-attachment: fixed;
 	background-position: center;
 	background-size: cover;
-	min-height: 500px; 
+	height: 20rem;
 }
 #parallax-waves {
 	background-image: url("/adaptive-movement/img/waves.jpg");
-	min-height: 20rem; 
 }
 #parallax-dynamical {
 	background-image: url("/adaptive-movement/img/dynamical-systems.png");
 }
 .parallax span {
-font-size: 4em;
+font-size: 3.5em;
 text-transform: uppercase
 }
 
-/* --categoryRed: #832232;
---categoryRed: #124877;
---categoryRed: #1a624d; */
-
-/* Font: lato or roboto*/
-
+/* Post list */
+.postlist-item {
+	margin-bottom: 2rem;
+	box-shadow: 3px 3px 50px rgba(0, 0, 0, 0.301);
+}
+ .post-metadata {
+	margin: 0 auto;
+	max-width: 110ch;
+	padding: 1rem;
+}
+.postlist {
+	max-width: 90ch;
+	margin: 0 auto;
+}
 
 /* Posts */
 .cover-img {
@@ -643,14 +651,22 @@ text-transform: uppercase
   	max-height: 300px;
   	object-fit: cover;
 }
-.cover-img-big {
+.cover-img-large {
 	background-size: cover;
-	min-height: 10rem;
+	background-position: center;
+	height: 20rem;
+}
+@media (min-width: 50rem) {
+	.cover-img-large, .parallax {
+		height: 30rem;
+	}
+}
+.post-content {
+	margin-top: -120px;
 }
 
-.centered {
-	text-align: center;
-}
+
+
 
 
 .container-tag-list {
@@ -660,9 +676,9 @@ text-transform: uppercase
 	padding: 0 1rem;
 }
 
-.postlist-item {
-	margin-bottom: 2rem;
-	box-shadow: 3px 3px 50px rgba(0, 0, 0, 0.301);
+
+.centered {
+	text-align: center;
 }</style>
 	</head>
 	<body>
@@ -680,7 +696,7 @@ text-transform: uppercase
 			<li class="nav-item"><a href="/adaptive-movement/">Home</a></li>
 			<li class="nav-item"><a href="/adaptive-movement/theory/">Theory</a></li>
 			<li class="nav-item"><a href="/adaptive-movement/how-to/">How-to</a></li>
-			<li class="nav-item"><a href="/adaptive-movement/casestudies/">Case studies</a></li>
+			<li class="nav-item"><a href="/adaptive-movement/case-studies/">Case studies</a></li>
 			<li class="nav-item"><a href="/adaptive-movement/about/">About</a></li>
 		</ul>
 	</nav>
@@ -715,21 +731,18 @@ text-transform: uppercase
 		<main id="skip">
 			
 
-<div class="cover-img-big" style="background-image: url(images/buzz-andersen-lava.png);">
+<div class="cover-img-large" style="background-image: url(images/buzz-andersen-lava.png);">
 </div>
 
 
 
-<div class="content">
+<div class="content post-content">
 <h1>The floor is lava</h1>
 
 <ul class="post-metadata">
 	<li>By <a href="/adaptive-movement/authors/yann-daout/">Yann Daout</a> </li>
 	<li> 2019-08-13 </li>
 	<li>in <a href="/adaptive-movement/case-studies/">case studies</a> </li>
-	<li><a href="/adaptive-movement/tags/cla/" class="post-tag">cla</a>, </li>
-	<li><a href="/adaptive-movement/tags/floor-is-lava/" class="post-tag">floor-is-lava</a>, </li>
-	<li><a href="/adaptive-movement/tags/game/" class="post-tag">game</a></li>
 </ul>
 
 <article data-pagefind-body="">
@@ -761,6 +774,12 @@ text-transform: uppercase
 <p>In this article I’ve used “the floor is lava” as an example of a constraint-based game. Considering how this game is both fun and challenging, while providing learning opportunities, we should learn from it to structure the way we teach. We should take away that although we usually should tell our learners <em>what</em> to do, we don’t need to tell them <em>how</em> to do it. We should not focus too much on instructions and feedback, but think of all the constraints that we can use to guide our learners towards skillful behavior. And we should design our learning situations to provide enough autonomy and allow the emergence of individualized and/or creative solutions.</p>
 
 </article>
+
+<ul class="post-metadata">
+	<li><a href="/adaptive-movement/tags/cla/" class="post-tag">cla</a>, </li>
+	<li><a href="/adaptive-movement/tags/floor-is-lava/" class="post-tag">floor-is-lava</a>, </li>
+	<li><a href="/adaptive-movement/tags/game/" class="post-tag">game</a></li>
+</ul>
 <nav class="pagination-inner" aria-label="Articles next and previous links">
 	<a href="/adaptive-movement/blog/the-dynamical-systems-approach/" data-direction="forwards" class="pagination-previous">
 		<span>← The dynamical systems approach </span>

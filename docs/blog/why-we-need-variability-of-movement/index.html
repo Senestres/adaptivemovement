@@ -523,6 +523,7 @@ h2 + .header-anchor {
 .pagination-inner {
 	display: flex;
 	margin-top: 3rem;
+	gap: 2rem;
 }
 
 .pagination-next {
@@ -530,7 +531,6 @@ h2 + .header-anchor {
 }
 
 /* Social icons*/
-
 nav ul,
 ul.socials {
 	padding: 0;
@@ -548,7 +548,8 @@ svg.nav-icon {
 .content {
 	max-width: 90ch;
 	margin: 0 auto;
-	padding: 3rem 2rem;
+	padding: 1rem 2rem;
+	background-color: #fff;
 }
 
 /* Author pages*/ 
@@ -616,26 +617,33 @@ a.text-overlay {
 	background-attachment: fixed;
 	background-position: center;
 	background-size: cover;
-	min-height: 500px; 
+	height: 20rem;
 }
 #parallax-waves {
 	background-image: url("/adaptive-movement/img/waves.jpg");
-	min-height: 20rem; 
 }
 #parallax-dynamical {
 	background-image: url("/adaptive-movement/img/dynamical-systems.png");
 }
 .parallax span {
-font-size: 4em;
+font-size: 3.5em;
 text-transform: uppercase
 }
 
-/* --categoryRed: #832232;
---categoryRed: #124877;
---categoryRed: #1a624d; */
-
-/* Font: lato or roboto*/
-
+/* Post list */
+.postlist-item {
+	margin-bottom: 2rem;
+	box-shadow: 3px 3px 50px rgba(0, 0, 0, 0.301);
+}
+ .post-metadata {
+	margin: 0 auto;
+	max-width: 110ch;
+	padding: 1rem;
+}
+.postlist {
+	max-width: 90ch;
+	margin: 0 auto;
+}
 
 /* Posts */
 .cover-img {
@@ -643,14 +651,22 @@ text-transform: uppercase
   	max-height: 300px;
   	object-fit: cover;
 }
-.cover-img-big {
+.cover-img-large {
 	background-size: cover;
-	min-height: 10rem;
+	background-position: center;
+	height: 20rem;
+}
+@media (min-width: 50rem) {
+	.cover-img-large, .parallax {
+		height: 30rem;
+	}
+}
+.post-content {
+	margin-top: -120px;
 }
 
-.centered {
-	text-align: center;
-}
+
+
 
 
 .container-tag-list {
@@ -660,9 +676,9 @@ text-transform: uppercase
 	padding: 0 1rem;
 }
 
-.postlist-item {
-	margin-bottom: 2rem;
-	box-shadow: 3px 3px 50px rgba(0, 0, 0, 0.301);
+
+.centered {
+	text-align: center;
 }</style>
 	</head>
 	<body>
@@ -680,7 +696,7 @@ text-transform: uppercase
 			<li class="nav-item"><a href="/adaptive-movement/">Home</a></li>
 			<li class="nav-item"><a href="/adaptive-movement/theory/">Theory</a></li>
 			<li class="nav-item"><a href="/adaptive-movement/how-to/">How-to</a></li>
-			<li class="nav-item"><a href="/adaptive-movement/casestudies/">Case studies</a></li>
+			<li class="nav-item"><a href="/adaptive-movement/case-studies/">Case studies</a></li>
 			<li class="nav-item"><a href="/adaptive-movement/about/">About</a></li>
 		</ul>
 	</nav>
@@ -715,25 +731,18 @@ text-transform: uppercase
 		<main id="skip">
 			
 
-<div class="cover-img-big" style="background-image: url(images/Waterbeach.jpg);">
+<div class="cover-img-large" style="background-image: url(images/Waterbeach.jpg);">
 </div>
 
 
 
-<div class="content">
+<div class="content post-content">
 <h1>Why we need variability of movement</h1>
 
 <ul class="post-metadata">
 	<li>By <a href="/adaptive-movement/authors/yann-daout/">Yann Daout</a> </li>
 	<li> 2019-10-30 </li>
 	<li>in <a href="/adaptive-movement/theory/">theory</a> </li>
-	<li><a href="/adaptive-movement/tags/adaptation/" class="post-tag">adaptation</a>, </li>
-	<li><a href="/adaptive-movement/tags/creativity/" class="post-tag">creativity</a>, </li>
-	<li><a href="/adaptive-movement/tags/differential-learning/" class="post-tag">differential-learning</a>, </li>
-	<li><a href="/adaptive-movement/tags/minimal-intervention/" class="post-tag">minimal-intervention</a>, </li>
-	<li><a href="/adaptive-movement/tags/motor-abundance/" class="post-tag">motor-abundance</a>, </li>
-	<li><a href="/adaptive-movement/tags/self-organisation/" class="post-tag">self-organisation</a>, </li>
-	<li><a href="/adaptive-movement/tags/variability/" class="post-tag">variability</a></li>
 </ul>
 
 <article data-pagefind-body="">
@@ -793,6 +802,16 @@ text-transform: uppercase
 </section>
 
 </article>
+
+<ul class="post-metadata">
+	<li><a href="/adaptive-movement/tags/adaptation/" class="post-tag">adaptation</a>, </li>
+	<li><a href="/adaptive-movement/tags/creativity/" class="post-tag">creativity</a>, </li>
+	<li><a href="/adaptive-movement/tags/differential-learning/" class="post-tag">differential-learning</a>, </li>
+	<li><a href="/adaptive-movement/tags/minimal-intervention/" class="post-tag">minimal-intervention</a>, </li>
+	<li><a href="/adaptive-movement/tags/motor-abundance/" class="post-tag">motor-abundance</a>, </li>
+	<li><a href="/adaptive-movement/tags/self-organisation/" class="post-tag">self-organisation</a>, </li>
+	<li><a href="/adaptive-movement/tags/variability/" class="post-tag">variability</a></li>
+</ul>
 <nav class="pagination-inner" aria-label="Articles next and previous links">
 	<a href="/adaptive-movement/blog/can-my-dog-predict-the-future/" data-direction="forwards" class="pagination-previous">
 		<span>← Can my dog predict the future ? </span>
