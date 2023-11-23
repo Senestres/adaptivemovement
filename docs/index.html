@@ -381,7 +381,9 @@ svg.nav-icon {
 	max-width: 90ch;
 	margin: 0 auto;
 	padding: 1rem 2rem;
-	background-color: #fff;
+	background-color: #fff; 
+	z-index: 150;
+	position: relative;
 }
 
 /* Author pages*/ 
@@ -420,9 +422,12 @@ svg.nav-icon {
 .overlay-container {
 	position: relative;
 }
-.overlay-img {
+
+.overlay-container>picture>img {
 	margin: -2px auto -2px auto;
+	height: auto;
 }
+
 .text-overlay {
 	position: absolute;
 	top: 50%;
@@ -456,10 +461,13 @@ a.text-overlay {
 }
 #parallax-dynamical {
 	background-image: url("/adaptive-movement/img/dynamical-systems.png");
-}
+} 
 .parallax span {
 font-size: 3.5em;
 text-transform: uppercase
+}
+.centered {
+	text-align: center;
 }
 
 /* Post list */
@@ -483,13 +491,13 @@ text-transform: uppercase
   	max-height: 300px;
   	object-fit: cover;
 }
-.cover-img-large {
-	background-size: cover;
-	background-position: center;
+.cover-img-large > picture > img {
+	object-fit: cover;
 	height: 20rem;
+	width: 100%;
 }
 @media (min-width: 50rem) {
-	.cover-img-large, .parallax {
+	.cover-img-large > picture > img, .parallax {
 		height: 30rem;
 	}
 }
@@ -501,17 +509,12 @@ text-transform: uppercase
 
 
 
-.container-tag-list {
+/* .container-tag-list {
 	max-width: 110rem;
 	margin: 0 auto;
 	width: 100%;
 	padding: 0 1rem;
-}
-
-
-.centered {
-	text-align: center;
-}</style>
+} */</style>
 	</head>
 	<body>
 		<a href="#skip" class="visually-hidden">Skip to main content</a>
@@ -562,7 +565,10 @@ text-transform: uppercase
 
 		<main id="skip">
 			    <div class="home-grid">
-        
+        <div id="portfolio-header" class="full-width-image background-fixed portfolio-header"></div>
+
+
+
 <div class="single-column parallax overlay-container" id="parallax-waves"></div>
   <div class="single-column content">
     <p>Adaptive Movement is a blog exploring the topics of skill acquisition and movement education.</p>
@@ -570,18 +576,18 @@ text-transform: uppercase
     <div class="centered"><img id="small-logo" src="/adaptive-movement/img/transparent-logo-small.png" alt="Small logo" height="60px"></div>
     <p>The blog is divided intro three categories:</p>
   </div>
-
+  
   <div class="split">
-    <div class="overlay-container"> 
-      <img src="/adaptive-movement/img/category-theory.png" class="overlay-img">
+    <div class="overlay-container">
+      <picture><source type="image/avif" srcset="/adaptive-movement/img/SGWhgZ_oOl-1200.avif 1200w"><source type="image/webp" srcset="/adaptive-movement/img/SGWhgZ_oOl-1200.webp 1200w"><img alt="" loading="lazy" decoding="async" src="/adaptive-movement/img/SGWhgZ_oOl-1200.png" width="1200" height="671"></picture>
       <a href="/adaptive-movement/theory/" class="text-overlay">Theory</a>
     </div>
-    <div class="overlay-container"> 
-      <img src="/adaptive-movement/img/category-how-to.png" class="overlay-img">
+    <div class="overlay-container">
+      <picture><source type="image/avif" srcset="/adaptive-movement/img/ZlGoOjn9wG-1200.avif 1200w"><source type="image/webp" srcset="/adaptive-movement/img/ZlGoOjn9wG-1200.webp 1200w"><img alt="" loading="lazy" decoding="async" src="/adaptive-movement/img/ZlGoOjn9wG-1200.png" width="1200" height="671"></picture>
       <a href="/adaptive-movement/theory/" class="text-overlay">How-to</a>
     </div>
     <div class="overlay-container"> 
-      <img src="/adaptive-movement/img/category-case-studies.png" class="overlay-img">
+      <picture><source type="image/avif" srcset="/adaptive-movement/img/p-TQnomXqa-1200.avif 1200w"><source type="image/webp" srcset="/adaptive-movement/img/p-TQnomXqa-1200.webp 1200w"><img alt="" loading="lazy" decoding="async" src="/adaptive-movement/img/p-TQnomXqa-1200.png" width="1200" height="671"></picture>
       <a href="/adaptive-movement/theory/" class="text-overlay">Case studies</a>
     </div>
   </div>
@@ -607,8 +613,9 @@ text-transform: uppercase
     
     
 
-    <div class="overlay-container"> 
-      <img src="/adaptive-movement/blog/can-we-teach-creativity-part-3/images/jr-korpa-ziFcQGzPFY-unsplash.jpg" class="overlay-img">
+    <div class="overlay-container">
+      
+      <picture><source type="image/avif" srcset="/adaptive-movement/img/q3yAEkag_b-2000.avif 2000w"><source type="image/webp" srcset="/adaptive-movement/img/q3yAEkag_b-2000.webp 2000w"><img alt="" loading="lazy" decoding="async" src="/adaptive-movement/img/q3yAEkag_b-2000.jpeg" width="2000" height="1333"></picture> 
       <a href="/adaptive-movement/blog/can-we-teach-creativity-part-3/" class="home-post text-overlay">Can we teach creativity ? (Part 3) </a>
     </div>
 
@@ -616,8 +623,9 @@ text-transform: uppercase
     
     
 
-    <div class="overlay-container"> 
-      <img src="/adaptive-movement/blog/can-we-teach-creativity-part-2/images/jr-korpa-SPTh4rzR6xQ-unsplash.png" class="overlay-img">
+    <div class="overlay-container">
+      
+      <picture><source type="image/avif" srcset="/adaptive-movement/img/rnkKmSMmDI-2000.avif 2000w"><source type="image/webp" srcset="/adaptive-movement/img/rnkKmSMmDI-2000.webp 2000w"><img alt="" loading="lazy" decoding="async" src="/adaptive-movement/img/rnkKmSMmDI-2000.png" width="2000" height="1333"></picture> 
       <a href="/adaptive-movement/blog/can-we-teach-creativity-part-2/" class="home-post text-overlay">Can we teach creativity ? (Part 2) </a>
     </div>
 
@@ -625,8 +633,9 @@ text-transform: uppercase
     
     
 
-    <div class="overlay-container"> 
-      <img src="/adaptive-movement/blog/can-we-teach-creativity-part-1/images/jr-korpa-SPTh4rzR6xQ-unsplash.jpg" class="overlay-img">
+    <div class="overlay-container">
+      
+      <picture><source type="image/avif" srcset="/adaptive-movement/img/VV3eOHHAmz-2000.avif 2000w"><source type="image/webp" srcset="/adaptive-movement/img/VV3eOHHAmz-2000.webp 2000w"><img alt="" loading="lazy" decoding="async" src="/adaptive-movement/img/VV3eOHHAmz-2000.jpeg" width="2000" height="1333"></picture> 
       <a href="/adaptive-movement/blog/can-we-teach-creativity-part-1/" class="home-post text-overlay">Can we teach creativity ? (Part 1) </a>
     </div>
 

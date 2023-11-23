@@ -31,4 +31,5 @@ module.exports = eleventyConfig => {
 		};
 		return eleventyImage.generateHTML(metadata, imageAttributes);
 	});
+
 };

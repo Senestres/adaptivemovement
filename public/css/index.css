@@ -370,7 +370,9 @@ svg.nav-icon {
 	max-width: 90ch;
 	margin: 0 auto;
 	padding: 1rem 2rem;
-	background-color: #fff;
+	background-color: #fff; 
+	z-index: 150;
+	position: relative;
 }
 
 /* Author pages*/ 
@@ -409,9 +411,12 @@ svg.nav-icon {
 .overlay-container {
 	position: relative;
 }
-.overlay-img {
+
+.overlay-container>picture>img {
 	margin: -2px auto -2px auto;
+	height: auto;
 }
+
 .text-overlay {
 	position: absolute;
 	top: 50%;
@@ -445,10 +450,13 @@ a.text-overlay {
 }
 #parallax-dynamical {
 	background-image: url("{{ '/img/dynamical-systems.png' | url}}");
-}
+} 
 .parallax span {
 font-size: 3.5em;
 text-transform: uppercase
+}
+.centered {
+	text-align: center;
 }
 
 /* Post list */
@@ -472,13 +480,13 @@ text-transform: uppercase
   	max-height: 300px;
   	object-fit: cover;
 }
-.cover-img-large {
-	background-size: cover;
-	background-position: center;
+.cover-img-large > picture > img {
+	object-fit: cover;
 	height: 20rem;
+	width: 100%;
 }
 @media (min-width: 50rem) {
-	.cover-img-large, .parallax {
+	.cover-img-large > picture > img, .parallax {
 		height: 30rem;
 	}
 }
@@ -490,14 +498,11 @@ text-transform: uppercase
 
 
 
-.container-tag-list {
+/* .container-tag-list {
 	max-width: 110rem;
 	margin: 0 auto;
 	width: 100%;
 	padding: 0 1rem;
-}
+} */
 
 
-.centered {
-	text-align: center;
-}

@@ -549,7 +549,9 @@ svg.nav-icon {
 	max-width: 90ch;
 	margin: 0 auto;
 	padding: 1rem 2rem;
-	background-color: #fff;
+	background-color: #fff; 
+	z-index: 150;
+	position: relative;
 }
 
 /* Author pages*/ 
@@ -588,9 +590,12 @@ svg.nav-icon {
 .overlay-container {
 	position: relative;
 }
-.overlay-img {
+
+.overlay-container>picture>img {
 	margin: -2px auto -2px auto;
+	height: auto;
 }
+
 .text-overlay {
 	position: absolute;
 	top: 50%;
@@ -624,10 +629,13 @@ a.text-overlay {
 }
 #parallax-dynamical {
 	background-image: url("/adaptive-movement/img/dynamical-systems.png");
-}
+} 
 .parallax span {
 font-size: 3.5em;
 text-transform: uppercase
+}
+.centered {
+	text-align: center;
 }
 
 /* Post list */
@@ -651,13 +659,13 @@ text-transform: uppercase
   	max-height: 300px;
   	object-fit: cover;
 }
-.cover-img-large {
-	background-size: cover;
-	background-position: center;
+.cover-img-large > picture > img {
+	object-fit: cover;
 	height: 20rem;
+	width: 100%;
 }
 @media (min-width: 50rem) {
-	.cover-img-large, .parallax {
+	.cover-img-large > picture > img, .parallax {
 		height: 30rem;
 	}
 }
@@ -669,17 +677,12 @@ text-transform: uppercase
 
 
 
-.container-tag-list {
+/* .container-tag-list {
 	max-width: 110rem;
 	margin: 0 auto;
 	width: 100%;
 	padding: 0 1rem;
-}
-
-
-.centered {
-	text-align: center;
-}</style>
+} */</style>
 	</head>
 	<body>
 		<a href="#skip" class="visually-hidden">Skip to main content</a>
@@ -730,9 +733,12 @@ text-transform: uppercase
 
 		<main id="skip">
 			
-
-<div class="cover-img-large" style="background-image: url(images/brent-payton-TrUyLluA4oU-unsplash.jpg);">
+<div class="cover-img-large">
+	
+	<picture><source type="image/avif" srcset="/adaptive-movement/img/_DjCh1p3cz-3990.avif 3990w"><source type="image/webp" srcset="/adaptive-movement/img/_DjCh1p3cz-3990.webp 3990w"><img alt="" loading="lazy" decoding="async" src="/adaptive-movement/img/_DjCh1p3cz-3990.jpeg" width="3990" height="2244"></picture>
 </div>
+
+
 
 
 

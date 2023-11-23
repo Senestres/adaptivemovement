@@ -17,8 +17,12 @@ Tags
     put list of tags somewhere (sidebar ?)
 
 post img
-    in posts lists, show img with title
     caption from markdown
     make cover img responsive + set max height
 
 (add a grid or flex system -> two posts side by side)
+
+use eleventy image plugin for background
+    use also on other images
+
+    {% image "cat.jpg", "photo of my tabby cat", "(min-width: 30em) 50vw, 100vw" %}

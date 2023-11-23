@@ -5,6 +5,9 @@ eleventyNavigation:
   order: 1
 permalink: '{% if pagination.pageNumber > 0 %}blog/page/{{ pagination.pageNumber }}{% endif %}/index.html'
 ---
+<div id="portfolio-header" class="full-width-image background-fixed portfolio-header"></div>
+
+
 
 <div class="single-column parallax overlay-container" id="parallax-waves"></div>
   <div class="single-column content">
@@ -13,18 +16,18 @@ permalink: '{% if pagination.pageNumber > 0 %}blog/page/{{ pagination.pageNumber
     <div class="centered"><img id="small-logo" src="/img/transparent-logo-small.png" alt="Small logo" height="60px"></div>
     <p>The blog is divided intro three categories:</p>
   </div>
-
+  
   <div class="split">
-    <div class="overlay-container"> 
-      <img src="/img/category-theory.png" class="overlay-img">
+    <div class="overlay-container">
+      {% image "../public/img/category-theory.png", "" %}
       <a href="/theory/" class="text-overlay">Theory</a>
     </div>
-    <div class="overlay-container"> 
-      <img src="/img/category-how-to.png" class="overlay-img">
+    <div class="overlay-container">
+      {% image "../public/img/category-how-to.png", "" %}
       <a href="/theory/" class="text-overlay">How-to</a>
     </div>
     <div class="overlay-container"> 
-      <img src="/img/category-case-studies.png" class="overlay-img">
+      {% image "../public/img/category-case-studies.png", "" %}
       <a href="/theory/" class="text-overlay">Case studies</a>
     </div>
   </div>
@@ -50,8 +53,9 @@ permalink: '{% if pagination.pageNumber > 0 %}blog/page/{{ pagination.pageNumber
     {% for post in collections.posts | reverse %}
     {% if (loop.index <= 3) and (3 <= loop.length) %}
 
-    <div class="overlay-container"> 
-      <img src="{{ post.url }}/images/{{post.data.coverImage}}" class="overlay-img">
+    <div class="overlay-container">
+      {% set imgUrl %}./{{ post.url }}/images/{{post.data.coverImage}}{% endset %}
+      {% image imgUrl, "" %} 
       <a href="{{ post.url }}" class="home-post text-overlay">{% if post.data.title %}{{ post.data.title }}{% else %}<code>{{ post.url }}</code>{% endif %} </a>
     </div>
 

@@ -7,10 +7,10 @@ paginationNextText: 'Suivant →'
 {%- css %}{% include "node_modules/prismjs/themes/prism-okaidia.css" %}{% endcss %}
 {%- css %}{% include "public/css/prism-diff.css" %}{%- endcss %}
 
-<div class="cover-img-large" style="background-image: url(images/{{coverImage}});">
+<div class="cover-img-large">
+	{% set imgUrl %}images/{{coverImage}}{% endset %}
+	{% image imgUrl, "" %}
 </div>
-
-{# Beginning of real post #}
 
 <div class="content post-content">
 <h1>{{ title }}</h1>
