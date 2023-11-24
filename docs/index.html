@@ -377,7 +377,7 @@ svg.nav-icon {
 	width: 100%;
 }
 @media (min-width: 50rem) {
-	.cover-img-large > picture > img, .parallax {
+	.cover-img-large > picture > img {
 		height: 30rem;
 	}
 }
@@ -467,7 +467,11 @@ a.text-overlay {
 	background-size: cover;
 	height: 20rem;
 }
-
+@media (min-width: 50em) {
+	.parallax {
+		height: 30rem;
+	}
+}
 .parallax span {
 font-size: 3.5em;
 text-transform: uppercase
