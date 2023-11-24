@@ -203,27 +203,23 @@ pre[class*="language-diff-"] {
 	--accent: #47c1b9;
 	--reverse: white;
 
-	--categoryRed: #832232;
-	--categoryBlue: #124877;
-	--categoryGreen: #1a624d;
-
 	--syntax-tab-size: 2;
 }
 
-@media (prefers-color-scheme: dark) {
+/* Dark mode needs work*/
+/* @media (prefers-color-scheme: dark) {
 	:root {
 		--color-gray-20: #e0e0e0;
 		--color-gray-50: #c0c0c0;
 		--color-gray-90: #dad8d8;
 
-		/* --text-color is assigned to --color-gray-_ above */
 		--text-color-link: #1493fb;
 		--text-color-link-active: #6969f7;
 		--text-color-link-visited: #a6a6f8;
 
 		--background-color: #15202b;
 	}
-}
+} */
 
 /* Global stylesheet */
 * {
@@ -264,9 +260,6 @@ footer {
 	width: 1px;
 }
 
-p:last-child {
-	margin-bottom: 0;
-}
 p {
 	line-height: 1.5;
 }
@@ -424,12 +417,28 @@ max-width: 50%;
 	justify-content: center;
 	text-transform: capitalize;
 	font-style: italic;
+	padding: 0.3rem;
+	margin: 0.1rem;
+	background-color: var(--color-gray-50);
+	transition: background-color 200ms, color 200ms, transform 200ms;
+	text-decoration: none;
+	border-radius: 0.2rem;
+	&:hover,
+	&:focus {
+		background-color: var(--accent);
+		color: var(--text-color);
+		transform: scale(1.1);
+	}
 }
 .postlist-item > .post-tag {
 	align-self: center;
 }
-
-/* Tags list */
+.container-tag-list {
+	max-width: 110rem;
+	margin: 0 auto;
+	padding: 0 1rem;
+}
+/* Post metadata */
 .post-metadata {
 	display: inline-flex;
 	flex-wrap: wrap;
@@ -466,37 +475,6 @@ h2 + .header-anchor {
 	font-size: 1.5em;
 }
 
-/* Tag links */
-.tag-links {
-	list-style: none;
-	display: flex;
-	flex-wrap: wrap;
-	padding: 0;
-}
-
-.tag-links-tag {
-	margin-bottom: 0.6rem;
-}
-
-.tag-links-tag a {
-	padding: 0.3rem;
-	margin: 0.1rem;
-	background-color: var(--text-color);
-	color: var(--reverse);
-	transition: background-color 200ms, color 200ms, transform 200ms;
-	text-decoration: none;
-	border-radius: 0.2rem;
-	&:visited {
-		color: var(--reverse);
-	}
-	&:hover,
-	&:focus {
-		background-color: var(--accent);
-		color: var(--text-color);
-		transform: scale(1.9);
-	}
-}
-
 /* All tags list */
 .all-tags-list {
 	columns: 20rem;
@@ -504,7 +482,6 @@ h2 + .header-anchor {
 	list-style: none;
 	padding: 0;
 }
-
 .all-tags-link a {
 	color: var(--textColor);
 	&:hover,
@@ -513,7 +490,6 @@ h2 + .header-anchor {
 		color: var(--accent);
 	}
 }
-
 .all-tags-post-count {
 	color: var(--accent);
 	font-size: 0.9rem;
@@ -538,20 +514,54 @@ ul.socials {
 .nav-icon:hover path {
 	fill: var(--accent);
 }
-
 svg.nav-icon {
 	width: 100%;
 	height: 30px;
 }
 
+/* Post list */
+.postlist-item {
+	margin-bottom: 2rem;
+	box-shadow: 3px 3px 50px rgba(0, 0, 0, 0.301);
+}
+ .post-metadata {
+	margin: 0 auto;
+	max-width: 110ch;
+	padding: 1rem;
+}
+.postlist {
+	max-width: 90ch;
+	margin: 0 auto;
+}
+
+/* Posts */
+.postlist-item > picture > img {
+  	max-height: 300px;
+  	object-fit: cover;
+}
+.cover-img-large > picture > img {
+	object-fit: cover;
+	height: 20rem;
+	width: 100%;
+}
+@media (min-width: 50rem) {
+	.cover-img-large > picture > img, .parallax {
+		height: 30rem;
+	}
+}
+.post-content {
+	margin-top: -120px;
+	position: relative;
+}
 /* Content */
 .content {
 	max-width: 90ch;
 	margin: 0 auto;
 	padding: 1rem 2rem;
-	background-color: #fff; 
-	z-index: 150;
-	position: relative;
+	background-color: var(--background-color); 
+}
+article img {
+	height: auto;
 }
 
 /* Author pages*/ 
@@ -589,11 +599,12 @@ svg.nav-icon {
 
 .overlay-container {
 	position: relative;
+	text-align: center;
 }
 
-.overlay-container>picture>img {
-	margin: -2px auto -2px auto;
+.overlay-container > picture > img {
 	height: auto;
+	margin: -2px auto -2px auto;
 }
 
 .text-overlay {
@@ -624,65 +635,14 @@ a.text-overlay {
 	background-size: cover;
 	height: 20rem;
 }
-#parallax-waves {
-	background-image: url("/adaptive-movement/img/waves.jpg");
-}
-#parallax-dynamical {
-	background-image: url("/adaptive-movement/img/dynamical-systems.png");
-} 
+
 .parallax span {
 font-size: 3.5em;
 text-transform: uppercase
 }
 .centered {
 	text-align: center;
-}
-
-/* Post list */
-.postlist-item {
-	margin-bottom: 2rem;
-	box-shadow: 3px 3px 50px rgba(0, 0, 0, 0.301);
-}
- .post-metadata {
-	margin: 0 auto;
-	max-width: 110ch;
-	padding: 1rem;
-}
-.postlist {
-	max-width: 90ch;
-	margin: 0 auto;
-}
-
-/* Posts */
-.cover-img {
-	width: 100%;
-  	max-height: 300px;
-  	object-fit: cover;
-}
-.cover-img-large > picture > img {
-	object-fit: cover;
-	height: 20rem;
-	width: 100%;
-}
-@media (min-width: 50rem) {
-	.cover-img-large > picture > img, .parallax {
-		height: 30rem;
-	}
-}
-.post-content {
-	margin-top: -120px;
-}
-
-
-
-
-
-/* .container-tag-list {
-	max-width: 110rem;
-	margin: 0 auto;
-	width: 100%;
-	padding: 0 1rem;
-} */</style>
+}</style>
 	</head>
 	<body>
 		<a href="#skip" class="visually-hidden">Skip to main content</a>
@@ -734,22 +694,27 @@ text-transform: uppercase
 		<main id="skip">
 			
 
+
 <div class="cover-img-large">
-	
-	<picture><source type="image/avif" srcset="/adaptive-movement/img/q3yAEkag_b-2000.avif 2000w"><source type="image/webp" srcset="/adaptive-movement/img/q3yAEkag_b-2000.webp 2000w"><img alt="" loading="lazy" decoding="async" src="/adaptive-movement/img/q3yAEkag_b-2000.jpeg" width="2000" height="1333"></picture>
+	 <picture><source type="image/webp" srcset="/adaptive-movement/img/q3yAEkag_b-800.webp 800w, /adaptive-movement/img/q3yAEkag_b-2000.webp 2000w" sizes="100vw"><source type="image/jpeg" srcset="/adaptive-movement/img/q3yAEkag_b-800.jpeg 800w, /adaptive-movement/img/q3yAEkag_b-2000.jpeg 2000w" sizes="100vw"><img alt="" loading="lazy" decoding="async" src="/adaptive-movement/img/q3yAEkag_b-800.jpeg" width="2000" height="1333"></picture>
 </div>
 
 <div class="content post-content">
-<h1>Can we teach creativity ? (Part 3)</h1>
+	<h1>Can we teach creativity ? (Part 3)</h1>
 
-<ul class="post-metadata">
-	<li>By <a href="/adaptive-movement/authors/yann-daout/">Yann Daout</a> </li>
-	<li> 2022-10-27 </li>
-	<li>in <a href="/adaptive-movement/how-to/">how-to</a> </li>
-</ul>
+	<ul class="post-metadata">
+		<li>
+			By <a href="/adaptive-movement/authors/yann-daout/">Yann Daout</a>
+		</li>
+		<li>2022-10-27</li>
+		<li>
+			in
+			<a href="/adaptive-movement/how-to/" style="text-transform: capitalize">how-to</a>
+		</li>
+	</ul>
 
-<article data-pagefind-body="">
-<p>After teaching a few classes on creativity, I’ve come across a few more ideas, so take this as a short addendum to my <a href="https://adaptivemovement.net/can-we-teach-creativity-part-1/">creativity articles</a>. I might update it from time to time. This will be more focused on parkour, but the ideas might apply to other sports.</p>
+	<article data-pagefind-body="">
+		<p>After teaching a few classes on creativity, I’ve come across a few more ideas, so take this as a short addendum to my <a href="/adaptive-movement/blog/can-we-teach-creativity-part-1/">creativity articles</a>. I might update it from time to time. This will be more focused on parkour, but the ideas might apply to other sports.</p>
 <h1 id="how-can-we-make-creativity-less-abstract" tabindex="-1">How can we make creativity less abstract ? <a class="header-anchor" href="#how-can-we-make-creativity-less-abstract">#</a></h1>
 <p>One question I’ve been asking myself is how to make creativity less abstract. If I want my students to focus on the creativity of their lines, rather than say, speed, using the shorthand « be creative » would be useful. The problem is that everybody understands what going fast means, but being creative is less clear. So how can we put more flesh on that idea ? One solution I’ve come up with is to start talking about emotions. Because being creative means novelty, it can bring negative emotions like the fear of trying something new ; but also positive emotions when you achieve that novelty. The most specific emotion seem to me to be surprise : surprise that something is achievable ; surprise that nobody has thought about <em>that</em> until then ; surprise that you can use <em>this</em> environment in <em>that</em> way. So let’s say you start instructing your students to create a line with the aim of surprising the other members of the group. That should be a nice emotional constraint. After a few times, there should be enough flesh on the concept of creativity to start using the shorthand.</p>
 <h1 id="can-we-use-more-complex-constraints" tabindex="-1">Can we use more complex constraints ? <a class="header-anchor" href="#can-we-use-more-complex-constraints">#</a></h1>
@@ -760,23 +725,30 @@ text-transform: uppercase
 <p>Another interesting constraint comes from Sébastien Sevino and Tristan Bana. Take a set of obstacles, and create a line with a certain sequence of techniques. Once it has been memorized, just move to different obstacles, and try to do the same line, using an identical sequence of techniques, <em>mutatis mutandis</em>. This forces you to explore in order to find ways to apply the same techniques on very different obstacles, and requires to adapt and think outside the box.</p>
 <p>As you can see, creativity is nested. In order to promote motor creativity, teachers need to be creative about the exercises, games and constraints they use. I hope we can make this part of creativity a collective endeavour, because I clearly have learned a lot from interacting with other teachers.</p>
 
-</article>
+	</article>
 
-<ul class="post-metadata">
-	<li><a href="/adaptive-movement/tags/constraints/" class="post-tag">constraints</a>, </li>
-	<li><a href="/adaptive-movement/tags/creativity/" class="post-tag">creativity</a>, </li>
-	<li><a href="/adaptive-movement/tags/randomness/" class="post-tag">randomness</a>, </li>
-	<li><a href="/adaptive-movement/tags/variability/" class="post-tag">variability</a></li>
-</ul>
-<nav class="pagination-inner" aria-label="Articles next and previous links">
-	<a href="/adaptive-movement/blog/can-we-teach-creativity-part-2/" data-direction="backwards" class="pagination-next">
-		<span>Can we teach creativity ? (Part 2) →</span>
-	  </a>
-	
-</nav>
-
+	<ul class="post-metadata">
+		<li>
+			<a href="/adaptive-movement/tags/constraints/" class="post-tag">constraints</a>, 
+		</li>
+		<li>
+			<a href="/adaptive-movement/tags/creativity/" class="post-tag">creativity</a>, 
+		</li>
+		<li>
+			<a href="/adaptive-movement/tags/randomness/" class="post-tag">randomness</a>, 
+		</li>
+		<li>
+			<a href="/adaptive-movement/tags/variability/" class="post-tag">variability</a>
+		</li>
+	</ul>
+	<nav class="pagination-inner" aria-label="Articles next and previous links">
+		<a href="/adaptive-movement/blog/can-we-teach-creativity-part-2/" data-direction="backwards" class="pagination-next">
+			<span>Can we teach creativity ? (Part 2)
+				→</span>
+		</a>
+		
+	</nav>
 </div>
-
 
 		</main>
 

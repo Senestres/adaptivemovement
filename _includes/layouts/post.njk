@@ -1,55 +1,76 @@
 ---
 layout: layouts/base.njk
-paginationPrevText: '← Précédent '
-paginationNextText: 'Suivant →'
+paginationPrevText: "← Précédent "
+paginationNextText: "Suivant →"
 ---
-{# Only include the syntax highlighter CSS on blog posts #}
-{%- css %}{% include "node_modules/prismjs/themes/prism-okaidia.css" %}{% endcss %}
-{%- css %}{% include "public/css/prism-diff.css" %}{%- endcss %}
+
+{# Only include the syntax highlighter CSS on blog posts #} {%- css %}{% include
+"node_modules/prismjs/themes/prism-okaidia.css" %}{% endcss %} {%- css %}{%
+include "public/css/prism-diff.css" %}{%- endcss %}
 
 <div class="cover-img-large">
-	{% set imgUrl %}images/{{coverImage}}{% endset %}
-	{% image imgUrl, "" %}
+	{% set imgUrl %}images/{{ coverImage }}{% endset %} {% image imgUrl, "" %}
 </div>
 
 <div class="content post-content">
-<h1>{{ title }}</h1>
+	<h1>{{ title }}</h1>
 
-<ul class="post-metadata">
-	<li>By <a href="/authors/{{ author | slugify }}/">{{ author }}</a> </li>
-	<li> {{ date }} </li>
-	<li>in <a href="/{{ categories | slugify }}/">{{ categories }}</a> </li>
-</ul>
+	<ul class="post-metadata">
+		<li>
+			By <a href="/authors/{{ author | slugify }}/">{{ author }}</a>
+		</li>
+		<li>{{ date }}</li>
+		<li>
+			in
+			<a
+				href="/{{ categories | slugify }}/"
+				style="text-transform: capitalize"
+				>{{ categories }}</a
+			>
+		</li>
+	</ul>
 
-<article data-pagefind-body>
-{{ content | safe }}
-</article>
+	<article data-pagefind-body>
+		{{ content | safe }}
+	</article>
 
-<ul class="post-metadata">
-{%- for tag in tags | filterTagList %}
-	{%- set tagUrl %}/tags/{{ tag | slugify }}/{% endset %}
-	<li><a href="{{ tagUrl }}" class="post-tag">{{ tag }}</a>{%- if not loop.last %}, {% endif %}</li>
-	{%- endfor %}
-</ul>
+	<ul class="post-metadata">
+		{%- for tag in tags | filterTagList %} {%- set tagUrl %}/tags/{{
+			tag | slugify
+		}}/{% endset %}
+		<li>
+			<a href="{{ tagUrl }}" class="post-tag">{{ tag }}</a
+			>{%- if not loop.last %}, {% endif %}
+		</li>
+		{%- endfor %}
+	</ul>
 
-{%- if collections.posts %}
-{%- set previousPost = collections.posts | getPreviousCollectionItem %}
-{%- set nextPost = collections.posts | getNextCollectionItem %}
-{%- if nextPost or previousPost %}
-<nav class="pagination-inner" aria-label="Articles next and previous links">
-	{%- if nextPost %}
-	<a href="{{ nextPost.url }}" data-direction="forwards" class="pagination-previous">
-		<span>← {{ nextPost.data.title if nextPost.data.title else "Précédent" }} </span>
-	  </a>
-	{% endif %}
-	{%- if previousPost %}
-	<a href="{{ previousPost.url }}" data-direction="backwards" class="pagination-next">
-		<span>{{ previousPost.data.title if previousPost.data.title else "Suivant" }} →</span>
-	  </a>
-	{% endif %}
-</nav>
-{%- endif %}
-{%- endif %}
-
+	{%- if collections.posts %} {%- set previousPost = collections.posts |
+	getPreviousCollectionItem %} {%- set nextPost = collections.posts |
+	getNextCollectionItem %} {%- if nextPost or previousPost %}
+	<nav class="pagination-inner" aria-label="Articles next and previous links">
+		{%- if nextPost %}
+		<a
+			href="{{ nextPost.url }}"
+			data-direction="forwards"
+			class="pagination-previous"
+		>
+			<span
+				>← {{ nextPost.data.title if nextPost.data.title else "Précédent" }}
+			</span>
+		</a>
+		{% endif %} {%- if previousPost %}
+		<a
+			href="{{ previousPost.url }}"
+			data-direction="backwards"
+			class="pagination-next"
+		>
+			<span
+				>{{ previousPost.data.title if previousPost.data.title else "Suivant" }}
+				→</span
+			>
+		</a>
+		{% endif %}
+	</nav>
+	{%- endif %} {%- endif %}
 </div>
-

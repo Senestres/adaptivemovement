@@ -5,16 +5,14 @@ eleventyNavigation:
   order: 1
 permalink: '{% if pagination.pageNumber > 0 %}blog/page/{{ pagination.pageNumber }}{% endif %}/index.html'
 ---
-<div id="portfolio-header" class="full-width-image background-fixed portfolio-header"></div>
+{% set imgUrl %}{{ "/img/waves.jpeg" | url}}{% endset %}
+<div class="single-column parallax overlay-container" id="parallax-waves" style="background-image: url({{imgUrl}});"></div>
 
-
-
-<div class="single-column parallax overlay-container" id="parallax-waves"></div>
   <div class="single-column content">
     <p>Adaptive Movement is a blog exploring the topics of skill acquisition and movement education.</p>
     <p>It is targeted to coaches, teachers, practitioners and sport science students.</p>
     <div class="centered"><img id="small-logo" src="/img/transparent-logo-small.png" alt="Small logo" height="60px"></div>
-    <p>The blog is divided intro three categories:</p>
+    <p class="centered">The blog is divided intro three categories:</p>
   </div>
   
   <div class="split">
@@ -33,18 +31,19 @@ permalink: '{% if pagination.pageNumber > 0 %}blog/page/{{ pagination.pageNumber
   </div>
 
   <div class="single-column content">
-    <p>In our theory articles, we focus on the ecological-dynamics framework, as well as non-linear pedagogy and the constraints-led approach. We want to make these theories, methods and concepts more accessible.</p>
-    <p>These theories challenge some traditional assumptions about skill acquisition and motor learning. They also might help you understand better why you do what you do.</p>
-    <p>Our how-to articles offer a more practical approach, and are meant to develop sound, evidence-based coaching principles, while also aiming to spark creative and novel solutions.</p>
-    <p>Finally, we also examine case studies from different sport, physical activities or coaching methods, from the perspective of ecological-dynamics. What can we learn from these cases? Could they be improved?</p>
+    <p>In our <a href="/theory/">theory</a> articles, we focus on the ecological-dynamics framework. These theories challenge some traditional assumptions about skill acquisition and motor learning. They also might help you understand better why you do what you do.</p>
+    <p>Our <a href="/how-to/">how-to</a> articles offer a more practical approach, and are meant to develop sound, evidence-based coaching principles, while also aiming to spark creative and novel solutions.</p>
+    <p>Finally, we also examine <a href="/case-studies/">case studies</a> from different sport, physical activities or coaching methods, from the perspective of ecological-dynamics. What can we learn from these cases? Could they be improved?</p>
   </div>
 
-  <div class="single-column parallax overlay-container" id="parallax-dynamical"><span class="text-overlay">What is ecological-dynamics ?</span>
+  {% set imgUrl %}{{ "/img/dynamical-systems.jpeg" | url}}{% endset %}
+  <div class="single-column parallax overlay-container" id="parallax-dynamical" style="background-image: url({{imgUrl}});"><span class="text-overlay">What is ecological-dynamics ?</span>
   </div>
+
   <div class="split">
     <div>  <img id="flowchart" src="/img/flowchart.png" alt="Flow chart of the main concepts of the website"></div>
     <div class="split-content">
-      <p>Ecological Dynamics studies human behaviour in the real world. We take off our lab coat and look at the way skill acquisition and perception works within the context that we find ourselves in on a daily basis.</p>
+      <p><a href="/blog/introduction-to-ecological-dynamics/">Ecological Dynamics</a> studies human behaviour in the real world. We take off our lab coat and look at the way skill acquisition and perception works within the context that we find ourselves in on a daily basis.</p>
       <p>We take into consideration the interactions between our bodies, our environment, our abilities, experiences and intentions.</p>
     </div>
   </div>

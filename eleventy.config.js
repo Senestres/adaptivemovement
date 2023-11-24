@@ -2,6 +2,7 @@ const { DateTime } = require("luxon");
 const markdownItAnchor = require("markdown-it-anchor");
 const markdownIt = require("markdown-it");
 const markdownItFootnote = require('markdown-it-footnote');
+const markdownItEleventyImg = require("markdown-it-eleventy-img");
 
 const pluginRss = require("@11ty/eleventy-plugin-rss");
 const pluginSyntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
@@ -14,7 +15,6 @@ const pluginImages = require("./eleventy.config.images.js");
 const { execSync } = require('child_process')
 
 
-
 module.exports = function(eleventyConfig) {
 	// Copy the contents of the `public` folder to the output folder
 	// For example, `./public/css/` ends up in `_site/css/`
@@ -24,17 +24,13 @@ module.exports = function(eleventyConfig) {
 	});
 	eleventyConfig.addPassthroughCopy("content/**/*.{jpg,png,gif,svg,kmz,zip,css,webp}");
 
-	// Run Eleventy when these files change:
-	// https://www.11ty.dev/docs/watch-serve/#add-your-own-watch-targets
-
+	// Run Eleventy when these files change: https://www.11ty.dev/docs/watch-serve/#add-your-own-watch-targets
 	// Watch content images for the image pipeline.
 	eleventyConfig.addWatchTarget("content/**/*.{svg,webp,png,jpeg}");
 
 	// App plugins
 	eleventyConfig.addPlugin(pluginDrafts);
 	eleventyConfig.addPlugin(pluginImages);
-
-	// Official plugins
 	eleventyConfig.addPlugin(pluginRss);
 	eleventyConfig.addPlugin(pluginSyntaxHighlight, {
 		preAttributes: { tabindex: 0 }
@@ -84,7 +80,7 @@ module.exports = function(eleventyConfig) {
 		return (tags || []).filter(tag => ["all", "nav", "post", "posts"].indexOf(tag) === -1);
 	});
 
-	//authors
+	// Authors
 	eleventyConfig.addFilter('authorFilter', function(collection, author) {
 	if (!author) {return collection}
 		  const filtered = collection.filter(item => item.data.author == author)
@@ -98,7 +94,9 @@ module.exports = function(eleventyConfig) {
 		  return filtered;
 	  });
 
+
 	// Customize Markdown library settings:
+	const path = require("path"); // not sure how this works, but it does
 	eleventyConfig.amendLibrary("md", mdLib => {
 		mdLib.use(markdownItAnchor, {
 			permalink: markdownItAnchor.permalink.ariaHidden({
@@ -110,9 +108,23 @@ module.exports = function(eleventyConfig) {
 			level: [1,2,3,4],
 			slugify: eleventyConfig.getFilter("slugify")
 		});
-		mdLib.use(markdownItFootnote); 	// add markdown footnotes
+		mdLib.use(markdownItFootnote); 		// add markdown footnotes
+		mdLib.use(markdownItEleventyImg, { 	//add markdown image
+			resolvePath: (filepath, env) => path.join(path.dirname(env.page.inputPath), filepath),
+			html: true,
+			breaks: true,
+			linkify: true,
+			globalAttributes: {
+				sizes: "100vw"
+			},
+			imgOptions: {
+			widths: [800, "auto"],
+			outputDir: "docs/img/", // this doesn't keep the folder structure so needs path change
+			urlPath: "/img/", 		// path change mentionned above
+		},
+		}); 	
 	});
-
+	
 	// add excerpt
 	// use with <p>{{ post.templateContent | excerpt }}</p>
 	eleventyConfig.addFilter("excerpt", (post) => {
@@ -159,10 +171,6 @@ module.exports = function(eleventyConfig) {
 			output: "docs"
 		},
 
-		// -----------------------------------------------------------------
-		// Optional items:
-		// -----------------------------------------------------------------
-
 		// If your site deploys to a subdirectory, change `pathPrefix`.
 		// Read more: https://www.11ty.dev/docs/config/#deploy-to-a-subdirectory-with-a-path-prefix
 
@@ -172,3 +180,4 @@ module.exports = function(eleventyConfig) {
 		pathPrefix: "/adaptive-movement/",
 	};
 };
+

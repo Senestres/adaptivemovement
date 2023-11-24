@@ -203,27 +203,23 @@ pre[class*="language-diff-"] {
 	--accent: #47c1b9;
 	--reverse: white;
 
-	--categoryRed: #832232;
-	--categoryBlue: #124877;
-	--categoryGreen: #1a624d;
-
 	--syntax-tab-size: 2;
 }
 
-@media (prefers-color-scheme: dark) {
+/* Dark mode needs work*/
+/* @media (prefers-color-scheme: dark) {
 	:root {
 		--color-gray-20: #e0e0e0;
 		--color-gray-50: #c0c0c0;
 		--color-gray-90: #dad8d8;
 
-		/* --text-color is assigned to --color-gray-_ above */
 		--text-color-link: #1493fb;
 		--text-color-link-active: #6969f7;
 		--text-color-link-visited: #a6a6f8;
 
 		--background-color: #15202b;
 	}
-}
+} */
 
 /* Global stylesheet */
 * {
@@ -264,9 +260,6 @@ footer {
 	width: 1px;
 }
 
-p:last-child {
-	margin-bottom: 0;
-}
 p {
 	line-height: 1.5;
 }
@@ -424,12 +417,28 @@ max-width: 50%;
 	justify-content: center;
 	text-transform: capitalize;
 	font-style: italic;
+	padding: 0.3rem;
+	margin: 0.1rem;
+	background-color: var(--color-gray-50);
+	transition: background-color 200ms, color 200ms, transform 200ms;
+	text-decoration: none;
+	border-radius: 0.2rem;
+	&:hover,
+	&:focus {
+		background-color: var(--accent);
+		color: var(--text-color);
+		transform: scale(1.1);
+	}
 }
 .postlist-item > .post-tag {
 	align-self: center;
 }
-
-/* Tags list */
+.container-tag-list {
+	max-width: 110rem;
+	margin: 0 auto;
+	padding: 0 1rem;
+}
+/* Post metadata */
 .post-metadata {
 	display: inline-flex;
 	flex-wrap: wrap;
@@ -466,37 +475,6 @@ h2 + .header-anchor {
 	font-size: 1.5em;
 }
 
-/* Tag links */
-.tag-links {
-	list-style: none;
-	display: flex;
-	flex-wrap: wrap;
-	padding: 0;
-}
-
-.tag-links-tag {
-	margin-bottom: 0.6rem;
-}
-
-.tag-links-tag a {
-	padding: 0.3rem;
-	margin: 0.1rem;
-	background-color: var(--text-color);
-	color: var(--reverse);
-	transition: background-color 200ms, color 200ms, transform 200ms;
-	text-decoration: none;
-	border-radius: 0.2rem;
-	&:visited {
-		color: var(--reverse);
-	}
-	&:hover,
-	&:focus {
-		background-color: var(--accent);
-		color: var(--text-color);
-		transform: scale(1.9);
-	}
-}
-
 /* All tags list */
 .all-tags-list {
 	columns: 20rem;
@@ -504,7 +482,6 @@ h2 + .header-anchor {
 	list-style: none;
 	padding: 0;
 }
-
 .all-tags-link a {
 	color: var(--textColor);
 	&:hover,
@@ -513,7 +490,6 @@ h2 + .header-anchor {
 		color: var(--accent);
 	}
 }
-
 .all-tags-post-count {
 	color: var(--accent);
 	font-size: 0.9rem;
@@ -538,20 +514,54 @@ ul.socials {
 .nav-icon:hover path {
 	fill: var(--accent);
 }
-
 svg.nav-icon {
 	width: 100%;
 	height: 30px;
 }
 
+/* Post list */
+.postlist-item {
+	margin-bottom: 2rem;
+	box-shadow: 3px 3px 50px rgba(0, 0, 0, 0.301);
+}
+ .post-metadata {
+	margin: 0 auto;
+	max-width: 110ch;
+	padding: 1rem;
+}
+.postlist {
+	max-width: 90ch;
+	margin: 0 auto;
+}
+
+/* Posts */
+.postlist-item > picture > img {
+  	max-height: 300px;
+  	object-fit: cover;
+}
+.cover-img-large > picture > img {
+	object-fit: cover;
+	height: 20rem;
+	width: 100%;
+}
+@media (min-width: 50rem) {
+	.cover-img-large > picture > img, .parallax {
+		height: 30rem;
+	}
+}
+.post-content {
+	margin-top: -120px;
+	position: relative;
+}
 /* Content */
 .content {
 	max-width: 90ch;
 	margin: 0 auto;
 	padding: 1rem 2rem;
-	background-color: #fff; 
-	z-index: 150;
-	position: relative;
+	background-color: var(--background-color); 
+}
+article img {
+	height: auto;
 }
 
 /* Author pages*/ 
@@ -589,11 +599,12 @@ svg.nav-icon {
 
 .overlay-container {
 	position: relative;
+	text-align: center;
 }
 
-.overlay-container>picture>img {
-	margin: -2px auto -2px auto;
+.overlay-container > picture > img {
 	height: auto;
+	margin: -2px auto -2px auto;
 }
 
 .text-overlay {
@@ -624,65 +635,14 @@ a.text-overlay {
 	background-size: cover;
 	height: 20rem;
 }
-#parallax-waves {
-	background-image: url("/adaptive-movement/img/waves.jpg");
-}
-#parallax-dynamical {
-	background-image: url("/adaptive-movement/img/dynamical-systems.png");
-} 
+
 .parallax span {
 font-size: 3.5em;
 text-transform: uppercase
 }
 .centered {
 	text-align: center;
-}
-
-/* Post list */
-.postlist-item {
-	margin-bottom: 2rem;
-	box-shadow: 3px 3px 50px rgba(0, 0, 0, 0.301);
-}
- .post-metadata {
-	margin: 0 auto;
-	max-width: 110ch;
-	padding: 1rem;
-}
-.postlist {
-	max-width: 90ch;
-	margin: 0 auto;
-}
-
-/* Posts */
-.cover-img {
-	width: 100%;
-  	max-height: 300px;
-  	object-fit: cover;
-}
-.cover-img-large > picture > img {
-	object-fit: cover;
-	height: 20rem;
-	width: 100%;
-}
-@media (min-width: 50rem) {
-	.cover-img-large > picture > img, .parallax {
-		height: 30rem;
-	}
-}
-.post-content {
-	margin-top: -120px;
-}
-
-
-
-
-
-/* .container-tag-list {
-	max-width: 110rem;
-	margin: 0 auto;
-	width: 100%;
-	padding: 0 1rem;
-} */</style>
+}</style>
 	</head>
 	<body>
 		<a href="#skip" class="visually-hidden">Skip to main content</a>
@@ -734,22 +694,27 @@ text-transform: uppercase
 		<main id="skip">
 			
 
+
 <div class="cover-img-large">
-	
-	<picture><source type="image/avif" srcset="/adaptive-movement/img/MYtxPhk9Y_-1200.avif 1200w"><source type="image/webp" srcset="/adaptive-movement/img/MYtxPhk9Y_-1200.webp 1200w"><img alt="" loading="lazy" decoding="async" src="/adaptive-movement/img/MYtxPhk9Y_-1200.jpeg" width="1200" height="600"></picture>
+	 <picture><source type="image/webp" srcset="/adaptive-movement/img/xIZ5kfperv-800.webp 800w, /adaptive-movement/img/xIZ5kfperv-1200.webp 1200w" sizes="100vw"><source type="image/jpeg" srcset="/adaptive-movement/img/xIZ5kfperv-800.jpeg 800w, /adaptive-movement/img/xIZ5kfperv-1200.jpeg 1200w" sizes="100vw"><img alt="" loading="lazy" decoding="async" src="/adaptive-movement/img/xIZ5kfperv-800.jpeg" width="1200" height="600"></picture>
 </div>
 
 <div class="content post-content">
-<h1>Can my dog predict the future ?</h1>
+	<h1>Can my dog predict the future ?</h1>
 
-<ul class="post-metadata">
-	<li>By <a href="/adaptive-movement/authors/yann-daout/">Yann Daout</a> </li>
-	<li> 2021-03-01 </li>
-	<li>in <a href="/adaptive-movement/case-studies/">case studies</a> </li>
-</ul>
+	<ul class="post-metadata">
+		<li>
+			By <a href="/adaptive-movement/authors/yann-daout/">Yann Daout</a>
+		</li>
+		<li>2021-03-01</li>
+		<li>
+			in
+			<a href="/adaptive-movement/case-studies/" style="text-transform: capitalize">case studies</a>
+		</li>
+	</ul>
 
-<article data-pagefind-body="">
-<p>When I throw a stick, my dog starts moving before the stick even leaves my hand. How is that possible ? Does my dog know the future ? Of course, beyond the joke and the clickbaity title, this should not seem like magic. We usually admit that animals can anticipate by predicting the future, at least in some weak sense. I suppose we think of it like this: my dog has observed me throwing toys for years, so he has a mental model of where the toy will go depending on my movements. When I start moving, his brain uses the present information, puts it in the model, makes a few computations, predicts the trajectory of the stick, and starts moving according to this prediction. And sure, this is far from being Nostradamus. I can profit from this behaviour to easily fool my dog. I simply don’t release the stick, and my dog starts moving to the wrong place.</p>
+	<article data-pagefind-body="">
+		<p>When I throw a stick, my dog starts moving before the stick even leaves my hand. How is that possible ? Does my dog know the future ? Of course, beyond the joke and the clickbaity title, this should not seem like magic. We usually admit that animals can anticipate by predicting the future, at least in some weak sense. I suppose we think of it like this: my dog has observed me throwing toys for years, so he has a mental model of where the toy will go depending on my movements. When I start moving, his brain uses the present information, puts it in the model, makes a few computations, predicts the trajectory of the stick, and starts moving according to this prediction. And sure, this is far from being Nostradamus. I can profit from this behaviour to easily fool my dog. I simply don’t release the stick, and my dog starts moving to the wrong place.</p>
 <p>We have a tendency to say that dogs predict the trajectory of their toy, even though they can make bad predictions from time to time. And this seems necessary, even obvious, because dogs need to be at a certain place in the future to be able to catch the toy. But this future-position-of-the-toy is not available in the present, at the time when the dog needs to start moving. Prediction is necessary, then, because dogs can only use the information available in the present, and obviously this is not sufficient for knowing the future. It is a typical example of what Andy Clark and Josefa Toribio<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup> have called “representation-hungry” problems: it seems like it can't be solved without using mental representations. But because there are regularities in the physics of toy-throwing, it is possible to have a model that relates present information to future toy positions.</p>
 <h2 id="anticipation-without-prediction" tabindex="-1"><strong>Anticipation without prediction</strong> <a class="header-anchor" href="#anticipation-without-prediction">#</a></h2>
 <p>But is it that obvious ? Let’s change the perspective a bit. Instead of doing an overhead throw, let’s swing the stick from side to side. My dog still makes the same kind of anticipation: when I swing left, he moves left. When I swing right, he moves to the right. But this allows to recognize that maybe he’s not making a prediction at all. He is just coupled to the stick, always following it when I swing it. If I don’t release the stick, he ends up being wrong, but not because of his lack of predictive skills, simply because the information to which he adjusts his movement has changed. There is no need here for a complex mental model simulating toy-ballistics. In fact, no knowledge about the future is required, just the visual information available in the present.</p>
@@ -773,29 +738,41 @@ text-transform: uppercase
 </ol>
 </section>
 
-</article>
+	</article>
 
-<ul class="post-metadata">
-	<li><a href="/adaptive-movement/tags/anticipation/" class="post-tag">anticipation</a>, </li>
-	<li><a href="/adaptive-movement/tags/coupling/" class="post-tag">coupling</a>, </li>
-	<li><a href="/adaptive-movement/tags/gibson/" class="post-tag">gibson</a>, </li>
-	<li><a href="/adaptive-movement/tags/prediction/" class="post-tag">prediction</a>, </li>
-	<li><a href="/adaptive-movement/tags/prospective/" class="post-tag">prospective</a>, </li>
-	<li><a href="/adaptive-movement/tags/representations/" class="post-tag">representations</a></li>
-</ul>
-<nav class="pagination-inner" aria-label="Articles next and previous links">
-	<a href="/adaptive-movement/blog/can-we-teach-creativity-part-1/" data-direction="forwards" class="pagination-previous">
-		<span>← Can we teach creativity ? (Part 1) </span>
-	  </a>
-	
-	<a href="/adaptive-movement/blog/why-we-need-variability-of-movement/" data-direction="backwards" class="pagination-next">
-		<span>Why we need variability of movement →</span>
-	  </a>
-	
-</nav>
-
+	<ul class="post-metadata">
+		<li>
+			<a href="/adaptive-movement/tags/anticipation/" class="post-tag">anticipation</a>, 
+		</li>
+		<li>
+			<a href="/adaptive-movement/tags/coupling/" class="post-tag">coupling</a>, 
+		</li>
+		<li>
+			<a href="/adaptive-movement/tags/gibson/" class="post-tag">gibson</a>, 
+		</li>
+		<li>
+			<a href="/adaptive-movement/tags/prediction/" class="post-tag">prediction</a>, 
+		</li>
+		<li>
+			<a href="/adaptive-movement/tags/prospective/" class="post-tag">prospective</a>, 
+		</li>
+		<li>
+			<a href="/adaptive-movement/tags/representations/" class="post-tag">representations</a>
+		</li>
+	</ul>
+	<nav class="pagination-inner" aria-label="Articles next and previous links">
+		<a href="/adaptive-movement/blog/can-we-teach-creativity-part-1/" data-direction="forwards" class="pagination-previous">
+			<span>← Can we teach creativity ? (Part 1)
+			</span>
+		</a>
+		
+		<a href="/adaptive-movement/blog/why-we-need-variability-of-movement/" data-direction="backwards" class="pagination-next">
+			<span>Why we need variability of movement
+				→</span>
+		</a>
+		
+	</nav>
 </div>
-
 
 		</main>
 

@@ -203,27 +203,23 @@ pre[class*="language-diff-"] {
 	--accent: #47c1b9;
 	--reverse: white;
 
-	--categoryRed: #832232;
-	--categoryBlue: #124877;
-	--categoryGreen: #1a624d;
-
 	--syntax-tab-size: 2;
 }
 
-@media (prefers-color-scheme: dark) {
+/* Dark mode needs work*/
+/* @media (prefers-color-scheme: dark) {
 	:root {
 		--color-gray-20: #e0e0e0;
 		--color-gray-50: #c0c0c0;
 		--color-gray-90: #dad8d8;
 
-		/* --text-color is assigned to --color-gray-_ above */
 		--text-color-link: #1493fb;
 		--text-color-link-active: #6969f7;
 		--text-color-link-visited: #a6a6f8;
 
 		--background-color: #15202b;
 	}
-}
+} */
 
 /* Global stylesheet */
 * {
@@ -264,9 +260,6 @@ footer {
 	width: 1px;
 }
 
-p:last-child {
-	margin-bottom: 0;
-}
 p {
 	line-height: 1.5;
 }
@@ -424,12 +417,28 @@ max-width: 50%;
 	justify-content: center;
 	text-transform: capitalize;
 	font-style: italic;
+	padding: 0.3rem;
+	margin: 0.1rem;
+	background-color: var(--color-gray-50);
+	transition: background-color 200ms, color 200ms, transform 200ms;
+	text-decoration: none;
+	border-radius: 0.2rem;
+	&:hover,
+	&:focus {
+		background-color: var(--accent);
+		color: var(--text-color);
+		transform: scale(1.1);
+	}
 }
 .postlist-item > .post-tag {
 	align-self: center;
 }
-
-/* Tags list */
+.container-tag-list {
+	max-width: 110rem;
+	margin: 0 auto;
+	padding: 0 1rem;
+}
+/* Post metadata */
 .post-metadata {
 	display: inline-flex;
 	flex-wrap: wrap;
@@ -466,37 +475,6 @@ h2 + .header-anchor {
 	font-size: 1.5em;
 }
 
-/* Tag links */
-.tag-links {
-	list-style: none;
-	display: flex;
-	flex-wrap: wrap;
-	padding: 0;
-}
-
-.tag-links-tag {
-	margin-bottom: 0.6rem;
-}
-
-.tag-links-tag a {
-	padding: 0.3rem;
-	margin: 0.1rem;
-	background-color: var(--text-color);
-	color: var(--reverse);
-	transition: background-color 200ms, color 200ms, transform 200ms;
-	text-decoration: none;
-	border-radius: 0.2rem;
-	&:visited {
-		color: var(--reverse);
-	}
-	&:hover,
-	&:focus {
-		background-color: var(--accent);
-		color: var(--text-color);
-		transform: scale(1.9);
-	}
-}
-
 /* All tags list */
 .all-tags-list {
 	columns: 20rem;
@@ -504,7 +482,6 @@ h2 + .header-anchor {
 	list-style: none;
 	padding: 0;
 }
-
 .all-tags-link a {
 	color: var(--textColor);
 	&:hover,
@@ -513,7 +490,6 @@ h2 + .header-anchor {
 		color: var(--accent);
 	}
 }
-
 .all-tags-post-count {
 	color: var(--accent);
 	font-size: 0.9rem;
@@ -538,20 +514,54 @@ ul.socials {
 .nav-icon:hover path {
 	fill: var(--accent);
 }
-
 svg.nav-icon {
 	width: 100%;
 	height: 30px;
 }
 
+/* Post list */
+.postlist-item {
+	margin-bottom: 2rem;
+	box-shadow: 3px 3px 50px rgba(0, 0, 0, 0.301);
+}
+ .post-metadata {
+	margin: 0 auto;
+	max-width: 110ch;
+	padding: 1rem;
+}
+.postlist {
+	max-width: 90ch;
+	margin: 0 auto;
+}
+
+/* Posts */
+.postlist-item > picture > img {
+  	max-height: 300px;
+  	object-fit: cover;
+}
+.cover-img-large > picture > img {
+	object-fit: cover;
+	height: 20rem;
+	width: 100%;
+}
+@media (min-width: 50rem) {
+	.cover-img-large > picture > img, .parallax {
+		height: 30rem;
+	}
+}
+.post-content {
+	margin-top: -120px;
+	position: relative;
+}
 /* Content */
 .content {
 	max-width: 90ch;
 	margin: 0 auto;
 	padding: 1rem 2rem;
-	background-color: #fff; 
-	z-index: 150;
-	position: relative;
+	background-color: var(--background-color); 
+}
+article img {
+	height: auto;
 }
 
 /* Author pages*/ 
@@ -589,11 +599,12 @@ svg.nav-icon {
 
 .overlay-container {
 	position: relative;
+	text-align: center;
 }
 
-.overlay-container>picture>img {
-	margin: -2px auto -2px auto;
+.overlay-container > picture > img {
 	height: auto;
+	margin: -2px auto -2px auto;
 }
 
 .text-overlay {
@@ -624,65 +635,14 @@ a.text-overlay {
 	background-size: cover;
 	height: 20rem;
 }
-#parallax-waves {
-	background-image: url("/adaptive-movement/img/waves.jpg");
-}
-#parallax-dynamical {
-	background-image: url("/adaptive-movement/img/dynamical-systems.png");
-} 
+
 .parallax span {
 font-size: 3.5em;
 text-transform: uppercase
 }
 .centered {
 	text-align: center;
-}
-
-/* Post list */
-.postlist-item {
-	margin-bottom: 2rem;
-	box-shadow: 3px 3px 50px rgba(0, 0, 0, 0.301);
-}
- .post-metadata {
-	margin: 0 auto;
-	max-width: 110ch;
-	padding: 1rem;
-}
-.postlist {
-	max-width: 90ch;
-	margin: 0 auto;
-}
-
-/* Posts */
-.cover-img {
-	width: 100%;
-  	max-height: 300px;
-  	object-fit: cover;
-}
-.cover-img-large > picture > img {
-	object-fit: cover;
-	height: 20rem;
-	width: 100%;
-}
-@media (min-width: 50rem) {
-	.cover-img-large > picture > img, .parallax {
-		height: 30rem;
-	}
-}
-.post-content {
-	margin-top: -120px;
-}
-
-
-
-
-
-/* .container-tag-list {
-	max-width: 110rem;
-	margin: 0 auto;
-	width: 100%;
-	padding: 0 1rem;
-} */</style>
+}</style>
 	</head>
 	<body>
 		<a href="#skip" class="visually-hidden">Skip to main content</a>
@@ -734,34 +694,39 @@ text-transform: uppercase
 		<main id="skip">
 			
 
+
 <div class="cover-img-large">
-	
-	<picture><source type="image/avif" srcset="/adaptive-movement/img/eY5i0AMat6-1280.avif 1280w"><source type="image/webp" srcset="/adaptive-movement/img/eY5i0AMat6-1280.webp 1280w"><img alt="" loading="lazy" decoding="async" src="/adaptive-movement/img/eY5i0AMat6-1280.png" width="1280" height="848"></picture>
+	 <picture><source type="image/webp" srcset="/adaptive-movement/img/eY5i0AMat6-800.webp 800w, /adaptive-movement/img/eY5i0AMat6-1280.webp 1280w" sizes="100vw"><source type="image/png" srcset="/adaptive-movement/img/eY5i0AMat6-800.png 800w, /adaptive-movement/img/eY5i0AMat6-1280.png 1280w" sizes="100vw"><img alt="" loading="lazy" decoding="async" src="/adaptive-movement/img/eY5i0AMat6-800.png" width="1280" height="848"></picture>
 </div>
 
 <div class="content post-content">
-<h1>The floor is lava</h1>
+	<h1>The floor is lava</h1>
 
-<ul class="post-metadata">
-	<li>By <a href="/adaptive-movement/authors/yann-daout/">Yann Daout</a> </li>
-	<li> 2019-08-13 </li>
-	<li>in <a href="/adaptive-movement/case-studies/">case studies</a> </li>
-</ul>
+	<ul class="post-metadata">
+		<li>
+			By <a href="/adaptive-movement/authors/yann-daout/">Yann Daout</a>
+		</li>
+		<li>2019-08-13</li>
+		<li>
+			in
+			<a href="/adaptive-movement/case-studies/" style="text-transform: capitalize">case studies</a>
+		</li>
+	</ul>
 
-<article data-pagefind-body="">
-<p>You probably know the game called “the floor is lava”, where players must traverse space without touching the ground. Although it is a kids’ game, it is also popular among parkour practitioners, who use different obstacles, ledges, walls or rails to avoid touching the “lava”. Here, I will argue that this game is a great example of a “naive” version of the <a href="/adaptive-movement/brief-introduction-to-the-constraints-led-approach">constraints-led approach</a>. Different versions of the game might exist, so we will start discussing an unstructured case and then examine how different variations can be used to achieve learning goals.</p>
+	<article data-pagefind-body="">
+		<p>You probably know the game called “the floor is lava”, where players must traverse space without touching the ground. Although it is a kids’ game, it is also popular among parkour practitioners, who use different obstacles, ledges, walls or rails to avoid touching the “lava”. Here, I will argue that this game is a great example of a “naive” version of the <a href="/adaptive-movement/blog/brief-introduction-to-the-constraints-led-approach">constraints-led approach</a>. Different versions of the game might exist, so we will start discussing an unstructured case and then examine how different variations can be used to achieve learning goals.</p>
 <h1 id="a-non-prescriptive-game" tabindex="-1">A non-prescriptive game <a class="header-anchor" href="#a-non-prescriptive-game">#</a></h1>
 <p>If we observe a few kids playing the floor is lava, it might at first seem like a case of unguided exploration. They jump, climb, crawl, run or vault everywhere. There doesn’t seem to be a right or wrong solution, no particular technique is rehearsed, and different paths can be taken. But there is at least one rule: whatever they do, they can’t touch the ground. And usually, there is an objective, like trying to get from one point of the environment to another. So although the game is not very prescriptive (there’s not a lot of precise instructions), it is still goal-oriented and we would be mistaken to describe it as a case of totally unguided exploration.</p>
 <p>The game is better thought of as a kind of problem-solving task: I know what to do, but I have to find out how to do it. It fosters exploration, trial and error, adaptability. We can even go as far as to say that it would require creativity: when I’m stuck somewhere, I’m forced to think out of the box in order to keep going. At the very least, I’ll need to observe the environment attentively, and find new <a href="/adaptive-movement/affordances-perception-and-action">affordances</a>: is it possible to jump there ? can I find an asperity in the wall that my fingers can get a hold of ? or maybe there is a ledge I can use to hang from ?</p>
 <h1 id="a-game-structured-by-constraints" tabindex="-1">A game structured by constraints <a class="header-anchor" href="#a-game-structured-by-constraints">#</a></h1>
-<p>With the <a href="/adaptive-movement/brief-introduction-to-the-constraints-led-approach">CLA</a>, we can understand how different constraints structure this process of exploration, and canalize the resulting movement solutions.</p>
+<p>With the <a href="/adaptive-movement/blog/brief-introduction-to-the-constraints-led-approach">CLA</a>, we can understand how different constraints structure this process of exploration, and canalize the resulting movement solutions.</p>
 <p>The task constraints are the rules and objectives of the game. Kids will usually self-regulate: they decide where to start and where to stop, what are the rules, what counts as “the ground”, etc. They don’t necessarily discuss and negotiate all the details. So although the general frame might be set to be the same for every player (this is where we start, this is where we want to go, and this is the lava we don’t want to touch), there might be a lot left open to interpretation. This leaves some space for the individualisation of the challenge. Some might use all means necessary, but often players will set additional task constraints for themselves, like avoiding an obvious foothold, or restricting the use of hands for balance or momentum for a jump. Players of different skill levels can therefore attempt the “same” challenge, while still facing a challenge of the appropriate level. What happens quite often is that once they’ve accomplished the challenge in “easy mode”, players will try again with added constraints (“let’s try it without using this wall”, etc.).</p>
-<p><img src="images/sautdebras.webp" alt=""></p>
+<p><picture><source type="image/webp" srcset="/adaptive-movement/img/NIxe0M_Phw-600.webp 600w" sizes="100vw"><img alt="" src="/adaptive-movement/img/NIxe0M_Phw-600.jpeg" width="600" height="879"></picture></p>
 <p>Better not fall in that lava...</p>
 <p>The environmental constraints will depend on where they’re playing: indoors, on a playground, in the streets, on trees… They depend on the context too: are they playing alone or with friends ? Is the ground dry or is it raining ? Are they playing at night or is there enough light ? These constraints will afford some movement solutions, like balancing on a rail to cross a gap. On the flip side, they remove some movement solutions: walking through a wall is impossible, and jumping over it without momentum is too risky, etc.</p>
 <p>We should always think of the environmental constraints together with the individual constraints. The individual constraints will also ensure that some actions are possible or impossible, easy or hard, attractive or not. For example, a tall or flexible practitioner might be able to reach a certain ledge that others cannot, and a not-so-confident player might prefer progressing slowly and avoiding paths that require jumping. Because the game does not prescribe the movement solutions that need to be used, it leaves space for individual solutions, tailored to everyone’s individual constraints. There is no “one size fits all” solution, what is efficient for me might not be the best solution for you.</p>
 <h1 id="using-constraints-for-learning" tabindex="-1">Using constraints for learning <a class="header-anchor" href="#using-constraints-for-learning">#</a></h1>
-<p>Now we’ve seen why “the floor is lava” works so well in unregulated situations, and that we’ve shown how we can see it as a constraints-based game, there’s still a few elements to discuss. After all, the <a href="/adaptive-movement/brief-introduction-to-the-constraints-led-approach">constraints-led approach</a> does not consist in adding random constraints to any kind of teaching situation. What we want is to use constraints in a systematic way to achieve learning goals. The floor is lava is a fun game that can be used as such, but a teacher can also use it with the intention of improving specific skills.</p>
+<p>Now we’ve seen why “the floor is lava” works so well in unregulated situations, and that we’ve shown how we can see it as a constraints-based game, there’s still a few elements to discuss. After all, the <a href="/adaptive-movement/blog/brief-introduction-to-the-constraints-led-approach">constraints-led approach</a> does not consist in adding random constraints to any kind of teaching situation. What we want is to use constraints in a systematic way to achieve learning goals. The floor is lava is a fun game that can be used as such, but a teacher can also use it with the intention of improving specific skills.</p>
 <p>The first thing you would want to do is choose a situation that provides the right affordances and opportunities for action. You want your learners to improve their jumps ? Choose a course that requires them to jump. You want them to improve their vaults ? Pick a setting with a lot of walls to vault over. Usually you will not need to tell them what to practice, because they need to use those techniques to get to point B. Sometimes they will surprise you, coming up with solutions you didn’t expect them to use. That’s pretty cool, it means they are smart and are using all the opportunities that their bodies and the environment provide. As we have shown, the floor is lava is a great game to develop higher order skills like creativity and adaptation. And because it can be played in complex and realistic environments, the players learn to interact with and move efficiently through these spaces, which is a useful life skill.</p>
 <p>But if you really want them to train specific techniques, you can always add constraints to guide them to these solutions. Here are some ideas:</p>
 <ul>
@@ -776,26 +741,32 @@ text-transform: uppercase
 <h1 id="conclusion" tabindex="-1">Conclusion <a class="header-anchor" href="#conclusion">#</a></h1>
 <p>In this article I’ve used “the floor is lava” as an example of a constraint-based game. Considering how this game is both fun and challenging, while providing learning opportunities, we should learn from it to structure the way we teach. We should take away that although we usually should tell our learners <em>what</em> to do, we don’t need to tell them <em>how</em> to do it. We should not focus too much on instructions and feedback, but think of all the constraints that we can use to guide our learners towards skillful behavior. And we should design our learning situations to provide enough autonomy and allow the emergence of individualized and/or creative solutions.</p>
 
-</article>
+	</article>
 
-<ul class="post-metadata">
-	<li><a href="/adaptive-movement/tags/cla/" class="post-tag">cla</a>, </li>
-	<li><a href="/adaptive-movement/tags/floor-is-lava/" class="post-tag">floor-is-lava</a>, </li>
-	<li><a href="/adaptive-movement/tags/game/" class="post-tag">game</a></li>
-</ul>
-<nav class="pagination-inner" aria-label="Articles next and previous links">
-	<a href="/adaptive-movement/blog/the-dynamical-systems-approach/" data-direction="forwards" class="pagination-previous">
-		<span>← The dynamical systems approach </span>
-	  </a>
-	
-	<a href="/adaptive-movement/blog/introduction-to-ecological-dynamics/" data-direction="backwards" class="pagination-next">
-		<span>Introduction to Ecological Dynamics →</span>
-	  </a>
-	
-</nav>
-
+	<ul class="post-metadata">
+		<li>
+			<a href="/adaptive-movement/tags/cla/" class="post-tag">cla</a>, 
+		</li>
+		<li>
+			<a href="/adaptive-movement/tags/floor-is-lava/" class="post-tag">floor-is-lava</a>, 
+		</li>
+		<li>
+			<a href="/adaptive-movement/tags/game/" class="post-tag">game</a>
+		</li>
+	</ul>
+	<nav class="pagination-inner" aria-label="Articles next and previous links">
+		<a href="/adaptive-movement/blog/the-dynamical-systems-approach/" data-direction="forwards" class="pagination-previous">
+			<span>← The dynamical systems approach
+			</span>
+		</a>
+		
+		<a href="/adaptive-movement/blog/introduction-to-ecological-dynamics/" data-direction="backwards" class="pagination-next">
+			<span>Introduction to Ecological Dynamics
+				→</span>
+		</a>
+		
+	</nav>
 </div>
-
 
 		</main>
 

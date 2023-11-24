@@ -203,27 +203,23 @@ pre[class*="language-diff-"] {
 	--accent: #47c1b9;
 	--reverse: white;
 
-	--categoryRed: #832232;
-	--categoryBlue: #124877;
-	--categoryGreen: #1a624d;
-
 	--syntax-tab-size: 2;
 }
 
-@media (prefers-color-scheme: dark) {
+/* Dark mode needs work*/
+/* @media (prefers-color-scheme: dark) {
 	:root {
 		--color-gray-20: #e0e0e0;
 		--color-gray-50: #c0c0c0;
 		--color-gray-90: #dad8d8;
 
-		/* --text-color is assigned to --color-gray-_ above */
 		--text-color-link: #1493fb;
 		--text-color-link-active: #6969f7;
 		--text-color-link-visited: #a6a6f8;
 
 		--background-color: #15202b;
 	}
-}
+} */
 
 /* Global stylesheet */
 * {
@@ -264,9 +260,6 @@ footer {
 	width: 1px;
 }
 
-p:last-child {
-	margin-bottom: 0;
-}
 p {
 	line-height: 1.5;
 }
@@ -424,12 +417,28 @@ max-width: 50%;
 	justify-content: center;
 	text-transform: capitalize;
 	font-style: italic;
+	padding: 0.3rem;
+	margin: 0.1rem;
+	background-color: var(--color-gray-50);
+	transition: background-color 200ms, color 200ms, transform 200ms;
+	text-decoration: none;
+	border-radius: 0.2rem;
+	&:hover,
+	&:focus {
+		background-color: var(--accent);
+		color: var(--text-color);
+		transform: scale(1.1);
+	}
 }
 .postlist-item > .post-tag {
 	align-self: center;
 }
-
-/* Tags list */
+.container-tag-list {
+	max-width: 110rem;
+	margin: 0 auto;
+	padding: 0 1rem;
+}
+/* Post metadata */
 .post-metadata {
 	display: inline-flex;
 	flex-wrap: wrap;
@@ -466,37 +475,6 @@ h2 + .header-anchor {
 	font-size: 1.5em;
 }
 
-/* Tag links */
-.tag-links {
-	list-style: none;
-	display: flex;
-	flex-wrap: wrap;
-	padding: 0;
-}
-
-.tag-links-tag {
-	margin-bottom: 0.6rem;
-}
-
-.tag-links-tag a {
-	padding: 0.3rem;
-	margin: 0.1rem;
-	background-color: var(--text-color);
-	color: var(--reverse);
-	transition: background-color 200ms, color 200ms, transform 200ms;
-	text-decoration: none;
-	border-radius: 0.2rem;
-	&:visited {
-		color: var(--reverse);
-	}
-	&:hover,
-	&:focus {
-		background-color: var(--accent);
-		color: var(--text-color);
-		transform: scale(1.9);
-	}
-}
-
 /* All tags list */
 .all-tags-list {
 	columns: 20rem;
@@ -504,7 +482,6 @@ h2 + .header-anchor {
 	list-style: none;
 	padding: 0;
 }
-
 .all-tags-link a {
 	color: var(--textColor);
 	&:hover,
@@ -513,7 +490,6 @@ h2 + .header-anchor {
 		color: var(--accent);
 	}
 }
-
 .all-tags-post-count {
 	color: var(--accent);
 	font-size: 0.9rem;
@@ -538,20 +514,54 @@ ul.socials {
 .nav-icon:hover path {
 	fill: var(--accent);
 }
-
 svg.nav-icon {
 	width: 100%;
 	height: 30px;
 }
 
+/* Post list */
+.postlist-item {
+	margin-bottom: 2rem;
+	box-shadow: 3px 3px 50px rgba(0, 0, 0, 0.301);
+}
+ .post-metadata {
+	margin: 0 auto;
+	max-width: 110ch;
+	padding: 1rem;
+}
+.postlist {
+	max-width: 90ch;
+	margin: 0 auto;
+}
+
+/* Posts */
+.postlist-item > picture > img {
+  	max-height: 300px;
+  	object-fit: cover;
+}
+.cover-img-large > picture > img {
+	object-fit: cover;
+	height: 20rem;
+	width: 100%;
+}
+@media (min-width: 50rem) {
+	.cover-img-large > picture > img, .parallax {
+		height: 30rem;
+	}
+}
+.post-content {
+	margin-top: -120px;
+	position: relative;
+}
 /* Content */
 .content {
 	max-width: 90ch;
 	margin: 0 auto;
 	padding: 1rem 2rem;
-	background-color: #fff; 
-	z-index: 150;
-	position: relative;
+	background-color: var(--background-color); 
+}
+article img {
+	height: auto;
 }
 
 /* Author pages*/ 
@@ -589,11 +599,12 @@ svg.nav-icon {
 
 .overlay-container {
 	position: relative;
+	text-align: center;
 }
 
-.overlay-container>picture>img {
-	margin: -2px auto -2px auto;
+.overlay-container > picture > img {
 	height: auto;
+	margin: -2px auto -2px auto;
 }
 
 .text-overlay {
@@ -624,65 +635,14 @@ a.text-overlay {
 	background-size: cover;
 	height: 20rem;
 }
-#parallax-waves {
-	background-image: url("/adaptive-movement/img/waves.jpg");
-}
-#parallax-dynamical {
-	background-image: url("/adaptive-movement/img/dynamical-systems.png");
-} 
+
 .parallax span {
 font-size: 3.5em;
 text-transform: uppercase
 }
 .centered {
 	text-align: center;
-}
-
-/* Post list */
-.postlist-item {
-	margin-bottom: 2rem;
-	box-shadow: 3px 3px 50px rgba(0, 0, 0, 0.301);
-}
- .post-metadata {
-	margin: 0 auto;
-	max-width: 110ch;
-	padding: 1rem;
-}
-.postlist {
-	max-width: 90ch;
-	margin: 0 auto;
-}
-
-/* Posts */
-.cover-img {
-	width: 100%;
-  	max-height: 300px;
-  	object-fit: cover;
-}
-.cover-img-large > picture > img {
-	object-fit: cover;
-	height: 20rem;
-	width: 100%;
-}
-@media (min-width: 50rem) {
-	.cover-img-large > picture > img, .parallax {
-		height: 30rem;
-	}
-}
-.post-content {
-	margin-top: -120px;
-}
-
-
-
-
-
-/* .container-tag-list {
-	max-width: 110rem;
-	margin: 0 auto;
-	width: 100%;
-	padding: 0 1rem;
-} */</style>
+}</style>
 	</head>
 	<body>
 		<a href="#skip" class="visually-hidden">Skip to main content</a>
@@ -734,22 +694,27 @@ text-transform: uppercase
 		<main id="skip">
 			
 
+
 <div class="cover-img-large">
-	
-	<picture><source type="image/avif" srcset="/adaptive-movement/img/B9UjKIPiPs-1200.avif 1200w"><source type="image/webp" srcset="/adaptive-movement/img/B9UjKIPiPs-1200.webp 1200w"><img alt="" loading="lazy" decoding="async" src="/adaptive-movement/img/B9UjKIPiPs-1200.jpeg" width="1200" height="800"></picture>
+	 <picture><source type="image/webp" srcset="/adaptive-movement/img/B9UjKIPiPs-800.webp 800w, /adaptive-movement/img/B9UjKIPiPs-1200.webp 1200w" sizes="100vw"><source type="image/jpeg" srcset="/adaptive-movement/img/B9UjKIPiPs-800.jpeg 800w, /adaptive-movement/img/B9UjKIPiPs-1200.jpeg 1200w" sizes="100vw"><img alt="" loading="lazy" decoding="async" src="/adaptive-movement/img/B9UjKIPiPs-800.jpeg" width="1200" height="800"></picture>
 </div>
 
 <div class="content post-content">
-<h1>Introduction to Ecological Dynamics</h1>
+	<h1>Introduction to Ecological Dynamics</h1>
 
-<ul class="post-metadata">
-	<li>By <a href="/adaptive-movement/authors/pawel-van-der-steen/">Pawel van der Steen</a> </li>
-	<li> 2019-08-13 </li>
-	<li>in <a href="/adaptive-movement/theory/">theory</a> </li>
-</ul>
+	<ul class="post-metadata">
+		<li>
+			By <a href="/adaptive-movement/authors/pawel-van-der-steen/">Pawel van der Steen</a>
+		</li>
+		<li>2019-08-13</li>
+		<li>
+			in
+			<a href="/adaptive-movement/theory/" style="text-transform: capitalize">theory</a>
+		</li>
+	</ul>
 
-<article data-pagefind-body="">
-<p>Ecological Dynamics is a scientific framework that studies the behaviour neurobiological systems. This involves how living organisms form processes of action, perception and cognition. It is a very holistic approach to studying behaviour, as it considers both the living organism, as well as the environment that it relies and acts upon.</p>
+	<article data-pagefind-body="">
+		<p>Ecological Dynamics is a scientific framework that studies the behaviour neurobiological systems. This involves how living organisms form processes of action, perception and cognition. It is a very holistic approach to studying behaviour, as it considers both the living organism, as well as the environment that it relies and acts upon.</p>
 <p>Ecological Dynamics (ED) is a framework that finds its roots in two other fields of science: The psychological school of thought called Ecological Psychology and the mathematical approach called Dynamical Systems Theory. Having a brief understanding of both theories is necessary to understand why they compliment each other so well, and ultimately it allows us to understand what Ecological Dynamics is and why it is relevant in sports coaching, including Parkour.</p>
 <h2 id="ecological-psychology" tabindex="-1"><strong>Ecological Psychology</strong> <a class="header-anchor" href="#ecological-psychology">#</a></h2>
 <p>Ecological Psychology is a psychological approach that was developed mid 20th century by James Gibson. He argued that in order to understand and study behaviour and cognition, we need to pay close attention to the context in which the person is found. Behaviour and cognition are a result of a continuous interaction between the organism and the environment, which makes it impossible to see the two separately.<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup> Imagine, for example, walking into a social networking event. If you happen to be particularly hungry at that moment in time, you might find yourself looking for any available snacks. If you find them, however, you wouldn’t finish a whole bowl of peanuts like you would if you were at home. If you have particular networking goals that day, on the other hand, you would quickly assess other people attending the event, but your approach towards them would be different than talking to new people in a less formal setting.</p>
@@ -764,7 +729,7 @@ text-transform: uppercase
 <p>This is where the second part of Ecological Dynamics comes in: Dynamical Systems Theory. This theory explains the behaviour of complex dynamical systems where a systems functioning relies on the behaviour of smaller elements. When the behaviour of one element changes, the whole system shifts accordingly. The interesting thing about Dynamical Systems is that there is no overruling mechanism that decides how the system develops over time. The end result of how the system behaves happens through self-organisation of the elements. A good example of self-organisation in physics is how freezing water can form the shape of a snowflake, with its characteristic fractalised structure. The same can be found in human movement, where we develop similar movement patterns over time like alternating leg movement to walk, or alternating arm and leg movement to crawl. A lot of these movements can be found in babies in the form of reflexes.</p>
 <p>The link between the two fields of science is not hard to see. Ecological Psychology thinks in systems and interactions between living organism and their environments. Ecological Dynamics takes elements from Dynamical Systems theory and applies it to Ecological Psychology in order to make predictive models of human behaviour, perception and cognition.</p>
 <h2 id="ecological-dynamics-and-coaching-the-constraints-led-approach" tabindex="-1">Ecological Dynamics and Coaching: the Constraints led Approach <a class="header-anchor" href="#ecological-dynamics-and-coaching-the-constraints-led-approach">#</a></h2>
-<p>The realisation that humans function within the context of the environment, rather than independently as a fully autonomous system has great implications on how we understand the functioning of the human body. On top of this, it also radically changes how we should look at cognitive learning and physical skill acquisition. The absolute majority of sports, from team sports like football and tennis to parkour and mountain biking, rely heavily on interaction with a dynamical environment. In some cases the environment is very responsive to interaction, like other people or a ball that’s flying around, and in other situations the environment is relatively stable. In either situation, the context is defining for the possibilities in training. Acknowledging how important these elements are to practice, a training method called the <a href="/adaptive-movement/brief-introduction-to-the-constraints-led-approach">‘Constraints-Led Approach’ (CLA)</a> was developed. The purpose of this blog is to provide a central place for coaches and practitioners to understand and learn how to apply the CLA. We also provide background information like this article about theories like Ecological Dynamics and how they form the basis of the CLA.<sup class="footnote-ref"><a href="#fn3" id="fnref3">[3]</a></sup></p>
+<p>The realisation that humans function within the context of the environment, rather than independently as a fully autonomous system has great implications on how we understand the functioning of the human body. On top of this, it also radically changes how we should look at cognitive learning and physical skill acquisition. The absolute majority of sports, from team sports like football and tennis to parkour and mountain biking, rely heavily on interaction with a dynamical environment. In some cases the environment is very responsive to interaction, like other people or a ball that’s flying around, and in other situations the environment is relatively stable. In either situation, the context is defining for the possibilities in training. Acknowledging how important these elements are to practice, a training method called the <a href="/adaptive-movement/blog/brief-introduction-to-the-constraints-led-approach">‘Constraints-Led Approach’ (CLA)</a> was developed. The purpose of this blog is to provide a central place for coaches and practitioners to understand and learn how to apply the CLA. We also provide background information like this article about theories like Ecological Dynamics and how they form the basis of the CLA.<sup class="footnote-ref"><a href="#fn3" id="fnref3">[3]</a></sup></p>
 <h2 id="parkour-and-ecological-dynamics" tabindex="-1"><strong>Parkour and Ecological Dynamics</strong> <a class="header-anchor" href="#parkour-and-ecological-dynamics">#</a></h2>
 <p>What brings three Parkour coaches to find so much interest in Ecological Dynamics? Perhaps you already found some links between the brief introduction to the Ecological Dynamics framework and Parkour.</p>
 <p>In Parkour, we heavily rely on our local environment for training, be it urban or natural. Our training is shaped by the places we live in, and it’s not uncommon to find people from different cities to have different ways of moving. You may even have heard a lot of practitioners say something like ‘Parkour has changed the way I see the city.’ Often times they refer to how they feel more freedom and possibilities in the city, as opposed to viewing common obstacles like walls and rails like limitation. Which in fact, is what they are, as they are meant to steer us to get from one place to another via certain routes. Does Parkour really change the way we see our surroundings? Well, maybe we are actually on to something here. By teaching ourselves various new abilities and exploring new ways to interact with our environment we don’t just become better at a hobby we can turn on and off. Understanding that perception of for action, we can realise that through all this practice we automatically will see new possibilities in our environment. Which, in an urban environment that is meant to make us move in certain places, can be an experience that creates a greater sense of freedom.</p>
@@ -780,26 +745,32 @@ text-transform: uppercase
 </ol>
 </section>
 
-</article>
+	</article>
 
-<ul class="post-metadata">
-	<li><a href="/adaptive-movement/tags/dynamical-systems/" class="post-tag">dynamical-systems</a>, </li>
-	<li><a href="/adaptive-movement/tags/ecological-dynamics/" class="post-tag">ecological-dynamics</a>, </li>
-	<li><a href="/adaptive-movement/tags/ecological-psychology/" class="post-tag">ecological-psychology</a></li>
-</ul>
-<nav class="pagination-inner" aria-label="Articles next and previous links">
-	<a href="/adaptive-movement/blog/the-floor-is-lava/" data-direction="forwards" class="pagination-previous">
-		<span>← The floor is lava </span>
-	  </a>
-	
-	<a href="/adaptive-movement/blog/brief-introduction-to-the-constraints-led-approach/" data-direction="backwards" class="pagination-next">
-		<span>Introduction to the constraints-led approach →</span>
-	  </a>
-	
-</nav>
-
+	<ul class="post-metadata">
+		<li>
+			<a href="/adaptive-movement/tags/dynamical-systems/" class="post-tag">dynamical-systems</a>, 
+		</li>
+		<li>
+			<a href="/adaptive-movement/tags/ecological-dynamics/" class="post-tag">ecological-dynamics</a>, 
+		</li>
+		<li>
+			<a href="/adaptive-movement/tags/ecological-psychology/" class="post-tag">ecological-psychology</a>
+		</li>
+	</ul>
+	<nav class="pagination-inner" aria-label="Articles next and previous links">
+		<a href="/adaptive-movement/blog/the-floor-is-lava/" data-direction="forwards" class="pagination-previous">
+			<span>← The floor is lava
+			</span>
+		</a>
+		
+		<a href="/adaptive-movement/blog/brief-introduction-to-the-constraints-led-approach/" data-direction="backwards" class="pagination-next">
+			<span>Introduction to the constraints-led approach
+				→</span>
+		</a>
+		
+	</nav>
 </div>
-
 
 		</main>
 
