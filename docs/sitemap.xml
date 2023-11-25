@@ -2,297 +2,297 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
 	
 	<url>
-		<loc>https://senestres.github.io/adaptive-movement/about/</loc>
+		<loc>https://senestres.github.io/about/</loc>
 		<lastmod>2019-08-01</lastmod>
 	</url>
 	
 	<url>
-		<loc>https://senestres.github.io/adaptive-movement/home/</loc>
+		<loc>https://senestres.github.io/home/</loc>
 		<lastmod>2019-08-09</lastmod>
 	</url>
 	
 	<url>
-		<loc>https://senestres.github.io/adaptive-movement/blog/affordances-perception-and-action/</loc>
+		<loc>https://senestres.github.io/blog/affordances-perception-and-action/</loc>
 		<lastmod>2019-08-12</lastmod>
 	</url>
 	
 	<url>
-		<loc>https://senestres.github.io/adaptive-movement/blog/brief-introduction-to-the-constraints-led-approach/</loc>
+		<loc>https://senestres.github.io/blog/brief-introduction-to-the-constraints-led-approach/</loc>
 		<lastmod>2019-08-12</lastmod>
 	</url>
 	
 	<url>
-		<loc>https://senestres.github.io/adaptive-movement/blog/introduction-to-ecological-dynamics/</loc>
+		<loc>https://senestres.github.io/blog/introduction-to-ecological-dynamics/</loc>
 		<lastmod>2019-08-13</lastmod>
 	</url>
 	
 	<url>
-		<loc>https://senestres.github.io/adaptive-movement/blog/the-floor-is-lava/</loc>
+		<loc>https://senestres.github.io/blog/the-floor-is-lava/</loc>
 		<lastmod>2019-08-13</lastmod>
 	</url>
 	
 	<url>
-		<loc>https://senestres.github.io/adaptive-movement/blog/the-dynamical-systems-approach/</loc>
+		<loc>https://senestres.github.io/blog/the-dynamical-systems-approach/</loc>
 		<lastmod>2019-10-29</lastmod>
 	</url>
 	
 	<url>
-		<loc>https://senestres.github.io/adaptive-movement/blog/self-organisation-and-attractors/</loc>
+		<loc>https://senestres.github.io/blog/self-organisation-and-attractors/</loc>
 		<lastmod>2019-10-30</lastmod>
 	</url>
 	
 	<url>
-		<loc>https://senestres.github.io/adaptive-movement/blog/why-we-need-variability-of-movement/</loc>
+		<loc>https://senestres.github.io/blog/why-we-need-variability-of-movement/</loc>
 		<lastmod>2019-10-30</lastmod>
 	</url>
 	
 	<url>
-		<loc>https://senestres.github.io/adaptive-movement/blog/can-my-dog-predict-the-future/</loc>
+		<loc>https://senestres.github.io/blog/can-my-dog-predict-the-future/</loc>
 		<lastmod>2021-03-01</lastmod>
 	</url>
 	
 	<url>
-		<loc>https://senestres.github.io/adaptive-movement/blog/can-we-teach-creativity-part-1/</loc>
+		<loc>https://senestres.github.io/blog/can-we-teach-creativity-part-1/</loc>
 		<lastmod>2022-08-02</lastmod>
 	</url>
 	
 	<url>
-		<loc>https://senestres.github.io/adaptive-movement/blog/can-we-teach-creativity-part-2/</loc>
+		<loc>https://senestres.github.io/blog/can-we-teach-creativity-part-2/</loc>
 		<lastmod>2022-08-02</lastmod>
 	</url>
 	
 	<url>
-		<loc>https://senestres.github.io/adaptive-movement/blog/can-we-teach-creativity-part-3/</loc>
+		<loc>https://senestres.github.io/blog/can-we-teach-creativity-part-3/</loc>
 		<lastmod>2022-10-27</lastmod>
 	</url>
 	
 	<url>
-		<loc>https://senestres.github.io/adaptive-movement/</loc>
+		<loc>https://senestres.github.io/</loc>
 		<lastmod>2023-11-20</lastmod>
 	</url>
 	
 	<url>
-		<loc>https://senestres.github.io/adaptive-movement/search/</loc>
+		<loc>https://senestres.github.io/search/</loc>
 		<lastmod>2023-11-20</lastmod>
 	</url>
 	
 	<url>
-		<loc>https://senestres.github.io/adaptive-movement/tags/</loc>
+		<loc>https://senestres.github.io/tags/</loc>
 		<lastmod>2023-11-20</lastmod>
 	</url>
 	
 	<url>
-		<loc>https://senestres.github.io/adaptive-movement/tags/affordances/</loc>
+		<loc>https://senestres.github.io/tags/constraints/</loc>
 		<lastmod>2023-11-20</lastmod>
 	</url>
 	
 	<url>
-		<loc>https://senestres.github.io/adaptive-movement/tags/perception-and-action/</loc>
+		<loc>https://senestres.github.io/tags/creativity/</loc>
 		<lastmod>2023-11-20</lastmod>
 	</url>
 	
 	<url>
-		<loc>https://senestres.github.io/adaptive-movement/tags/action-and-perception/</loc>
+		<loc>https://senestres.github.io/tags/dance/</loc>
 		<lastmod>2023-11-20</lastmod>
 	</url>
 	
 	<url>
-		<loc>https://senestres.github.io/adaptive-movement/tags/ecological-dynamics/</loc>
+		<loc>https://senestres.github.io/tags/exploration/</loc>
 		<lastmod>2023-11-20</lastmod>
 	</url>
 	
 	<url>
-		<loc>https://senestres.github.io/adaptive-movement/tags/self-organization/</loc>
+		<loc>https://senestres.github.io/tags/ideation/</loc>
 		<lastmod>2023-11-20</lastmod>
 	</url>
 	
 	<url>
-		<loc>https://senestres.github.io/adaptive-movement/tags/the-constraint-led-approach/</loc>
+		<loc>https://senestres.github.io/tags/motor-creativity/</loc>
 		<lastmod>2023-11-20</lastmod>
 	</url>
 	
 	<url>
-		<loc>https://senestres.github.io/adaptive-movement/tags/anticipation/</loc>
+		<loc>https://senestres.github.io/tags/oulipo/</loc>
 		<lastmod>2023-11-20</lastmod>
 	</url>
 	
 	<url>
-		<loc>https://senestres.github.io/adaptive-movement/tags/coupling/</loc>
+		<loc>https://senestres.github.io/tags/randomness/</loc>
 		<lastmod>2023-11-20</lastmod>
 	</url>
 	
 	<url>
-		<loc>https://senestres.github.io/adaptive-movement/tags/gibson/</loc>
+		<loc>https://senestres.github.io/tags/teaching/</loc>
 		<lastmod>2023-11-20</lastmod>
 	</url>
 	
 	<url>
-		<loc>https://senestres.github.io/adaptive-movement/tags/prediction/</loc>
+		<loc>https://senestres.github.io/tags/affordances/</loc>
 		<lastmod>2023-11-20</lastmod>
 	</url>
 	
 	<url>
-		<loc>https://senestres.github.io/adaptive-movement/tags/prospective/</loc>
+		<loc>https://senestres.github.io/tags/effectivities/</loc>
 		<lastmod>2023-11-20</lastmod>
 	</url>
 	
 	<url>
-		<loc>https://senestres.github.io/adaptive-movement/tags/representations/</loc>
+		<loc>https://senestres.github.io/tags/methods/</loc>
 		<lastmod>2023-11-20</lastmod>
 	</url>
 	
 	<url>
-		<loc>https://senestres.github.io/adaptive-movement/tags/constraints/</loc>
+		<loc>https://senestres.github.io/tags/variability/</loc>
 		<lastmod>2023-11-20</lastmod>
 	</url>
 	
 	<url>
-		<loc>https://senestres.github.io/adaptive-movement/tags/creativity/</loc>
+		<loc>https://senestres.github.io/tags/dynamical-systems/</loc>
 		<lastmod>2023-11-20</lastmod>
 	</url>
 	
 	<url>
-		<loc>https://senestres.github.io/adaptive-movement/tags/dance/</loc>
+		<loc>https://senestres.github.io/tags/ecological-dynamics/</loc>
 		<lastmod>2023-11-20</lastmod>
 	</url>
 	
 	<url>
-		<loc>https://senestres.github.io/adaptive-movement/tags/exploration/</loc>
+		<loc>https://senestres.github.io/tags/ecological-psychology/</loc>
 		<lastmod>2023-11-20</lastmod>
 	</url>
 	
 	<url>
-		<loc>https://senestres.github.io/adaptive-movement/tags/ideation/</loc>
+		<loc>https://senestres.github.io/tags/cla/</loc>
 		<lastmod>2023-11-20</lastmod>
 	</url>
 	
 	<url>
-		<loc>https://senestres.github.io/adaptive-movement/tags/motor-creativity/</loc>
+		<loc>https://senestres.github.io/tags/floor-is-lava/</loc>
 		<lastmod>2023-11-20</lastmod>
 	</url>
 	
 	<url>
-		<loc>https://senestres.github.io/adaptive-movement/tags/oulipo/</loc>
+		<loc>https://senestres.github.io/tags/game/</loc>
 		<lastmod>2023-11-20</lastmod>
 	</url>
 	
 	<url>
-		<loc>https://senestres.github.io/adaptive-movement/tags/randomness/</loc>
+		<loc>https://senestres.github.io/tags/anticipation/</loc>
 		<lastmod>2023-11-20</lastmod>
 	</url>
 	
 	<url>
-		<loc>https://senestres.github.io/adaptive-movement/tags/teaching/</loc>
+		<loc>https://senestres.github.io/tags/coupling/</loc>
 		<lastmod>2023-11-20</lastmod>
 	</url>
 	
 	<url>
-		<loc>https://senestres.github.io/adaptive-movement/tags/effectivities/</loc>
+		<loc>https://senestres.github.io/tags/gibson/</loc>
 		<lastmod>2023-11-20</lastmod>
 	</url>
 	
 	<url>
-		<loc>https://senestres.github.io/adaptive-movement/tags/methods/</loc>
+		<loc>https://senestres.github.io/tags/prediction/</loc>
 		<lastmod>2023-11-20</lastmod>
 	</url>
 	
 	<url>
-		<loc>https://senestres.github.io/adaptive-movement/tags/variability/</loc>
+		<loc>https://senestres.github.io/tags/prospective/</loc>
 		<lastmod>2023-11-20</lastmod>
 	</url>
 	
 	<url>
-		<loc>https://senestres.github.io/adaptive-movement/tags/dynamical-systems/</loc>
+		<loc>https://senestres.github.io/tags/representations/</loc>
 		<lastmod>2023-11-20</lastmod>
 	</url>
 	
 	<url>
-		<loc>https://senestres.github.io/adaptive-movement/tags/ecological-psychology/</loc>
+		<loc>https://senestres.github.io/tags/perception-and-action/</loc>
 		<lastmod>2023-11-20</lastmod>
 	</url>
 	
 	<url>
-		<loc>https://senestres.github.io/adaptive-movement/tags/attractors/</loc>
+		<loc>https://senestres.github.io/tags/action-and-perception/</loc>
 		<lastmod>2023-11-20</lastmod>
 	</url>
 	
 	<url>
-		<loc>https://senestres.github.io/adaptive-movement/tags/coordination/</loc>
+		<loc>https://senestres.github.io/tags/self-organization/</loc>
 		<lastmod>2023-11-20</lastmod>
 	</url>
 	
 	<url>
-		<loc>https://senestres.github.io/adaptive-movement/tags/degrees-of-freedom/</loc>
+		<loc>https://senestres.github.io/tags/the-constraint-led-approach/</loc>
 		<lastmod>2023-11-20</lastmod>
 	</url>
 	
 	<url>
-		<loc>https://senestres.github.io/adaptive-movement/tags/emergence/</loc>
+		<loc>https://senestres.github.io/tags/attractors/</loc>
 		<lastmod>2023-11-20</lastmod>
 	</url>
 	
 	<url>
-		<loc>https://senestres.github.io/adaptive-movement/tags/mathematics/</loc>
+		<loc>https://senestres.github.io/tags/degrees-of-freedom/</loc>
 		<lastmod>2023-11-20</lastmod>
 	</url>
 	
 	<url>
-		<loc>https://senestres.github.io/adaptive-movement/tags/self-organisation/</loc>
+		<loc>https://senestres.github.io/tags/emergence/</loc>
 		<lastmod>2023-11-20</lastmod>
 	</url>
 	
 	<url>
-		<loc>https://senestres.github.io/adaptive-movement/tags/adaptation/</loc>
+		<loc>https://senestres.github.io/tags/self-organisation/</loc>
 		<lastmod>2023-11-20</lastmod>
 	</url>
 	
 	<url>
-		<loc>https://senestres.github.io/adaptive-movement/tags/differential-learning/</loc>
+		<loc>https://senestres.github.io/tags/coordination/</loc>
 		<lastmod>2023-11-20</lastmod>
 	</url>
 	
 	<url>
-		<loc>https://senestres.github.io/adaptive-movement/tags/minimal-intervention/</loc>
+		<loc>https://senestres.github.io/tags/mathematics/</loc>
 		<lastmod>2023-11-20</lastmod>
 	</url>
 	
 	<url>
-		<loc>https://senestres.github.io/adaptive-movement/tags/motor-abundance/</loc>
+		<loc>https://senestres.github.io/tags/adaptation/</loc>
 		<lastmod>2023-11-20</lastmod>
 	</url>
 	
 	<url>
-		<loc>https://senestres.github.io/adaptive-movement/tags/cla/</loc>
+		<loc>https://senestres.github.io/tags/differential-learning/</loc>
 		<lastmod>2023-11-20</lastmod>
 	</url>
 	
 	<url>
-		<loc>https://senestres.github.io/adaptive-movement/tags/floor-is-lava/</loc>
+		<loc>https://senestres.github.io/tags/minimal-intervention/</loc>
 		<lastmod>2023-11-20</lastmod>
 	</url>
 	
 	<url>
-		<loc>https://senestres.github.io/adaptive-movement/tags/game/</loc>
+		<loc>https://senestres.github.io/tags/motor-abundance/</loc>
 		<lastmod>2023-11-20</lastmod>
 	</url>
 	
 	<url>
-		<loc>https://senestres.github.io/adaptive-movement/theory/</loc>
+		<loc>https://senestres.github.io/theory/</loc>
 		<lastmod>2023-11-21</lastmod>
 	</url>
 	
 	<url>
-		<loc>https://senestres.github.io/adaptive-movement/authors/yann-daout/</loc>
+		<loc>https://senestres.github.io/authors/yann-daout/</loc>
 		<lastmod>2023-11-21</lastmod>
 	</url>
 	
 	<url>
-		<loc>https://senestres.github.io/adaptive-movement/how-to/</loc>
+		<loc>https://senestres.github.io/how-to/</loc>
 		<lastmod>2023-11-22</lastmod>
 	</url>
 	
 	<url>
-		<loc>https://senestres.github.io/adaptive-movement/case-studies/</loc>
+		<loc>https://senestres.github.io/case-studies/</loc>
 		<lastmod>2023-11-22</lastmod>
 	</url>
 </urlset>
