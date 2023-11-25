@@ -264,7 +264,10 @@ footer {
 p {
 	line-height: 1.5;
 }
-
+h1 {
+	line-height: 0;
+	padding-top: 1rem;
+}
 li {
 	line-height: 1.5;
 }
@@ -373,13 +376,17 @@ max-width: 50%;
 .postlist {
 	list-style: none;
 	padding: 0;
+	max-width: 90ch;
+	margin: 0 auto;
 }
+
 .postlist-item {
 	display: flex;
 	flex-wrap: wrap;
 	align-items: baseline;
 	counter-increment: start-from -1;
-	margin-bottom: 1em;
+	margin-bottom: 2rem;
+	box-shadow: 3px 3px 50px rgba(0, 0, 0, 0.301);
 }
 .postlist-item:before {
 	display: inline-block;
@@ -389,14 +396,7 @@ max-width: 50%;
 	text-align: right;
 	margin-left: -1.5rem;
 }
-.postlist-date,
-.postlist-item:before {
-	font-size: 0.8125em; /* 13px /16 */
-	color: var(--color-gray-90);
-}
-.postlist-date {
-	word-spacing: -0.5px;
-}
+
 .postlist-link {
 	font-size: 1.1875em; /* 19px /16 */
 	font-weight: 700;
@@ -411,7 +411,30 @@ max-width: 50%;
 	font-weight: bold;
 }
 
+.postlist-inner {
+	padding: 1.5rem;
+
+}
+.post-metadata {
+	display: inline-flex;
+	flex-wrap: wrap;
+	gap: 1em;
+	margin: 0 auto;
+	max-width: 110ch;
+	font-size: 0.8125em;
+	color: var(--color-gray-90);
+	word-spacing: -0.5px;
+}
+
+
 /* Tags */
+.post-tags {
+	list-style-type: none;
+	display:inline-flex;
+	flex-wrap: wrap;
+	padding: 0;
+	gap: 0.5rem;
+}
 .post-tag {
 	display: inline-flex;
 	align-items: center;
@@ -439,18 +462,7 @@ max-width: 50%;
 	margin: 0 auto;
 	padding: 0 1rem;
 }
-/* Post metadata */
-.post-metadata {
-	display: inline-flex;
-	flex-wrap: wrap;
-	gap: 0.5em;
-	list-style: none;
-	padding: 0;
-	margin: 0;
-}
-.post-metadata time {
-	margin-right: 1em;
-}
+
 
 /* Direct Links / Markdown Headers */
 .header-anchor {
@@ -520,21 +532,6 @@ svg.nav-icon {
 	height: 30px;
 }
 
-/* Post list */
-.postlist-item {
-	margin-bottom: 2rem;
-	box-shadow: 3px 3px 50px rgba(0, 0, 0, 0.301);
-}
- .post-metadata {
-	margin: 0 auto;
-	max-width: 110ch;
-	padding: 1rem;
-}
-.postlist {
-	max-width: 90ch;
-	margin: 0 auto;
-}
-
 /* Posts */
 .postlist-item > picture > img {
   	max-height: 300px;
@@ -550,16 +547,16 @@ svg.nav-icon {
 		height: 30rem;
 	}
 }
-.post-content {
-	margin-top: -120px;
-	position: relative;
-}
 /* Content */
 .content {
 	max-width: 90ch;
 	margin: 0 auto;
 	padding: 1rem 2rem;
 	background-color: var(--background-color); 
+}
+.post-content {
+	margin-top: -140px;
+	position: relative;
 }
 article img {
 	height: auto;
@@ -711,11 +708,13 @@ text-transform: uppercase
 	<li class="postlist-item">
 		
 		<picture><source type="image/webp" srcset="/adaptive-movement/img/VV3eOHHAmz-800.webp 800w, /adaptive-movement/img/VV3eOHHAmz-2000.webp 2000w" sizes="100vw"><source type="image/jpeg" srcset="/adaptive-movement/img/VV3eOHHAmz-800.jpeg 800w, /adaptive-movement/img/VV3eOHHAmz-2000.jpeg 2000w" sizes="100vw"><img alt="" loading="lazy" decoding="async" src="/adaptive-movement/img/VV3eOHHAmz-800.jpeg" width="2000" height="1333"></picture>
-		<div class="post-metadata">
-		<a href="/adaptive-movement/blog/can-we-teach-creativity-part-1/" class="postlist-link">Can we teach creativity ? (Part 1)</a>
-			<time class="postlist-date" datetime="2022-08-02">02 August 2022</time>
-			<a class="postlist-date" href="/adaptive-movement/authors/yann-daout/"> Yann Daout</a>
-		<p>We tend to think of creativity as the generation or apparition of new ideas, which can then be put into action. I call this “ideation”. This view of creativity is probably so strong because we take our paradigmatic examples of creativity in specific...</p>
+		<div class="postlist-inner">
+			<a href="/adaptive-movement/blog/can-we-teach-creativity-part-1/" class="postlist-link">Can we teach creativity ? (Part 1)</a>
+			<div class="post-metadata">
+				<time class="postlist-date" datetime="2022-08-02">02 August 2022</time>
+				<a class="postlist-date" href="/adaptive-movement/authors/yann-daout/"> Yann Daout</a>
+			</div>
+		<p>We tend to think of creativity as the generation or apparition of new ideas, which can then be put into action. I call this “ideation”. This view of creativity is probably so strong because we take our paradigmatic examples of creativity in specific domains like scientific or technological...</p>
 		</div>
 	</li>
 
@@ -724,11 +723,13 @@ text-transform: uppercase
 	<li class="postlist-item">
 		
 		<picture><source type="image/webp" srcset="/adaptive-movement/img/vjBAmxDLjm-800.webp 800w, /adaptive-movement/img/vjBAmxDLjm-1200.webp 1200w" sizes="100vw"><source type="image/jpeg" srcset="/adaptive-movement/img/vjBAmxDLjm-800.jpeg 800w, /adaptive-movement/img/vjBAmxDLjm-1200.jpeg 1200w" sizes="100vw"><img alt="" loading="lazy" decoding="async" src="/adaptive-movement/img/vjBAmxDLjm-800.jpeg" width="1200" height="600"></picture>
-		<div class="post-metadata">
-		<a href="/adaptive-movement/blog/why-we-need-variability-of-movement/" class="postlist-link">Why we need variability of movement</a>
-			<time class="postlist-date" datetime="2019-10-30">30 October 2019</time>
-			<a class="postlist-date" href="/adaptive-movement/authors/yann-daout/"> Yann Daout</a>
-		<p>When it comes to producing skillful sport performance, we tend to think that we need to achieve a very consistent way of moving. In that perspective, less movement variability means better performance. This comes from a common assumption that...</p>
+		<div class="postlist-inner">
+			<a href="/adaptive-movement/blog/why-we-need-variability-of-movement/" class="postlist-link">Why we need variability of movement</a>
+			<div class="post-metadata">
+				<time class="postlist-date" datetime="2019-10-30">30 October 2019</time>
+				<a class="postlist-date" href="/adaptive-movement/authors/yann-daout/"> Yann Daout</a>
+			</div>
+		<p>When it comes to producing skillful sport performance, we tend to think that we need to achieve a very consistent way of moving. In that perspective, less movement variability means better performance. This comes from a common assumption that consistent performance is an essential element of skill....</p>
 		</div>
 	</li>
 
@@ -737,12 +738,14 @@ text-transform: uppercase
 	<li class="postlist-item">
 		
 		<picture><source type="image/webp" srcset="/adaptive-movement/img/nflcOAj5uc-800.webp 800w, /adaptive-movement/img/nflcOAj5uc-1200.webp 1200w" sizes="100vw"><source type="image/jpeg" srcset="/adaptive-movement/img/nflcOAj5uc-800.jpeg 800w, /adaptive-movement/img/nflcOAj5uc-1200.jpeg 1200w" sizes="100vw"><img alt="" loading="lazy" decoding="async" src="/adaptive-movement/img/nflcOAj5uc-800.jpeg" width="1200" height="600"></picture>
-		<div class="post-metadata">
-		<a href="/adaptive-movement/blog/self-organisation-and-attractors/" class="postlist-link">Self-organisation and attractors</a>
-			<time class="postlist-date" datetime="2019-10-30">30 October 2019</time>
-			<a class="postlist-date" href="/adaptive-movement/authors/yann-daout/"> Yann Daout</a>
+		<div class="postlist-inner">
+			<a href="/adaptive-movement/blog/self-organisation-and-attractors/" class="postlist-link">Self-organisation and attractors</a>
+			<div class="post-metadata">
+				<time class="postlist-date" datetime="2019-10-30">30 October 2019</time>
+				<a class="postlist-date" href="/adaptive-movement/authors/yann-daout/"> Yann Daout</a>
+			</div>
 		<p>In this article, we will be focusing on two key concepts of ecological-dynamics: self-organisation, and the attractor landscape.
-As we have shown previously, ecological-dynamics understands our bodies as complex systems with numerous interacting...</p>
+As we have shown previously, ecological-dynamics understands our bodies as complex systems with numerous interacting parts (or degrees of freedom). Self-organisation means...</p>
 		</div>
 	</li>
 
@@ -751,11 +754,13 @@ As we have shown previously, ecological-dynamics understands our bodies as compl
 	<li class="postlist-item">
 		
 		<picture><source type="image/webp" srcset="/adaptive-movement/img/cA9YoxO-sJ-800.webp 800w, /adaptive-movement/img/cA9YoxO-sJ-1200.webp 1200w" sizes="100vw"><source type="image/jpeg" srcset="/adaptive-movement/img/cA9YoxO-sJ-800.jpeg 800w, /adaptive-movement/img/cA9YoxO-sJ-1200.jpeg 1200w" sizes="100vw"><img alt="" loading="lazy" decoding="async" src="/adaptive-movement/img/cA9YoxO-sJ-800.jpeg" width="1200" height="600"></picture>
-		<div class="post-metadata">
-		<a href="/adaptive-movement/blog/the-dynamical-systems-approach/" class="postlist-link">The dynamical systems approach</a>
-			<time class="postlist-date" datetime="2019-10-29">29 October 2019</time>
-			<a class="postlist-date" href="/adaptive-movement/authors/yann-daout/"> Yann Daout</a>
-		<p>Dynamical systems theory is a branch of mathematics used to describe complex dynamical systems. These are systems with multiple parts that interact with each other and change over time. Examples can range from living things like a colony of ants to...</p>
+		<div class="postlist-inner">
+			<a href="/adaptive-movement/blog/the-dynamical-systems-approach/" class="postlist-link">The dynamical systems approach</a>
+			<div class="post-metadata">
+				<time class="postlist-date" datetime="2019-10-29">29 October 2019</time>
+				<a class="postlist-date" href="/adaptive-movement/authors/yann-daout/"> Yann Daout</a>
+			</div>
+		<p>Dynamical systems theory is a branch of mathematics used to describe complex dynamical systems. These are systems with multiple parts that interact with each other and change over time. Examples can range from living things like a colony of ants to inorganic systems like Earth’s climate....</p>
 		</div>
 	</li>
 
@@ -764,11 +769,13 @@ As we have shown previously, ecological-dynamics understands our bodies as compl
 	<li class="postlist-item">
 		
 		<picture><source type="image/webp" srcset="/adaptive-movement/img/B9UjKIPiPs-800.webp 800w, /adaptive-movement/img/B9UjKIPiPs-1200.webp 1200w" sizes="100vw"><source type="image/jpeg" srcset="/adaptive-movement/img/B9UjKIPiPs-800.jpeg 800w, /adaptive-movement/img/B9UjKIPiPs-1200.jpeg 1200w" sizes="100vw"><img alt="" loading="lazy" decoding="async" src="/adaptive-movement/img/B9UjKIPiPs-800.jpeg" width="1200" height="800"></picture>
-		<div class="post-metadata">
-		<a href="/adaptive-movement/blog/introduction-to-ecological-dynamics/" class="postlist-link">Introduction to Ecological Dynamics</a>
-			<time class="postlist-date" datetime="2019-08-13">13 August 2019</time>
-			<a class="postlist-date" href="/adaptive-movement/authors/pawel-van-der-steen/"> Pawel van der Steen</a>
-		<p>Ecological Dynamics is a scientific framework that studies the behaviour neurobiological systems. This involves how living organisms form processes of action, perception and cognition. It is a very holistic approach to studying behaviour, as it...</p>
+		<div class="postlist-inner">
+			<a href="/adaptive-movement/blog/introduction-to-ecological-dynamics/" class="postlist-link">Introduction to Ecological Dynamics</a>
+			<div class="post-metadata">
+				<time class="postlist-date" datetime="2019-08-13">13 August 2019</time>
+				<a class="postlist-date" href="/adaptive-movement/authors/pawel-van-der-steen/"> Pawel van der Steen</a>
+			</div>
+		<p>Ecological Dynamics is a scientific framework that studies the behaviour neurobiological systems. This involves how living organisms form processes of action, perception and cognition. It is a very holistic approach to studying behaviour, as it considers both the living organism, as well as the...</p>
 		</div>
 	</li>
 
@@ -777,12 +784,14 @@ As we have shown previously, ecological-dynamics understands our bodies as compl
 	<li class="postlist-item">
 		
 		<picture><source type="image/webp" srcset="/adaptive-movement/img/_DjCh1p3cz-800.webp 800w, /adaptive-movement/img/_DjCh1p3cz-3990.webp 3990w" sizes="100vw"><source type="image/jpeg" srcset="/adaptive-movement/img/_DjCh1p3cz-800.jpeg 800w, /adaptive-movement/img/_DjCh1p3cz-3990.jpeg 3990w" sizes="100vw"><img alt="" loading="lazy" decoding="async" src="/adaptive-movement/img/_DjCh1p3cz-800.jpeg" width="3990" height="2244"></picture>
-		<div class="post-metadata">
-		<a href="/adaptive-movement/blog/affordances-perception-and-action/" class="postlist-link">Affordances: Perception and Action</a>
-			<time class="postlist-date" datetime="2019-08-12">12 August 2019</time>
-			<a class="postlist-date" href="/adaptive-movement/authors/pawel-van-der-steen/"> Pawel van der Steen</a>
+		<div class="postlist-inner">
+			<a href="/adaptive-movement/blog/affordances-perception-and-action/" class="postlist-link">Affordances: Perception and Action</a>
+			<div class="post-metadata">
+				<time class="postlist-date" datetime="2019-08-12">12 August 2019</time>
+				<a class="postlist-date" href="/adaptive-movement/authors/pawel-van-der-steen/"> Pawel van der Steen</a>
+			</div>
 		<p>
-&#39;&#39;The affordances of the environment are what it offers the animal, what it provides or furnishes, either for good or ill. The verb to afford is found in the dictionary, the noun affordance is not. I have made it up. I mean by it something that...</p>
+&#39;&#39;The affordances of the environment are what it offers the animal, what it provides or furnishes, either for good or ill. The verb to afford is found in the dictionary, the noun affordance is not. I have made it up. I mean by it something that refers to both the environment and the animal in a way...</p>
 		</div>
 	</li>
 

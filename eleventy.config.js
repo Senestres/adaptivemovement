@@ -129,7 +129,7 @@ module.exports = function(eleventyConfig) {
 	// use with <p>{{ post.templateContent | excerpt }}</p>
 	eleventyConfig.addFilter("excerpt", (post) => {
 		const content = post.replace(/(<([^>]+)>)|#/gi, "");
-		return content.substr(0, content.lastIndexOf(" ", 250)) + "...";
+		return content.substr(0, content.lastIndexOf(" ", 300)) + "...";
 	  });
 
 	// add search

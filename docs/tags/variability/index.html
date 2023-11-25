@@ -264,7 +264,10 @@ footer {
 p {
 	line-height: 1.5;
 }
-
+h1 {
+	line-height: 0;
+	padding-top: 1rem;
+}
 li {
 	line-height: 1.5;
 }
@@ -373,13 +376,17 @@ max-width: 50%;
 .postlist {
 	list-style: none;
 	padding: 0;
+	max-width: 90ch;
+	margin: 0 auto;
 }
+
 .postlist-item {
 	display: flex;
 	flex-wrap: wrap;
 	align-items: baseline;
 	counter-increment: start-from -1;
-	margin-bottom: 1em;
+	margin-bottom: 2rem;
+	box-shadow: 3px 3px 50px rgba(0, 0, 0, 0.301);
 }
 .postlist-item:before {
 	display: inline-block;
@@ -389,14 +396,7 @@ max-width: 50%;
 	text-align: right;
 	margin-left: -1.5rem;
 }
-.postlist-date,
-.postlist-item:before {
-	font-size: 0.8125em; /* 13px /16 */
-	color: var(--color-gray-90);
-}
-.postlist-date {
-	word-spacing: -0.5px;
-}
+
 .postlist-link {
 	font-size: 1.1875em; /* 19px /16 */
 	font-weight: 700;
@@ -411,7 +411,30 @@ max-width: 50%;
 	font-weight: bold;
 }
 
+.postlist-inner {
+	padding: 1.5rem;
+
+}
+.post-metadata {
+	display: inline-flex;
+	flex-wrap: wrap;
+	gap: 1em;
+	margin: 0 auto;
+	max-width: 110ch;
+	font-size: 0.8125em;
+	color: var(--color-gray-90);
+	word-spacing: -0.5px;
+}
+
+
 /* Tags */
+.post-tags {
+	list-style-type: none;
+	display:inline-flex;
+	flex-wrap: wrap;
+	padding: 0;
+	gap: 0.5rem;
+}
 .post-tag {
 	display: inline-flex;
 	align-items: center;
@@ -439,18 +462,7 @@ max-width: 50%;
 	margin: 0 auto;
 	padding: 0 1rem;
 }
-/* Post metadata */
-.post-metadata {
-	display: inline-flex;
-	flex-wrap: wrap;
-	gap: 0.5em;
-	list-style: none;
-	padding: 0;
-	margin: 0;
-}
-.post-metadata time {
-	margin-right: 1em;
-}
+
 
 /* Direct Links / Markdown Headers */
 .header-anchor {
@@ -520,21 +532,6 @@ svg.nav-icon {
 	height: 30px;
 }
 
-/* Post list */
-.postlist-item {
-	margin-bottom: 2rem;
-	box-shadow: 3px 3px 50px rgba(0, 0, 0, 0.301);
-}
- .post-metadata {
-	margin: 0 auto;
-	max-width: 110ch;
-	padding: 1rem;
-}
-.postlist {
-	max-width: 90ch;
-	margin: 0 auto;
-}
-
 /* Posts */
 .postlist-item > picture > img {
   	max-height: 300px;
@@ -550,16 +547,16 @@ svg.nav-icon {
 		height: 30rem;
 	}
 }
-.post-content {
-	margin-top: -120px;
-	position: relative;
-}
 /* Content */
 .content {
 	max-width: 90ch;
 	margin: 0 auto;
 	padding: 1rem 2rem;
 	background-color: var(--background-color); 
+}
+.post-content {
+	margin-top: -140px;
+	position: relative;
 }
 article img {
 	height: auto;
@@ -713,11 +710,14 @@ text-transform: uppercase
 	<li class="postlist-item">
 		
 		<picture><source type="image/webp" srcset="/adaptive-movement/img/q3yAEkag_b-800.webp 800w, /adaptive-movement/img/q3yAEkag_b-2000.webp 2000w" sizes="100vw"><source type="image/jpeg" srcset="/adaptive-movement/img/q3yAEkag_b-800.jpeg 800w, /adaptive-movement/img/q3yAEkag_b-2000.jpeg 2000w" sizes="100vw"><img alt="" loading="lazy" decoding="async" src="/adaptive-movement/img/q3yAEkag_b-800.jpeg" width="2000" height="1333"></picture>
-		<div class="post-metadata">
-		<a href="/adaptive-movement/blog/can-we-teach-creativity-part-3/" class="postlist-link">Can we teach creativity ? (Part 3)</a>
-			<time class="postlist-date" datetime="2022-10-27">27 October 2022</time>
-			<a class="postlist-date" href="/adaptive-movement/authors/yann-daout/"> Yann Daout</a>
-		<p>After teaching a few classes on creativity, I’ve come across a few more ideas, so take this as a short addendum to my creativity articles. I might update it from time to time. This will be more focused on parkour, but the ideas might apply to other...</p>
+		<div class="postlist-inner">
+			<a href="/adaptive-movement/blog/can-we-teach-creativity-part-3/" class="postlist-link">Can we teach creativity ? (Part 3)</a>
+			<div class="post-metadata">
+				<time class="postlist-date" datetime="2022-10-27">27 October 2022</time>
+				<a class="postlist-date" href="/adaptive-movement/authors/yann-daout/"> Yann Daout</a>
+			</div>
+		<p>After teaching a few classes on creativity, I’ve come across a few more ideas, so take this as a short addendum to my creativity articles. I might update it from time to time. This will be more focused on parkour, but the ideas might apply to other sports.
+How can we make creativity less abstract ?...</p>
 		</div>
 	</li>
 
@@ -726,12 +726,16 @@ text-transform: uppercase
 	<li class="postlist-item">
 		
 		<picture><source type="image/webp" srcset="/adaptive-movement/img/rnkKmSMmDI-800.webp 800w, /adaptive-movement/img/rnkKmSMmDI-2000.webp 2000w" sizes="100vw"><source type="image/png" srcset="/adaptive-movement/img/rnkKmSMmDI-800.png 800w, /adaptive-movement/img/rnkKmSMmDI-2000.png 2000w" sizes="100vw"><img alt="" loading="lazy" decoding="async" src="/adaptive-movement/img/rnkKmSMmDI-800.png" width="2000" height="1333"></picture>
-		<div class="post-metadata">
-		<a href="/adaptive-movement/blog/can-we-teach-creativity-part-2/" class="postlist-link">Can we teach creativity ? (Part 2)</a>
-			<time class="postlist-date" datetime="2022-08-02">02 August 2022</time>
-			<a class="postlist-date" href="/adaptive-movement/authors/yann-daout/"> Yann Daout</a>
+		<div class="postlist-inner">
+			<a href="/adaptive-movement/blog/can-we-teach-creativity-part-2/" class="postlist-link">Can we teach creativity ? (Part 2)</a>
+			<div class="post-metadata">
+				<time class="postlist-date" datetime="2022-08-02">02 August 2022</time>
+				<a class="postlist-date" href="/adaptive-movement/authors/yann-daout/"> Yann Daout</a>
+			</div>
 		<p>In the first part, I suggested that in the context of motor learning, it would be profitable to move aways from thinking of creativity as ideation, i.e. thinking new ideas that can then be put into actions.
-Rather, these are fruitful ways of thinking...</p>
+Rather, these are fruitful ways of thinking about creativity:
+
+It can be defined as...</p>
 		</div>
 	</li>
 
@@ -740,11 +744,13 @@ Rather, these are fruitful ways of thinking...</p>
 	<li class="postlist-item">
 		
 		<picture><source type="image/webp" srcset="/adaptive-movement/img/vjBAmxDLjm-800.webp 800w, /adaptive-movement/img/vjBAmxDLjm-1200.webp 1200w" sizes="100vw"><source type="image/jpeg" srcset="/adaptive-movement/img/vjBAmxDLjm-800.jpeg 800w, /adaptive-movement/img/vjBAmxDLjm-1200.jpeg 1200w" sizes="100vw"><img alt="" loading="lazy" decoding="async" src="/adaptive-movement/img/vjBAmxDLjm-800.jpeg" width="1200" height="600"></picture>
-		<div class="post-metadata">
-		<a href="/adaptive-movement/blog/why-we-need-variability-of-movement/" class="postlist-link">Why we need variability of movement</a>
-			<time class="postlist-date" datetime="2019-10-30">30 October 2019</time>
-			<a class="postlist-date" href="/adaptive-movement/authors/yann-daout/"> Yann Daout</a>
-		<p>When it comes to producing skillful sport performance, we tend to think that we need to achieve a very consistent way of moving. In that perspective, less movement variability means better performance. This comes from a common assumption that...</p>
+		<div class="postlist-inner">
+			<a href="/adaptive-movement/blog/why-we-need-variability-of-movement/" class="postlist-link">Why we need variability of movement</a>
+			<div class="post-metadata">
+				<time class="postlist-date" datetime="2019-10-30">30 October 2019</time>
+				<a class="postlist-date" href="/adaptive-movement/authors/yann-daout/"> Yann Daout</a>
+			</div>
+		<p>When it comes to producing skillful sport performance, we tend to think that we need to achieve a very consistent way of moving. In that perspective, less movement variability means better performance. This comes from a common assumption that consistent performance is an essential element of skill....</p>
 		</div>
 	</li>
 

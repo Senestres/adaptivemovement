@@ -5,10 +5,12 @@
 	<li class="postlist-item{% if post.url == url %} postlist-item-active{% endif %}">
 		{% set imageUrl %}.{{post.url}}/images/{{post.data.coverImage}}{% endset %}
 		{% image imageUrl, "" %}
-		<div class="post-metadata">
-		<a href="{{ post.url }}" class="postlist-link">{% if post.data.title %}{{ post.data.title }}{% else %}<code>{{ post.url }}</code>{% endif %}</a>
-			<time class="postlist-date" datetime="{{ post.date | htmlDateString }}">{{ post.date | readableDate("dd LLLL yyyy") }}</time>
-			<a class="postlist-date" href="/authors/{{post.data.author | slugify}}/"> {{ post.data.author }}</a>
+		<div class="postlist-inner">
+			<a href="{{ post.url }}" class="postlist-link">{% if post.data.title %}{{ post.data.title }}{% else %}<code>{{ post.url }}</code>{% endif %}</a>
+			<div class="post-metadata">
+				<time class="postlist-date" datetime="{{ post.date | htmlDateString }}">{{ post.date | readableDate("dd LLLL yyyy") }}</time>
+				<a class="postlist-date" href="/authors/{{post.data.author | slugify}}/"> {{ post.data.author }}</a>
+			</div>
 		<p>{{ post.templateContent | excerpt }}</p>
 		</div>
 	</li>

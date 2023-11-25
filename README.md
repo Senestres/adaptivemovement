@@ -13,8 +13,7 @@ npm start
 ```
 
 <h1>To do</h1>
-Posts
-    add a grid or flex system -> two posts side by side
+Add a grid or flex system -> two posts side by side
 
 Add read time function
 

@@ -84,7 +84,10 @@ footer {
 p {
 	line-height: 1.5;
 }
-
+h1 {
+	line-height: 0;
+	padding-top: 1rem;
+}
 li {
 	line-height: 1.5;
 }
@@ -193,13 +196,17 @@ max-width: 50%;
 .postlist {
 	list-style: none;
 	padding: 0;
+	max-width: 90ch;
+	margin: 0 auto;
 }
+
 .postlist-item {
 	display: flex;
 	flex-wrap: wrap;
 	align-items: baseline;
 	counter-increment: start-from -1;
-	margin-bottom: 1em;
+	margin-bottom: 2rem;
+	box-shadow: 3px 3px 50px rgba(0, 0, 0, 0.301);
 }
 .postlist-item:before {
 	display: inline-block;
@@ -209,14 +216,7 @@ max-width: 50%;
 	text-align: right;
 	margin-left: -1.5rem;
 }
-.postlist-date,
-.postlist-item:before {
-	font-size: 0.8125em; /* 13px /16 */
-	color: var(--color-gray-90);
-}
-.postlist-date {
-	word-spacing: -0.5px;
-}
+
 .postlist-link {
 	font-size: 1.1875em; /* 19px /16 */
 	font-weight: 700;
@@ -231,7 +231,30 @@ max-width: 50%;
 	font-weight: bold;
 }
 
+.postlist-inner {
+	padding: 1.5rem;
+
+}
+.post-metadata {
+	display: inline-flex;
+	flex-wrap: wrap;
+	gap: 1em;
+	margin: 0 auto;
+	max-width: 110ch;
+	font-size: 0.8125em;
+	color: var(--color-gray-90);
+	word-spacing: -0.5px;
+}
+
+
 /* Tags */
+.post-tags {
+	list-style-type: none;
+	display:inline-flex;
+	flex-wrap: wrap;
+	padding: 0;
+	gap: 0.5rem;
+}
 .post-tag {
 	display: inline-flex;
 	align-items: center;
@@ -259,18 +282,7 @@ max-width: 50%;
 	margin: 0 auto;
 	padding: 0 1rem;
 }
-/* Post metadata */
-.post-metadata {
-	display: inline-flex;
-	flex-wrap: wrap;
-	gap: 0.5em;
-	list-style: none;
-	padding: 0;
-	margin: 0;
-}
-.post-metadata time {
-	margin-right: 1em;
-}
+
 
 /* Direct Links / Markdown Headers */
 .header-anchor {
@@ -340,21 +352,6 @@ svg.nav-icon {
 	height: 30px;
 }
 
-/* Post list */
-.postlist-item {
-	margin-bottom: 2rem;
-	box-shadow: 3px 3px 50px rgba(0, 0, 0, 0.301);
-}
- .post-metadata {
-	margin: 0 auto;
-	max-width: 110ch;
-	padding: 1rem;
-}
-.postlist {
-	max-width: 90ch;
-	margin: 0 auto;
-}
-
 /* Posts */
 .postlist-item > picture > img {
   	max-height: 300px;
@@ -370,16 +367,16 @@ svg.nav-icon {
 		height: 30rem;
 	}
 }
-.post-content {
-	margin-top: -120px;
-	position: relative;
-}
 /* Content */
 .content {
 	max-width: 90ch;
 	margin: 0 auto;
 	padding: 1rem 2rem;
 	background-color: var(--background-color); 
+}
+.post-content {
+	margin-top: -140px;
+	position: relative;
 }
 article img {
 	height: auto;

@@ -263,7 +263,10 @@ footer {
 p {
 	line-height: 1.5;
 }
-
+h1 {
+	line-height: 0;
+	padding-top: 1rem;
+}
 li {
 	line-height: 1.5;
 }
@@ -372,13 +375,17 @@ max-width: 50%;
 .postlist {
 	list-style: none;
 	padding: 0;
+	max-width: 90ch;
+	margin: 0 auto;
 }
+
 .postlist-item {
 	display: flex;
 	flex-wrap: wrap;
 	align-items: baseline;
 	counter-increment: start-from -1;
-	margin-bottom: 1em;
+	margin-bottom: 2rem;
+	box-shadow: 3px 3px 50px rgba(0, 0, 0, 0.301);
 }
 .postlist-item:before {
 	display: inline-block;
@@ -388,14 +395,7 @@ max-width: 50%;
 	text-align: right;
 	margin-left: -1.5rem;
 }
-.postlist-date,
-.postlist-item:before {
-	font-size: 0.8125em; /* 13px /16 */
-	color: var(--color-gray-90);
-}
-.postlist-date {
-	word-spacing: -0.5px;
-}
+
 .postlist-link {
 	font-size: 1.1875em; /* 19px /16 */
 	font-weight: 700;
@@ -410,7 +410,30 @@ max-width: 50%;
 	font-weight: bold;
 }
 
+.postlist-inner {
+	padding: 1.5rem;
+
+}
+.post-metadata {
+	display: inline-flex;
+	flex-wrap: wrap;
+	gap: 1em;
+	margin: 0 auto;
+	max-width: 110ch;
+	font-size: 0.8125em;
+	color: var(--color-gray-90);
+	word-spacing: -0.5px;
+}
+
+
 /* Tags */
+.post-tags {
+	list-style-type: none;
+	display:inline-flex;
+	flex-wrap: wrap;
+	padding: 0;
+	gap: 0.5rem;
+}
 .post-tag {
 	display: inline-flex;
 	align-items: center;
@@ -438,18 +461,7 @@ max-width: 50%;
 	margin: 0 auto;
 	padding: 0 1rem;
 }
-/* Post metadata */
-.post-metadata {
-	display: inline-flex;
-	flex-wrap: wrap;
-	gap: 0.5em;
-	list-style: none;
-	padding: 0;
-	margin: 0;
-}
-.post-metadata time {
-	margin-right: 1em;
-}
+
 
 /* Direct Links / Markdown Headers */
 .header-anchor {
@@ -519,21 +531,6 @@ svg.nav-icon {
 	height: 30px;
 }
 
-/* Post list */
-.postlist-item {
-	margin-bottom: 2rem;
-	box-shadow: 3px 3px 50px rgba(0, 0, 0, 0.301);
-}
- .post-metadata {
-	margin: 0 auto;
-	max-width: 110ch;
-	padding: 1rem;
-}
-.postlist {
-	max-width: 90ch;
-	margin: 0 auto;
-}
-
 /* Posts */
 .postlist-item > picture > img {
   	max-height: 300px;
@@ -549,16 +546,16 @@ svg.nav-icon {
 		height: 30rem;
 	}
 }
-.post-content {
-	margin-top: -120px;
-	position: relative;
-}
 /* Content */
 .content {
 	max-width: 90ch;
 	margin: 0 auto;
 	padding: 1rem 2rem;
 	background-color: var(--background-color); 
+}
+.post-content {
+	margin-top: -140px;
+	position: relative;
 }
 article img {
 	height: auto;
@@ -705,17 +702,11 @@ text-transform: uppercase
 
 <div class="content post-content">
 	<h1>Why we need variability of movement</h1>
-
-	<ul class="post-metadata">
-		<li>
-			By <a href="/adaptive-movement/authors/yann-daout/">Yann Daout</a>
-		</li>
-		<li>2019-10-30</li>
-		<li>
-			in
-			<a href="/adaptive-movement/theory/" style="text-transform: capitalize">theory</a>
-		</li>
-	</ul>
+	<div class="post-metadata">
+		<a href="/adaptive-movement/authors/yann-daout/">Yann Daout</a>
+		<time datetime="2019-10-30"> 30 October 2019</time>
+		<a href="/adaptive-movement/theory/" style="text-transform: capitalize">theory</a>
+	</div>
 
 	<article data-pagefind-body="">
 		<p>When it comes to producing skillful sport performance, we tend to think that we need to achieve a very consistent way of moving. In that perspective, less movement variability means better performance. This comes from a common assumption that consistent performance is an essential element of skill. But there are two components of performance: the movement, and the outcome. Traditional teaching methods focus on the movement, with ideal patterns that have to be learned, rehearsed, and reproduced. We therefore tend to treat deviations as errors, that come from some kind of lack of control. Here we will challenge these assumptions by focusing on the consistency of outcome. We will argue that variability is a necessary component of movement, allowing for better control, adaptability and learning. If we want consistent outcomes, we need variability of movement.</p>
@@ -775,24 +766,24 @@ text-transform: uppercase
 
 	</article>
 
-	<ul class="post-metadata">
+	<ul class="post-tags">
 		<li>
-			<a href="/adaptive-movement/tags/adaptation/" class="post-tag">adaptation</a>, 
+			<a href="/adaptive-movement/tags/adaptation/" class="post-tag">adaptation</a>
 		</li>
 		<li>
-			<a href="/adaptive-movement/tags/creativity/" class="post-tag">creativity</a>, 
+			<a href="/adaptive-movement/tags/creativity/" class="post-tag">creativity</a>
 		</li>
 		<li>
-			<a href="/adaptive-movement/tags/differential-learning/" class="post-tag">differential-learning</a>, 
+			<a href="/adaptive-movement/tags/differential-learning/" class="post-tag">differential-learning</a>
 		</li>
 		<li>
-			<a href="/adaptive-movement/tags/minimal-intervention/" class="post-tag">minimal-intervention</a>, 
+			<a href="/adaptive-movement/tags/minimal-intervention/" class="post-tag">minimal-intervention</a>
 		</li>
 		<li>
-			<a href="/adaptive-movement/tags/motor-abundance/" class="post-tag">motor-abundance</a>, 
+			<a href="/adaptive-movement/tags/motor-abundance/" class="post-tag">motor-abundance</a>
 		</li>
 		<li>
-			<a href="/adaptive-movement/tags/self-organisation/" class="post-tag">self-organisation</a>, 
+			<a href="/adaptive-movement/tags/self-organisation/" class="post-tag">self-organisation</a>
 		</li>
 		<li>
 			<a href="/adaptive-movement/tags/variability/" class="post-tag">variability</a>

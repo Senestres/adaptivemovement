@@ -14,33 +14,22 @@ include "public/css/prism-diff.css" %}{%- endcss %}
 
 <div class="content post-content">
 	<h1>{{ title }}</h1>
-
-	<ul class="post-metadata">
-		<li>
-			By <a href="/authors/{{ author | slugify }}/">{{ author }}</a>
-		</li>
-		<li>{{ date }}</li>
-		<li>
-			in
-			<a
-				href="/{{ categories | slugify }}/"
-				style="text-transform: capitalize"
-				>{{ categories }}</a
-			>
-		</li>
-	</ul>
+	<div class="post-metadata">
+		<a href="/authors/{{ author | slugify }}/">{{ author }}</a>
+		<time datetime="{{ page.date | htmlDateString }}"> {{ page.date | readableDate("dd LLLL yyyy") }}</time>
+		<a href="/{{ categories | slugify }}/" style="text-transform: capitalize">{{ categories }}</a>
+	</div>
 
 	<article data-pagefind-body>
 		{{ content | safe }}
 	</article>
 
-	<ul class="post-metadata">
+	<ul class="post-tags">
 		{%- for tag in tags | filterTagList %} {%- set tagUrl %}/tags/{{
 			tag | slugify
 		}}/{% endset %}
 		<li>
-			<a href="{{ tagUrl }}" class="post-tag">{{ tag }}</a
-			>{%- if not loop.last %}, {% endif %}
+			<a href="{{ tagUrl }}" class="post-tag">{{ tag }}</a>
 		</li>
 		{%- endfor %}
 	</ul>
