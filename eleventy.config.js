@@ -94,10 +94,15 @@ module.exports = function(eleventyConfig) {
 		  return filtered;
 	  });
 
+	// Amend md library
+	eleventyConfig.setLibrary("md", markdownIt ({html: true,
+		breaks: true,
+		linkify: true}));
 
 	// Customize Markdown library settings:
 	const path = require("path"); // not sure how this works, but it does
 	eleventyConfig.amendLibrary("md", mdLib => {
+
 		mdLib.use(markdownItAnchor, {
 			permalink: markdownItAnchor.permalink.ariaHidden({
 				placement: "after",
@@ -108,21 +113,34 @@ module.exports = function(eleventyConfig) {
 			level: [1,2,3,4],
 			slugify: eleventyConfig.getFilter("slugify")
 		});
+
 		mdLib.use(markdownItFootnote); 		// add markdown footnotes
+
 		mdLib.use(markdownItEleventyImg, { 	//add markdown image
 			resolvePath: (filepath, env) => path.join(path.dirname(env.page.inputPath), filepath),
-			html: true,
-			breaks: true,
-			linkify: true,
 			globalAttributes: {
-				sizes: "100vw"
+				sizes: "100vw",
+				decoding: "async"
 			},
 			imgOptions: {
 			widths: [800, "auto"],
 			outputDir: "docs/img/", // this doesn't keep the folder structure so needs path change
 			urlPath: "/img/", 		// path change mentionned above
 		},
-		}); 	
+		renderImage(image, attributes) {
+			const [ Image, options ] = image;
+			const [ src, attrs ] = attributes;
+		
+			Image(src, options);
+		
+			const metadata = Image.statsSync(src, options);
+			const imageMarkup = Image.generateHTML(metadata, attrs, {
+			  whitespaceMode: "inline"
+			});
+		
+			return `<figure>${imageMarkup}${attrs.title ? `<figcaption>${attrs.title}</figcaption>` : ""}</figure>`;
+		  }
+		}); 
 	});
 	
 	// add excerpt

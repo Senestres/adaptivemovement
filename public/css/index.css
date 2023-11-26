@@ -378,6 +378,12 @@ svg.nav-icon {
 article img {
 	height: auto;
 }
+article figcaption {
+	text-align: center;
+	font-weight: 200;
+	font-style: italic;
+  	padding: 1rem;
+}
 
 /* Author pages*/ 
 .author-photo {

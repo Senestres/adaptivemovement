@@ -31,9 +31,9 @@ As a first step to solve his problems, Bernstein proposed that degrees of freedo
 
 These insights have given rise to theories that understand our bodies as complex dynamical systems. By complex, we mean that our bodies are systems made up of multiple independent elements (the degrees of liberty we talked about earlier) that interact with each other. The organisation of movement emerges from the interaction between different parts of the system, rather than being planified entirely by the brain. We can think of this as a bottom-up model, rather than a top-down one.
 
-![](images/snowflake.webp)
+![](images/snowflake.webp "The complex structure of a snowflake")
 
-The complex structure of a snowflake
+
 
 This might be a bit counterintuitive at first, because we’re used to thinking that the brain is in charge. It might help to realize that this kind of emergence of order in complex systems is really a common thing in nature. Take snowflakes for example: they come in varied shapes, but have highly structured and often symmetrical features. There is no snowflake designer out there, though. But because of the physical properties of water, they crystalize with specific structures. The crystallizing snowflakes fall and interact with the atmosphere, producing unique results depending on the humidity and temperature. Let’s take another example: insects like ants or termites. How do they coordinate to build complex structures? There is no architect ant to supervise and give plans to the others ants. They each react to chemical trails left by others, and the sum of these interactions can create complex and organised structures. Any kind of flock or swarm of animals seem to operate in this way. This should help us understand that movement can be organised without the need for a central unit of control doing all the job. Movement “can be regular, without being regulated”^[Gibson James J., _The ecological approach to visual perception_, Boston, Houghton Mifflin, 1979, p. 225.].
 

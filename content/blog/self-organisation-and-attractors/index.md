@@ -20,9 +20,7 @@ Because of these spontaneous tendencies and patterns, our behavior will be “at
 
 ## **Finger wiggling as a case of self-organization**
 
-![](images/Stable-patterns-of-spontaneous-bimanual-coordination-The-in-phase-pattern-consists-in.png)
-
-[Bimanual coordination](https://www.researchgate.net/figure/Stable-patterns-of-spontaneous-bimanual-coordination-The-in-phase-pattern-consists-in_fig1_263528890)
+![](images/Stable-patterns-of-spontaneous-bimanual-coordination-The-in-phase-pattern-consists-in.png "<a href='https://www.researchgate.net/figure/Stable-patterns-of-spontaneous-bimanual-coordination-The-in-phase-pattern-consists-in_fig1_263528890'>Bimanual coordination</a>")
 
 Let’s begin with the classic example studied by Kelso et al.^[Kelso J. A., Holt K. G., Rubin P. _et al._, « Patterns of human interlimb coordination emerge from the properties of non-linear, limit cycle oscillatory processes: theory and data », _Journal of Motor Behavior_ 13 (4), 1981, pp. 226‑261.] Try wiggling your index fingers from left to right. You should see some patterns appearing, rather than your fingers moving independently from each other. The fingers probably make a simultaneous and identical movement (they move “in-phase”), or a simultaneous but opposed movement (“anti-phase”). These are what we call motor synergies: coordinated and invariant relationships between different parts of our bodies, based on co-variation. When I slow down my movement, both fingers slow down, they act as a single unit, maintaining this relationship. So we have an intention of movement, in this example wiggling our fingers, and then some kind of self-organisation of movement happens. The components of our bodies have self-organizing tendencies, which means we don’t need to micromanage everything, we don’t need to control every tiny degree of freedom.
 
@@ -32,9 +30,9 @@ We now have the elements to build our attractor landscape: there are two valleys
 
 Let’s add a layer to our finger wiggling example. If I start in phase, and then speed up my movements, I’ll stay in phase. It is the most stable coordination pattern, probably because homologous muscles are activated at the same time, facilitating control. But if I begin moving in anti-phase, and I speed up, at some point the movement becomes difficult to control and will brutally and involuntarily change to in-phase. This change from one attractor to the next is called a phase “shift” or transition. The fact that non-homologous muscles (adductors of the left hand and abductors of the right hand) have to contract at the same time renders control more difficult, and make the anti-phase pattern less stable. The increase in speed forces the organism to transition from one pattern to the other to solve the instability. A constraint change can lead to changes in the organisation in movement: when the constraint of speed is added, the pattern goes from anti-phase (1) to in-phase (2). Here, speed is what is called a control parameter: changing this parameter leads to changes in the organisation of movement.
 
-![](images/stable-states2.jpg)
+![](images/stable-states2.jpg "An attractor landscape")
 
-An attractor landscape
+
 
 In motor control research, these concepts are used to mathematically model our behaviour. They are a way of representing, not explaining what happens. We don’t have little attractors hidden somewhere, who decide what we do. But when we observe our behaviour, it does seem as if it was attracted in certain directions. On this blog, we will use the concept of attractors in this metaphoric and phenomenological way, rather than going into the mathematical details. It is a very useful concept for coaches and teachers, while only researchers will really benefit from all the complex mathematics behind it.
 

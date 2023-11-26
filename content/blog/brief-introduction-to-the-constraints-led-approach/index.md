@@ -44,9 +44,9 @@ On your way running up the stairs (action) you might notice getting all sweaty a
 
 This same chain of action and perception, or ‘action-perception coupling’, applies to all human movement from picking up a coffee cup to operating a fighter aircraft, or receiving a pass in football to approaching a wall in parkour.
 
-![](images/cla-model.png)
+![](images/cla-model.png "Table 1. Adapted from Newell (1986)")
 
-Table 1. Adapted from Newell (1986)^[Newell, K. M. (1986). Constraints on the development of coordination. Motor development in children: Aspects of coordination and control, 34, 341-360.]
+
 
 When designing lessons and learning environments it is important to maintain this link between action and perception. In the constraints-led approach action and perception are always tightly coupled, as learners have to make their own solutions based on the information present. We will discuss this in more practical terms later.^[ The article on [ecological psychology](/blog/introduction-to-ecological-dynamics) provides a more in-depth look at human interaction with the environment. ]
 
@@ -62,9 +62,9 @@ You can think a self-organization process of a child who is learning to walk. Hi
 
 To understand how to use the CLA, and why it might be an efficient method, let’s examine an example from the literature. In a 2018 article^[Gray, R. (2018). Comparing cueing and constraints interventions for increasing launch angle in baseball batting. Sport, Exercise, and Performance Psychology, 7(3), 318-332. ], Rob Gray compared the CLA with more traditional methods for the training of experienced baseball batters. The focus was to increase their launch angle. The traditional methods consisted of giving technical cues and feedback (information about the ball’s launch angle, velocity, etc.). In one of the groups, the cues were focused on the body (“move your arms at an upward angle”, etc.), while in the other they focused away from the body (“contact the bottom half of the ball”, etc.). In contrast, the CLA group had to hit the ball over a barrier placed on the field. If the attempt was successful, the distance of the barrier was increased, and decreased if the attempt was unsuccessful.
 
-![](images/silouhette.png)
+![](images/silouhette.png "Batting over a barrier")
 
-Batting over a barrier
+
 
 After 6 weeks of training, the CLA group had higher launch angle and exit velocity, and achieved more fly balls and home runs than the other groups. The internal focus of attention (focusing on the body) group had the worst outcomes. This suggests that traditional methods inviting the practitioner to focus on minute technical details might lead to poor learning outcomes, and that the CLA is a good replacement candidate.
 
