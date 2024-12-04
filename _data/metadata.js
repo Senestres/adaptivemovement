@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	title: "Adaptive Movement",
 	url: "https://adaptivemovement.net/",
 	language: "en",

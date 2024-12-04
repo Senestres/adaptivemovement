@@ -1,21 +1,22 @@
-const { DateTime } = require("luxon");
-const markdownItAnchor = require("markdown-it-anchor");
-const markdownIt = require("markdown-it");
-const markdownItFootnote = require('markdown-it-footnote');
-const markdownItEleventyImg = require("markdown-it-eleventy-img");
+import { DateTime } from "luxon";
+import markdownItAnchor from "markdown-it-anchor";
+import markdownIt from "markdown-it";
+import markdownItFootnote from 'markdown-it-footnote';
+import markdownItEleventyImg from "markdown-it-eleventy-img";
 
-const pluginRss = require("@11ty/eleventy-plugin-rss");
-const pluginSyntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
-const pluginBundle = require("@11ty/eleventy-plugin-bundle");
-const pluginNavigation = require("@11ty/eleventy-navigation");
-const { EleventyHtmlBasePlugin } = require("@11ty/eleventy");
+import pluginRss from "@11ty/eleventy-plugin-rss";
+import pluginSyntaxHighlight from "@11ty/eleventy-plugin-syntaxhighlight";
+import pluginBundle from "@11ty/eleventy-plugin-bundle";
+import pluginNavigation from "@11ty/eleventy-navigation";
+import { EleventyHtmlBasePlugin } from "@11ty/eleventy";
 
-const pluginDrafts = require("./eleventy.config.drafts.js");
-const pluginImages = require("./eleventy.config.images.js");
-const { execSync } = require('child_process')
+import pluginDrafts from "./eleventy.config.drafts.js";
+import pluginImages from "./eleventy.config.images.js";
+import { execSync } from 'child_process';
 
+import path from "path"; // not sure how this works, but it does
 
-module.exports = function(eleventyConfig) {
+export default function (eleventyConfig) {
 	// Copy the contents of the `public` folder to the output folder
 	// For example, `./public/css/` ends up in `_site/css/`
 	eleventyConfig.addPassthroughCopy({
@@ -100,7 +101,6 @@ module.exports = function(eleventyConfig) {
 		linkify: true}));
 
 	// Customize Markdown library settings:
-	const path = require("path"); // not sure how this works, but it does
 	eleventyConfig.amendLibrary("md", mdLib => {
 
 		mdLib.use(markdownItAnchor, {
@@ -155,7 +155,6 @@ module.exports = function(eleventyConfig) {
 	eleventyConfig.on('eleventy.after', () => {
 		execSync(`npx pagefind --glob \"**/*.html\"`, { encoding: 'utf-8' })
 	})
-
 	
 	// Features to make your build faster (when you need them)
 
