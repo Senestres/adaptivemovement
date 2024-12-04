@@ -1,4 +1,5 @@
 docs/
-!docs/.gitkeep 
+!docs/.gitkeep
+!docs/.nojekyll 
 node_modules/
 package-lock.json
