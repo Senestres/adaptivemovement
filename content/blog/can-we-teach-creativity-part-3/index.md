@@ -12,7 +12,7 @@ tags:
 coverImage: "jr-korpa-ziFcQGzPFY-unsplash.jpg"
 ---
 
-After teaching a few classes on creativity, I’ve come across a few more ideas, so take this as a short addendum to my [creativity articles](/blog/can-we-teach-creativity-part-1/). I might update it from time to time. This will be more focused on parkour, but the ideas might apply to other sports.
+After teaching a few classes on creativity, I’ve come across a few more ideas, so take this as a short addendum to my [creativity articles](../can-we-teach-creativity-part-1/). I might update it from time to time. This will be more focused on parkour, but the ideas might apply to other sports.
 
 # How can we make creativity less abstract ?
 

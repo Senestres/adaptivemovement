@@ -14,6 +14,5 @@ permalink: /authors/{{ author.key | slugify}}/
   <p>Read posts by {{ author.name }}</p>
 </div> 
 
-
 {% set postslist = collections.posts | authorFilter( author.name ) | reverse%}
 {% include "postslist.njk" %}
