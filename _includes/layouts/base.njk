@@ -5,17 +5,9 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>{{ title or metadata.title }}</title>
 		<meta name="description" content="{{ description or metadata.description }}">
-		<meta name="image" property="og:image" content="{{ metadata.url }}img/logo-socials.png">
+		<meta name="image" property="og:image" content="{{ "/img/logo-socials.png" | htmlBaseUrl(metadata.url) }}">
 		<meta name="generator" content="{{ eleventy.generator }}">
-		<link rel="canonical" href="{{ page.url }}">
-
-		{#-
-		CSS bundles are provided via the `eleventy-plugin-bundle` plugin:
-		1. You can add to them using `{% css %}`
-		2. You can get from them using `{% getBundle "css" %}` or `{% getBundleFileUrl "css" %}`
-		3. You can do the same for JS: {% js %}{% endjs %} and <script>{% getBundle "js" %}</script>
-		4. Learn more: https://github.com/11ty/eleventy-plugin-bundle
-		#}
+		<link rel="canonical" href="{{ page.url | htmlBaseUrl(metadata.url) }}">
 
 		{#- Add an arbitrary string to the bundle #}
 		{%- css %}* { box-sizing: border-box; }{% endcss %}
