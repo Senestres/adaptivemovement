@@ -102,10 +102,6 @@ img {
 	max-width: 100%;
 }
 
-header {
-	border-bottom: 1px dashed var(--color-gray-20);
-}
-
 .links-nextprev {
 	list-style: none;
 	border-top: 1px dashed var(--color-gray-20);
@@ -145,6 +141,7 @@ code {
 
 /* Header */
 header {
+	border-bottom: 1px dashed var(--color-gray-20);
 	display: flex;
 	flex-wrap: wrap;
 	flex-direction: column;
@@ -338,7 +335,7 @@ h2 + .header-anchor {
 
 /* Social icons*/
 nav ul,
-ul.nav-socials {
+ul.socials {
 	padding: 0;
 }
 .nav-icon:hover path {
