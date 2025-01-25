@@ -31,7 +31,7 @@ As a first step to solve his problems, Bernstein proposed that degrees of freedo
 
 These insights have given rise to theories that understand our bodies as complex dynamical systems. By complex, we mean that our bodies are systems made up of multiple independent elements (the degrees of liberty we talked about earlier) that interact with each other. The organisation of movement emerges from the interaction between different parts of the system, rather than being planified entirely by the brain. We can think of this as a bottom-up model, rather than a top-down one.
 
-![](images/snowflake.webp "The complex structure of a snowflake")
+![](/snowflake.webp "The complex structure of a snowflake")
 
 
 

@@ -53,7 +53,7 @@ permalink: '{% if pagination.pageNumber > 0 %}blog/page/{{ pagination.pageNumber
     {% if (loop.index <= 3) and (3 <= loop.length) %}
 
     <div class="overlay-container">
-      {% set imgUrl %}./{{ post.url }}/images/{{post.data.coverImage}}{% endset %}
+      {% set imgUrl %}./{{ post.url }}//{{post.data.coverImage}}{% endset %}
       {% image imgUrl, "" %} 
       <a href="{{ post.url }}" class="home-post text-overlay">{% if post.data.title %}{{ post.data.title }}{% else %}<code>{{ post.url }}</code>{% endif %} </a>
     </div>

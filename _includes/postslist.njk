@@ -3,7 +3,7 @@
 {% for post in postslist %}
 
 	<li class="postlist-item{% if post.url == url %} postlist-item-active{% endif %}">
-		{% set imageUrl %}.{{post.url}}/images/{{post.data.coverImage}}{% endset %}
+		{% set imageUrl %}.{{post.url}}/{{post.data.coverImage}}{% endset %}
 		{% image imageUrl, "" %}
 		<div class="postlist-inner">
 			<a href="{{ post.url }}" class="postlist-link">{% if post.data.title %}{{ post.data.title }}{% else %}<code>{{ post.url }}</code>{% endif %}</a>
