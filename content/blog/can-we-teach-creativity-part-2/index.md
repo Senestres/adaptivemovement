@@ -12,7 +12,7 @@ tags:
   - "methods"
   - "randomness"
   - "variability"
-coverImage: "jr-korpa-SPTh4rzR6xQ-unsplash.png"
+coverImage: "painting-unsplash2.png"
 ---
 
 In the [first part](../can-we-teach-creativity-part-1), I suggested that in the context of motor learning, it would be profitable to move aways from thinking of creativity as ideation, i.e. thinking new ideas that can then be put into actions.

@@ -8,7 +8,7 @@ tags:
   - "dynamical-systems"
   - "ecological-dynamics"
   - "ecological-psychology"
-coverImage: "paulius-dragunas-cIxcxnwsnoI-unsplash-1-e1565699255641.jpg"
+coverImage: "river.jpg"
 ---
 
 Ecological Dynamics is a scientific framework that studies the behaviour neurobiological systems. This involves how living organisms form processes of action, perception and cognition. It is a very holistic approach to studying behaviour, as it considers both the living organism, as well as the environment that it relies and acts upon.

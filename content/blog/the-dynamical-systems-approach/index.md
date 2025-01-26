@@ -12,7 +12,7 @@ tags:
   - "emergence"
   - "mathematics"
   - "self-organisation"
-coverImage: "Bannerflock.jpg"
+coverImage: "bannerflock.jpg"
 ---
 
 Dynamical systems theory is a branch of mathematics used to describe complex dynamical systems. These are systems with multiple parts that interact with each other and change over time. Examples can range from living things like a colony of ants to inorganic systems like Earth’s climate. [Ecological-dynamics](../introduction-to-ecological-dynamics) adds these mathematical insights to [ecological psychology](../affordances-perception-and-action) in order to understand how we control our movements, focusing on the interactions between the body and environment instead of reducing it to a top-down control from our brain. In this article, we will try to understand our bodies as complex dynamical systems, while not going into the details of the complex equations.

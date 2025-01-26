@@ -13,7 +13,7 @@
 		<meta property="og:url" content="{{ page.url | htmlBaseUrl(metadata.url) }}">
 		<meta property="og:title" content="{{ title or metadata.title }}">
 		<meta property="og:description" content="{{ description or metadata.description }}">
-		<meta property="og:image" content="{% if coverImage %}/{{ coverImage }}{% else %} {{ "/img/logo-socials.png" | htmlBaseUrl(metadata.url) }}{% endif %}">
+		<meta property="og:image" content="{% if coverImage %}{{coverImage | htmlBaseUrl(metadata.url)}}{% else %} {{ "/img/logo-socials.png" | htmlBaseUrl(metadata.url) }}{% endif %}">
 		<meta property="og:type" content="blog">
 
 		{#- Adds favicon to site #}

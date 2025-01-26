@@ -14,7 +14,7 @@ tags:
   - "oulipo"
   - "randomness"
   - "teaching"
-coverImage: "jr-korpa-SPTh4rzR6xQ-unsplash.jpg"
+coverImage: "painting-unsplash1.png"
 ---
 
 We tend to think of creativity as the generation or apparition of new ideas, which can then be put into action. I call this “ideation”. This view of creativity is probably so strong because we take our paradigmatic examples of creativity in specific domains like scientific or technological innovation, writing novels or creating music. But when we focus on activities that are not usually framed as being purely intellectual, like parkour, this two step process, inventing ideas in your head, then applying them to the world, might not work that well. It misses the tight link between action and perception, the direct interaction of the body and the environment.
@@ -29,7 +29,7 @@ In a blog post, Philipp Holzmüller[^1] showed that creativity in parkour is not
 
 So that being said, what is motor creativity ? Orth et al. give a definition that is very useful for our purposes: motor creativity is the capacity to develop new functional behaviours, and/or to act in functional ways in novel situations[^2]. The “novelty” part of the definition can be relative to the individual, or to a group[^3]. So being creative in parkour could mean finding a new pattern of movement that allows me to overcome an obstacle; and “new” could mean that I never used it, or that nobody in my local community has ever done that. But it could also mean using that pattern in an environment I am not familiar with, for example trying a kong on a rail instead of the walls I usually train on. So here creativity is not necessarily measured by the apparition of new ideas, but with new behaviours or the adaptation of behaviour to new environments. To clarify, this definition  moves us away from the act of Creation with a big C, to the simple apparition of statistically rare patterns of movement.
 
-![](/What-else-in-stead-of-kong-1024x750.jpg "What else than a kong ? (picture by Pawel van der Steen)")
+![](/what-else-instead-of-kong.jpg "What else than a kong ? (picture by Pawel van der Steen)")
 
 This is useful, because it allows for a less top-down approach. Instead of ideas prescribing movement, like a boss giving orders, we can use the more bottom-up approach from ecological-dynamics, where movement is self-organized. Sure, we set goals and intentions ourselves, but movement patterns emerge from the interaction of the body and the environment. Therefore, new movement patterns can arise when there are changes in the configuration of constraints from the body, the environment or the task. And if that is the case, teachers have a powerful methodological tool to foster the emergence of creative solutions: the manipulation of constraints.
 

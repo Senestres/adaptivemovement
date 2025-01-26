@@ -7,7 +7,7 @@ categories:
 tags: 
   - "affordances"
   - "perception-and-action"
-coverImage: "TrUyLluA4oU-unsplash.jpg"
+coverImage: "rocks.jpg"
 ---
 
 > ''The affordances of the environment are what it offers the animal, what it provides or furnishes, either for good or ill. The verb to afford is found in the dictionary, the noun affordance is not. I have made it up. I mean by it something that refers to both the environment and the animal in a way that no existing term does. It implies the complementarity of the animal and the environment.''

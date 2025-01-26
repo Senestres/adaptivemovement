@@ -12,7 +12,7 @@ tags:
   - "motor-abundance"
   - "self-organisation"
   - "variability"
-coverImage: "Waterbeach.jpg"
+coverImage: "waterbeach.jpg"
 ---
 
 When it comes to producing skillful sport performance, we tend to think that we need to achieve a very consistent way of moving. In that perspective, less movement variability means better performance. This comes from a common assumption that consistent performance is an essential element of skill. But there are two components of performance: the movement, and the outcome. Traditional teaching methods focus on the movement, with ideal patterns that have to be learned, rehearsed, and reproduced. We therefore tend to treat deviations as errors, that come from some kind of lack of control. Here we will challenge these assumptions by focusing on the consistency of outcome. We will argue that variability is a necessary component of movement, allowing for better control, adaptability and learning. If we want consistent outcomes, we need variability of movement.
