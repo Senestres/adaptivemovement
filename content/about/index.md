@@ -13,7 +13,7 @@ This blog explores the topics of skill acquisition and movement education. It is
 The blog co-creators were brought together by a common background in both sport sciences and parkour.
 
     {%- for author in authors %}
-    <img src="{{ author.photo }}" class="author-photo">
+    <img src="{{ author.photo }}" class="author-photo" alt="Picture of {{ author.name }}">
     <p><a href="/authors/{{ author.key | slugify }}/">{{ author.name }}</a> {{ author.bio }}</p>
     {% endfor -%}
 

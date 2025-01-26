@@ -11,21 +11,21 @@ permalink: '{% if pagination.pageNumber > 0 %}blog/page/{{ pagination.pageNumber
   <div class="single-column content">
     <p>Adaptive Movement is a blog exploring the topics of skill acquisition and movement education.</p>
     <p>It is targeted to coaches, teachers, practitioners and sport science students.</p>
-    <div class="centered"><img id="small-logo" src="/img/transparent-logo-small.png" alt="Small logo" height="60px"></div>
+    <div class="centered"><img eleventy:ignore id="small-logo" src="/img/transparent-logo-small.png" alt="Small logo" height="60px"></div>
     <p class="centered">The blog is divided intro three categories:</p>
   </div>
   
   <div class="split">
     <div class="overlay-container">
-      {% image "../public/img/category-theory.png", "" %}
+      <img src="../public/img/category-theory.png" alt="Picture of a blackboard with equations">
       <a href="/theory/" class="text-overlay">Theory</a>
     </div>
     <div class="overlay-container">
-      {% image "../public/img/category-how-to.png", "" %}
+      <img src="../public/img/category-how-to.png" alt="Picture of a tennis player">
       <a href="/theory/" class="text-overlay">How-to</a>
     </div>
     <div class="overlay-container"> 
-      {% image "../public/img/category-case-studies.png", "" %}
+      <img src="../public/img/category-case-studies.png" alt="Picture of a football field">
       <a href="/theory/" class="text-overlay">Case studies</a>
     </div>
   </div>
@@ -54,7 +54,7 @@ permalink: '{% if pagination.pageNumber > 0 %}blog/page/{{ pagination.pageNumber
 
     <div class="overlay-container">
       {% set imgUrl %}./{{ post.url }}//{{post.data.coverImage}}{% endset %}
-      {% image imgUrl, "" %} 
+      <img src="{{ imgUrl }}" alt="Cover picture">
       <a href="{{ post.url }}" class="home-post text-overlay">{% if post.data.title %}{{ post.data.title }}{% else %}<code>{{ post.url }}</code>{% endif %} </a>
     </div>
 

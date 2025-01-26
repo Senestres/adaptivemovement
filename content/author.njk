@@ -9,7 +9,7 @@ eleventyComputed:
 permalink: /authors/{{ author.key | slugify}}/
 ---
 <div class="content">
-  <img src="{{ author.photo }}" class="author-photo">
+  <img src="{{ author.photo }}" class="author-photo" alt="Picture of {{ author.name }}">
   {{ author.name }} {{ author.bio }}
   <p>Read posts by {{ author.name }}</p>
 </div> 

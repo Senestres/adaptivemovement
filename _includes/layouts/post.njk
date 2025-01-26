@@ -9,7 +9,7 @@ paginationNextText: "Next →"
 include "public/css/prism-diff.css" %}{%- endcss %}
 
 <div class="cover-img-large">
-	{% set imgUrl %}./{{ coverImage }}{% endset %} {% image imgUrl, "" %}
+	{% set imgUrl %}./{{ coverImage }}{% endset %} <img src="{{ imgUrl }}" alt="Cover Picture">
 </div>
 
 <div class="content post-content">
