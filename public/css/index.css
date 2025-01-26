@@ -402,10 +402,15 @@ article figcaption {
 .split > * {
 	flex-basis: 100%;
 }
+
 .split-content {
 	margin: auto;
 	padding: 3rem 2rem;
 }
+.split img {
+	height: auto
+}
+
 @media (min-width: 50em){
 	.split {
 		flex-direction: row;
