@@ -55,6 +55,7 @@ body {
 	color: var(--text-color);
 	background-color: var(--background-color);
 	height: 100%;
+	max-width: 2600px;
 }
 html {
 	overflow-y: scroll;
