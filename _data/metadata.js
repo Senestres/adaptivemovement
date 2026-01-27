@@ -9,5 +9,7 @@ export default {
 		name: "Yann Daout",
 		email: "",
 		url: "https://adaptivemovement.net/about/"
-	}
+	},
+	robots: "/robots.txt",
+	sitemap: "/sitemap.xml"
 }
