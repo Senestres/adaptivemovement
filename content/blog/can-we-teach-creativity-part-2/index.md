@@ -15,7 +15,7 @@ tags:
 coverImage: "painting-unsplash2.png"
 ---
 
-In the [first part](../can-we-teach-creativity-part-1), I suggested that in the context of motor learning, it would be profitable to move aways from thinking of creativity as ideation, i.e. thinking new ideas that can then be put into actions.
+In the [first part](../can-we-teach-creativity-part-1/), I suggested that in the context of motor learning, it would be profitable to move aways from thinking of creativity as ideation, i.e. thinking new ideas that can then be put into actions.
 
 Rather, these are fruitful ways of thinking about creativity:
 
