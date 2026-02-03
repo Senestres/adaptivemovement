@@ -1,4 +1,3 @@
-import { DateTime } from "luxon";
 import markdownItAnchor from "markdown-it-anchor";
 import markdownIt from "markdown-it";
 import markdownItFootnote from 'markdown-it-footnote';
@@ -13,6 +12,8 @@ import { EleventyHtmlBasePlugin } from "@11ty/eleventy";
 import { eleventyImageTransformPlugin } from "@11ty/eleventy-img";
 import { execSync } from 'child_process';
 import metadata from "./_data/metadata.js";
+
+import pluginFilters from "./_config/filters.js";
 
 import path from "path"; // not sure how this works, but it does
 
@@ -55,60 +56,8 @@ export default function (eleventyConfig) {
 	// Shortcodes
 	eleventyConfig.addShortcode("year", () => `${new Date().getFullYear()}`);
 
-	// Filters
-	eleventyConfig.addFilter("readableDate", (dateObj, format, zone) => {
-		// Formatting tokens for Luxon: https://moment.github.io/luxon/#/formatting?id=table-of-tokens
-		return DateTime.fromJSDate(dateObj, { zone: zone || "utc" }).toFormat(format || "dd LLLL yyyy");
-	});
-
-	eleventyConfig.addFilter('htmlDateString', (dateObj) => {
-		// dateObj input: https://html.spec.whatwg.org/multipage/common-microsyntaxes.html#valid-date-string
-		return DateTime.fromJSDate(dateObj, {zone: 'utc'}).toFormat('yyyy-LL-dd');
-	});
-
-	// Get the first `n` elements of a collection.
-	eleventyConfig.addFilter("head", (array, n) => {
-		if(!Array.isArray(array) || array.length === 0) {
-			return [];
-		}
-		if( n < 0 ) {
-			return array.slice(n);
-		}
-
-		return array.slice(0, n);
-	});
-
-	// Return the smallest number argument
-	eleventyConfig.addFilter("min", (...numbers) => {
-		return Math.min.apply(null, numbers);
-	});
-
-	// Return all the tags used in a collection
-	eleventyConfig.addFilter("getAllTags", collection => {
-		let tagSet = new Set();
-		for(let item of collection) {
-			(item.data.tags || []).forEach(tag => tagSet.add(tag));
-		}
-		return Array.from(tagSet);
-	});
-
-	eleventyConfig.addFilter("filterTagList", function filterTagList(tags) {
-		return (tags || []).filter(tag => ["all", "nav", "post", "posts"].indexOf(tag) === -1);
-	});
-
-	// Authors
-	eleventyConfig.addFilter('authorFilter', function(collection, author) {
-	if (!author) {return collection}
-		  const filtered = collection.filter(item => item.data.author == author)
-		  return filtered;
-	  });
-
-	 // Categories
-	 eleventyConfig.addFilter('categoryFilter', function(collection, category) {
-		if (!category) return collection;
-		  const filtered = collection.filter(item => item.data.categories == category)
-		  return filtered;
-	  });
+		// Filters
+	eleventyConfig.addPlugin(pluginFilters);
 
 	// Amend md library
 	eleventyConfig.setLibrary("md", markdownIt ({html: true,
@@ -159,14 +108,6 @@ export default function (eleventyConfig) {
 		}); 
 	});
 	
-	// add excerpt
-	// use with <p>{{ post.templateContent | excerpt }}</p>
-	eleventyConfig.addFilter("excerpt", (post) => {
-		var content = post.replace(/(<([^>]+)>)|#/gi, "");
-		content = content.replace(/&quot;/gi, "'");
-		return content.substr(0, content.lastIndexOf(" ", 250)) + "...";
-	  });
-
 	// add search
 	// if it crashes, do pagefind command after your Eleventy site build script has finished instead of in the after event.
 	eleventyConfig.on('eleventy.after', () => {
