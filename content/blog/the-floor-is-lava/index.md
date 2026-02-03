@@ -11,7 +11,7 @@ tags:
 coverImage: "buzz-andersen-lava.png"
 ---
 
-You probably know the game called “the floor is lava”, where players must traverse space without touching the ground. Although it is a kids’ game, it is also popular among parkour practitioners, who use different obstacles, ledges, walls or rails to avoid touching the “lava”. Here, I will argue that this game is a great example of a “naive” version of the [constraints-led approach](../brief-introduction-to-the-constraints-led-approach/). Different versions of the game might exist, so we will start discussing an unstructured case and then examine how different variations can be used to achieve learning goals.
+You probably know the game called “the floor is lava”, where players must traverse space without touching the ground. Although it is a kids’ game, it is also popular among parkour practitioners, who use different obstacles, ledges, walls or rails to avoid touching the “lava”. Here, I will argue that this game is a great example of a “naive” version of the [constraints-led approach](/blog/introduction-to-the-constraints-led-approach/). Different versions of the game might exist, so we will start discussing an unstructured case and then examine how different variations can be used to achieve learning goals.
 
 # A non-prescriptive game
 
@@ -21,7 +21,7 @@ The game is better thought of as a kind of problem-solving task: I know what to 
 
 # A game structured by constraints
 
-With the [CLA](../brief-introduction-to-the-constraints-led-approach/), we can understand how different constraints structure this process of exploration, and canalize the resulting movement solutions.
+With the [CLA](../introduction-to-the-constraints-led-approach/), we can understand how different constraints structure this process of exploration, and canalize the resulting movement solutions.
 
 The task constraints are the rules and objectives of the game. Kids will usually self-regulate: they decide where to start and where to stop, what are the rules, what counts as “the ground”, etc. They don’t necessarily discuss and negotiate all the details. So although the general frame might be set to be the same for every player (this is where we start, this is where we want to go, and this is the lava we don’t want to touch), there might be a lot left open to interpretation. This leaves some space for the individualisation of the challenge. Some might use all means necessary, but often players will set additional task constraints for themselves, like avoiding an obvious foothold, or restricting the use of hands for balance or momentum for a jump. Players of different skill levels can therefore attempt the “same” challenge, while still facing a challenge of the appropriate level. What happens quite often is that once they’ve accomplished the challenge in “easy mode”, players will try again with added constraints (“let’s try it without using this wall”, etc.).
 
@@ -34,7 +34,7 @@ We should always think of the environmental constraints together with the indivi
 
 # Using constraints for learning
 
-Now we’ve seen why “the floor is lava” works so well in unregulated situations, and that we’ve shown how we can see it as a constraints-based game, there’s still a few elements to discuss. After all, the [constraints-led approach](../brief-introduction-to-the-constraints-led-approach/) does not consist in adding random constraints to any kind of teaching situation. What we want is to use constraints in a systematic way to achieve learning goals. The floor is lava is a fun game that can be used as such, but a teacher can also use it with the intention of improving specific skills.
+Now we’ve seen why “the floor is lava” works so well in unregulated situations, and that we’ve shown how we can see it as a constraints-based game, there’s still a few elements to discuss. After all, the [constraints-led approach](../introduction-to-the-constraints-led-approach/) does not consist in adding random constraints to any kind of teaching situation. What we want is to use constraints in a systematic way to achieve learning goals. The floor is lava is a fun game that can be used as such, but a teacher can also use it with the intention of improving specific skills.
 
 The first thing you would want to do is choose a situation that provides the right affordances and opportunities for action. You want your learners to improve their jumps ? Choose a course that requires them to jump. You want them to improve their vaults ? Pick a setting with a lot of walls to vault over. Usually you will not need to tell them what to practice, because they need to use those techniques to get to point B. Sometimes they will surprise you, coming up with solutions you didn’t expect them to use. That’s pretty cool, it means they are smart and are using all the opportunities that their bodies and the environment provide. As we have shown, the floor is lava is a great game to develop higher order skills like creativity and adaptation. And because it can be played in complex and realistic environments, the players learn to interact with and move efficiently through these spaces, which is a useful life skill.
 
