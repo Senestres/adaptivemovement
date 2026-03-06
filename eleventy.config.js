@@ -39,6 +39,8 @@ export default function (eleventyConfig) {
 		// can ignore by adding eleventy:ignore to img attributes
 		formats: ["webp", "auto"],
 		widths: [400, 800, 1200, 2400, "auto"],
+		outputDir: "./_site/img", // must match your output folder
+    	urlPath: "/img/",         // public path on server
 		htmlOptions: {
 			imgAttributes: {
 				loading: "lazy",
