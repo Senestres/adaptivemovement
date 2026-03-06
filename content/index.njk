@@ -5,8 +5,9 @@ eleventyNavigation:
   order: 1
 permalink: '{% if pagination.pageNumber > 0 %}blog/page/{{ pagination.pageNumber }}{% endif %}/index.html'
 ---
-{% set imgUrl %}{{ "/img/waves.jpeg" | url}}{% endset %}
-<div class="single-column parallax overlay-container" id="parallax-waves" style="background-image: url({{imgUrl}});"></div>
+
+{% imageSet "/img/waves.jpeg", "parallax-waves" %}
+<div class="single-column parallax overlay-container" id="parallax-waves"></div>
 
   <div class="single-column content">
     <p>Adaptive Movement is a blog exploring the topics of skill acquisition and movement education.</p>
@@ -17,15 +18,15 @@ permalink: '{% if pagination.pageNumber > 0 %}blog/page/{{ pagination.pageNumber
   
   <div class="split">
     <div class="overlay-container">
-      <img src="../public/img/category-theory.png" alt="Picture of a blackboard with equations">
+      <img src="../public/img/category-theory.png" alt="Picture of a blackboard with equations" sizes="auto, (width <= 50em) 100vw, 33vw">
       <a href="/theory/" class="text-overlay">Theory</a>
     </div>
     <div class="overlay-container">
-      <img src="../public/img/category-how-to.png" alt="Picture of a tennis player">
+      <img src="../public/img/category-how-to.png" alt="Picture of a tennis player" sizes="auto, (width <= 50em) 100vw, 33vw">
       <a href="/theory/" class="text-overlay">How-to</a>
     </div>
     <div class="overlay-container"> 
-      <img src="../public/img/category-case-studies.png" alt="Picture of a football field">
+      <img src="../public/img/category-case-studies.png" alt="Picture of a football field" sizes="auto, (width <= 50em) 100vw, 33vw">
       <a href="/theory/" class="text-overlay">Case studies</a>
     </div>
   </div>
@@ -36,8 +37,8 @@ permalink: '{% if pagination.pageNumber > 0 %}blog/page/{{ pagination.pageNumber
     <p>Finally, we also examine <a href="/case-studies/">case studies</a> from different sport, physical activities or coaching methods, from the perspective of ecological-dynamics. What can we learn from these cases? Could they be improved?</p>
   </div>
 
-  {% set imgUrl %}{{ "/img/dynamical-systems.jpeg" | url}}{% endset %}
-  <div class="single-column parallax overlay-container" id="parallax-dynamical" style="background-image: url({{imgUrl}});"><span class="text-overlay">What is ecological-dynamics ?</span>
+  {% imageSet "/img/dynamical-systems.jpeg", "parallax-dynamical" %}
+  <div class="single-column parallax overlay-container" id="parallax-dynamical"><span class="text-overlay">What is ecological-dynamics ?</span>
   </div>
 
   <div class="split">
@@ -54,7 +55,7 @@ permalink: '{% if pagination.pageNumber > 0 %}blog/page/{{ pagination.pageNumber
 
     <div class="overlay-container">
       {% set imgUrl %}./{{ post.url }}//{{post.data.coverImage}}{% endset %}
-      <img src="{{ imgUrl }}" alt="Cover picture">
+      <img src="{{ imgUrl }}" alt="Cover picture" sizes="auto, (width <= 50em) 100vw, 33vw">
       <a href="{{ post.url }}" class="home-post text-overlay">{% if post.data.title %}{{ post.data.title }}{% else %}<code>{{ post.url }}</code>{% endif %} </a>
     </div>
 

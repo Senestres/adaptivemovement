@@ -1,21 +1,19 @@
 import markdownItAnchor from "markdown-it-anchor";
-import markdownIt from "markdown-it";
 import markdownItFootnote from 'markdown-it-footnote';
-import markdownItEleventyImg from "markdown-it-eleventy-img";
-
 import { feedPlugin } from "@11ty/eleventy-plugin-rss";
 import pluginSyntaxHighlight from "@11ty/eleventy-plugin-syntaxhighlight";
 import pluginBundle from "@11ty/eleventy-plugin-bundle";
 import pluginNavigation from "@11ty/eleventy-navigation";
 import { EleventyHtmlBasePlugin } from "@11ty/eleventy";
-
+/* import { eleventyImageTransformPlugin } from "@11ty/eleventy-img"; */
 import { eleventyImageTransformPlugin } from "@11ty/eleventy-img";
+import Image from "@11ty/eleventy-img";
 import { execSync } from 'child_process';
 import metadata from "./_data/metadata.js";
 
-import pluginFilters from "./_config/filters.js";
+import path from "path";
 
-import path from "path"; // not sure how this works, but it does
+import pluginFilters from "./_config/filters.js";
 
 export default function (eleventyConfig) {
 	// Copy the contents of the `public` folder to the output folder
@@ -24,15 +22,12 @@ export default function (eleventyConfig) {
 		"./public/": "/",
 		"./node_modules/prismjs/themes/prism-okaidia.css": "/css/prism-okaidia.css",
 	});
-	eleventyConfig.addPassthroughCopy("content/**/*.{jpg,png,gif,svg,kmz,zip,css,webp}");
 
 	// Run Eleventy when these files change: https://www.11ty.dev/docs/watch-serve/#add-your-own-watch-targets
 	// Watch content images for the image pipeline.
 	eleventyConfig.addWatchTarget("content/**/*.{svg,webp,png,jpeg}");
 
 	// App plugins
-/* 	eleventyConfig.addPlugin(pluginDrafts); */
-/* 	eleventyConfig.addPlugin(pluginImages); */
 	eleventyConfig.addPlugin(pluginSyntaxHighlight, {
 		preAttributes: { tabindex: 0 }
 	});
@@ -43,12 +38,12 @@ export default function (eleventyConfig) {
 	eleventyConfig.addPlugin(eleventyImageTransformPlugin, {
 		// can ignore by adding eleventy:ignore to img attributes
 		formats: ["webp", "auto"],
-		widths: [400, 800, "auto"],
+		widths: [400, 800, 1200, 2400, "auto"],
 		htmlOptions: {
 			imgAttributes: {
 				loading: "lazy",
 				decoding: "async",
-				sizes: '100vw',
+				sizes: "auto, (width <= 620px) 100vw, 75vw",
 			},
 		},
 	});
@@ -56,18 +51,41 @@ export default function (eleventyConfig) {
 	// Shortcodes
 	eleventyConfig.addShortcode("year", () => `${new Date().getFullYear()}`);
 
+	eleventyConfig.addShortcode("imageSet", async function(src, id) {
+		src = path.join(path.dirname(this.page.inputPath), src);
+		const metadata = await Image(src, {
+			widths: [800, 1200, 2400, "auto"],
+			formats: ["webp"],
+			outputDir: "_site/img/",
+			urlPath: "/img/",
+		});
+
+		const webp = metadata.webp;
+
+		return `<style>
+				#${id} { background-image: url('${webp[0].url}'); }
+				@media (min-width: 800px) { #${id} { background-image: url('${webp[1].url}'); } }
+				@media (min-width: 1200px) { #${id} { background-image: url('${webp[2].url}'); } }
+				@media (min-width: 2400px) { #${id} { background-image: url('${webp[3].url}'); } }
+    		</style>`
+
+	});
+
+
 		// Filters
 	eleventyConfig.addPlugin(pluginFilters);
 
 	// Amend md library
-	eleventyConfig.setLibrary("md", markdownIt ({html: true,
-		breaks: true,
-		linkify: true}));
+	eleventyConfig.amendLibrary("md", (mdLib) => {
+		mdLib.set(
+			{
+			html: true,
+			breaks: true,
+			linkify: true
+		})
 
-	// Customize Markdown library settings:
-	eleventyConfig.amendLibrary("md", mdLib => {
-
-		mdLib.use(markdownItAnchor, {
+		.use(markdownItFootnote) 		// add markdown footnotes
+		.use(markdownItAnchor, {
 			permalink: markdownItAnchor.permalink.ariaHidden({
 				placement: "after",
 				class: "header-anchor",
@@ -76,36 +94,28 @@ export default function (eleventyConfig) {
 			}),
 			level: [1,2,3,4],
 			slugify: eleventyConfig.getFilter("slugify")
-		});
+		})
 
-		mdLib.use(markdownItFootnote); 		// add markdown footnotes
+		// amend library to change md images to figures
+		.use(md => {
+			md.renderer.rules.image = (tokens, idx) => {
+			const token = tokens[idx];
+			const src = token.attrGet('src');
+			const alt = token.content || '';
+			const caption = token.attrGet('title');
 
-		mdLib.use(markdownItEleventyImg, { 	//add markdown image
-			resolvePath: (filepath, env) => path.join(path.dirname(env.page.inputPath), filepath),
-			globalAttributes: {
-				sizes: "100vw",
-				decoding: "async",
-				"eleventy:ignore": "",
-			},
-			imgOptions: {
-			widths: [800, "auto"],
-			outputDir: "docs/img/", // this doesn't keep the folder structure so needs path change
-			urlPath: "/img/", 		// path change mentionned above
-		},
-		renderImage(image, attributes) {
-			const [ Image, options ] = image;
-			const [ src, attrs ] = attributes;
-		
-			Image(src, options);
-		
-			const metadata = Image.statsSync(src, options);
-			const imageMarkup = Image.generateHTML(metadata, attrs, {
-			  whitespaceMode: "inline"
-			});
-		
-			return `<figure>${imageMarkup}${attrs.title ? `<figcaption>${attrs.title}</figcaption>` : ""}</figure>`;
-		  }
-		}); 
+			// Collect attributes
+			const attributes = token.attrs || [];
+/* 			const hasEleventyWidths = attributes.some(([key]) => key === 'eleventy:widths');
+			if (!hasEleventyWidths) {
+				attributes.push(['eleventy:widths', '650,960,1400']);
+			} */
+
+			const attributesString = attributes.map(([key, value]) => `${key}="${value}"`).join(' ');
+			const imgTag = `<img src="${src}" alt="${alt}" ${attributesString}>`;
+			return caption ? `<figure>${imgTag}<figcaption>${caption}</figcaption></figure>` : imgTag;
+			};
+		})
 	});
 	
 	// add search
@@ -125,10 +135,7 @@ export default function (eleventyConfig) {
 		metadata
 	});
 
-	// Features to make your build faster (when you need them)
-
 	// If your passthrough copy gets heavy and cumbersome, add this line
-	// to emulate the file copy on the dev server. Learn more:
 	// https://www.11ty.dev/docs/copy/#emulate-passthrough-copy-during-serve
 
 	// eleventyConfig.setServerPassthroughCopyBehavior("passthrough");
@@ -154,15 +161,12 @@ export default function (eleventyConfig) {
 			input: "content",          // default: "."
 			includes: "../_includes",  // default: "_includes"
 			data: "../_data",          // default: "_data"
-			output: "docs"
+			output: "_site"
 		},
 
 		// If your site deploys to a subdirectory, change `pathPrefix`.
 		// Read more: https://www.11ty.dev/docs/config/#deploy-to-a-subdirectory-with-a-path-prefix
 
-		// When paired with the HTML <base> plugin https://www.11ty.dev/docs/plugins/html-base/
-		// it will transform any absolute URLs in your HTML to include this
-		// folder name and does **not** affect where things go in the output folder.
 		/* pathPrefix: "/adaptive-movement/", */
 	};
 };

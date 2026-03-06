@@ -1,17 +1,12 @@
-import { DateTime } from "luxon";
-
 export default function(eleventyConfig) {
 
-
-	// Filters
-	eleventyConfig.addFilter("readableDate", (dateObj, format, zone) => {
-		// Formatting tokens for Luxon: https://moment.github.io/luxon/#/formatting?id=table-of-tokens
-		return DateTime.fromJSDate(dateObj, { zone: zone || "utc" }).toFormat(format || "dd LLLL yyyy");
+		eleventyConfig.addFilter("readableDate", (dateObj, lang) => {
+		const locale = "en-GB"
+		return dateObj.toLocaleDateString(locale, {year: "numeric", month: "long", day: "numeric"})
 	});
 
-	eleventyConfig.addFilter('htmlDateString', (dateObj) => {
-		// dateObj input: https://html.spec.whatwg.org/multipage/common-microsyntaxes.html#valid-date-string
-		return DateTime.fromJSDate(dateObj, {zone: 'utc'}).toFormat('yyyy-LL-dd');
+	eleventyConfig.addFilter("htmlDateString", (dateObj, lang) => {
+		return dateObj.toLocaleDateString("en-GB")
 	});
 
 	// Get the first `n` elements of a collection.
@@ -58,8 +53,6 @@ export default function(eleventyConfig) {
 		  return filtered;
 	  });
 
-
-
 	// add excerpt
 	// use with <p>{{ post.templateContent | excerpt }}</p>
 	eleventyConfig.addFilter("excerpt", (post) => {
@@ -67,11 +60,6 @@ export default function(eleventyConfig) {
 		content = content.replace(/&quot;/gi, "'");
 		return content.substr(0, content.lastIndexOf(" ", 250)) + "...";
 	  });
-
-
-
-
-
 
 
 };
