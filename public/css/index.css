@@ -391,13 +391,13 @@ svg.nav-icon {
   	max-height: 300px;
   	object-fit: cover;
 }
-.cover-img-large > picture > img {
+.cover-img-large img {
 	object-fit: cover;
-	height: 20rem;
+	max-height: 30rem;
 	width: 100%;
 }
 @media (min-width: 50rem) {
-	.cover-img-large > picture > img {
+	.cover-img-large img {
 		height: 30rem;
 	}
 }
